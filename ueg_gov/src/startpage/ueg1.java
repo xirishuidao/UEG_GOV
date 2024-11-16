@@ -2,8 +2,7 @@ package startpage;
 
 
 import java.awt.BorderLayout;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 class uegVidio extends JFrame {
     public uegVidio() {
@@ -15,6 +14,8 @@ class uegVidio extends JFrame {
     }
 }
 public class ueg1 {
+    private JPanel panel1;
+
     public static void main(String[] args) {
         uegVidio frame = new uegVidio();
         frame.setDefaultCloseOperation(3);
