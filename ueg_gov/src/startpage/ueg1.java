@@ -10,7 +10,7 @@ class uegVidio extends JFrame {
         this.setSize(1000, 500);
         JPanel p1 = new JPanel();
         this.add(p1, BorderLayout.CENTER);
-        //java没有内置视频软件，需要使用jmf，jlayer，vlc等视频工具，这里使用vlc
+        //java没有内置视频软件，需要使用jmf，jlayer，vlcj等视频工具，这里使用vlc
     }
 }
 public class ueg1 {
