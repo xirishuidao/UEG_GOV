@@ -11,5 +11,6 @@
     <orderEntry type="library" name="platform-3.5.2" level="project" />
     <orderEntry type="library" name="vlcj-4.8.0" level="project" />
     <orderEntry type="library" name="vlcj-natives-4.8.0" level="project" />
+    <orderEntry type="library" name="jna-platform-5.13.0" level="project" />
   </component>
 </module>
