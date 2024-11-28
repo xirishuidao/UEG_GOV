@@ -36,8 +36,8 @@ public class uegVideo extends Application {
             Media md=null;
             Image ugimg=null;
               try {
-                md = new Media(new File("ueg_gov/video/ueg_moss.mp4").toURI().toString());//任何目录地址必须使用new file
-                ugimg=new Image(new File("ueg_gov/image/ueg_gov.png").toURI().toString());
+                md = new Media(new File("video/ueg_moss.mp4").toURI().toString());//任何目录地址必须使用new file
+                ugimg=new Image(new File("image/ueg_gov.png").toURI().toString());
             } catch (IllegalArgumentException e){//嵌套swing
 
             } catch (RuntimeException e){//嵌套swing
@@ -53,8 +53,8 @@ public class uegVideo extends Application {
             //窗口图标在JavaFX程序中与Stage对象关联。其实本身就是一个Image对象
             Scene scene = new Scene(sP, 1060, 590);
             primaryStage.getIcons().add(ugimg);
-            LanguageUtil uvl = new LanguageUtil();
-            primaryStage.setTitle(uvl.PageTitle);//swing 中的 jframe
+            //LanguageUtil uvl = new LanguageUtil();
+            //primaryStage.setTitle(uvl.PageTitle);//swing 中的 jframe
             primaryStage.setScene(scene);
             primaryStage.show();
             mP1.play();

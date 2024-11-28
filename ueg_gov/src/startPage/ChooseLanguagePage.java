@@ -29,7 +29,7 @@ public class ChooseLanguagePage {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.setVisible(true);
 
-        ResourceBundle rscl=ResourceBundle.getBundle(new File("ueg_gov/util/dblogin.properties").toURI().toString());
+        ResourceBundle rscl=ResourceBundle.getBundle(new File("util/dblogin.properties").toURI().toString());
         String language=rscl.getString("language");
 
     }

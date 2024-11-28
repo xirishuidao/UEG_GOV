@@ -2,16 +2,17 @@ package util;
 
 import startPage.ChooseLanguagePage;
 
+import java.io.File;
 import java.util.ResourceBundle;
 
 public class LanguageUtil {
    public static String PageTitle;
     public LanguageUtil(){
 
-        ResourceBundle rbMain=ResourceBundle.getBundle("dblogin.properties");
-        String choose=rbMain.getString("Language");
+        ResourceBundle rbMain=ResourceBundle.getBundle("util.dblogin.properties");
+        String choose=rbMain.getString("jdbc.Language");
         if(choose=="English"){
-            ResourceBundle rbEnglish=ResourceBundle.getBundle("English.properties");
+            ResourceBundle rbEnglish=ResourceBundle.getBundle("util.English.properties");
             PageTitle=rbEnglish.getString("PageTitle");
 
 
@@ -19,7 +20,7 @@ public class LanguageUtil {
 
 
         } else if (choose=="Russian") {
-            ResourceBundle rbRussian=ResourceBundle.getBundle("Russian.properties");
+            ResourceBundle rbRussian=ResourceBundle.getBundle("util.Russian.properties");
             PageTitle=rbRussian.getString("PageTitle");
 
 
@@ -27,14 +28,14 @@ public class LanguageUtil {
 
 
         } else if (choose=="France") {
-            ResourceBundle rbFrance=ResourceBundle.getBundle("France.properties");
+            ResourceBundle rbFrance=ResourceBundle.getBundle("util.France.properties");
             PageTitle=rbFrance.getString("PageTitle");
 
 
 
 
         } else  if(choose=="Chinese"){
-            ResourceBundle rbChinese=ResourceBundle.getBundle("Chinese.properties");
+            ResourceBundle rbChinese=ResourceBundle.getBundle("util.Chinese.properties");
             PageTitle=rbChinese.getString("PageTitle");
 
 
@@ -47,6 +48,8 @@ public class LanguageUtil {
     }
 
     public static void main(String[] args) {
+    LanguageUtil util=new LanguageUtil();
+
 
     }
 
