@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc26d9b4-dfd9-43c1-baab-8944fbe615cb" name="更改" comment="2024/11/28-2请所有人删除自己电脑上所有文件并重新加载，使用jdk1.8版本，否则请自己去下对应版本javafx库&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ueg_gov/src/startPage/ChooseLanguagePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ueg_gov/src/startPage/ChooseLanguagePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ueg_gov/src/startPage/uegVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ueg_gov/src/startPage/uegVideo.java" afterDir="false" />
-    </list>
+    <list default="true" id="fc26d9b4-dfd9-43c1-baab-8944fbe615cb" name="更改" comment="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +48,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "JAR 应用程序.jl1.0.1.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/HuaweiMoveData/Users/lth23/Desktop/小程序/intell java/24-autumn-java-array/ueg_gov",
@@ -185,6 +181,7 @@
       <workItem from="1732781489807" duration="3306000" />
       <workItem from="1732806332994" duration="3654000" />
       <workItem from="1732810499628" duration="15000" />
+      <workItem from="1732813358151" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="idea 测试1">
       <option name="closed" value="true" />
@@ -338,7 +335,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732784820973</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;">
+      <option name="closed" value="true" />
+      <created>1732813603383</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732813603383</updated>
+    </task>
+    <task id="LOCAL-00021" summary="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;">
+      <option name="closed" value="true" />
+      <created>1732813649304</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732813649304</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +419,8 @@
     <MESSAGE value="2024/11/26 请所有人删除自己电脑上所有文件并重新加载，使用jdk1.8版本，否则请自己去下对应版本javafx库&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
     <MESSAGE value="2024/11/28-1 请所有人删除自己电脑上所有文件并重新加载，使用jdk1.8版本，否则请自己去下对应版本javafx库&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
     <MESSAGE value="2024/11/28-2请所有人删除自己电脑上所有文件并重新加载，使用jdk1.8版本，否则请自己去下对应版本javafx库&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="2024/11/28-2请所有人删除自己电脑上所有文件并重新加载，使用jdk1.8版本，否则请自己去下对应版本javafx库&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
+    <MESSAGE value="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
