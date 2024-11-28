@@ -33,8 +33,10 @@ public class uegVideo extends Application {
              *
              */
             Media md=null;
+            Image ugimg=null;
               try {
-                md = new Media(new File("ueg_gov/video/ueg_moss.mp4").toURI().toString());
+                md = new Media(new File("ueg_gov/video/ueg_moss.mp4").toURI().toString());//任何目录地址必须使用new file
+                ugimg=new Image(new File("ueg_gov/image/ueg_gov.png").toURI().toString());
             } catch (IllegalArgumentException e){//嵌套swing
 
             } catch (RuntimeException e){//嵌套swing
@@ -49,24 +51,21 @@ public class uegVideo extends Application {
             sP.getChildren().add(mediaView);
             //窗口图标在JavaFX程序中与Stage对象关联。其实本身就是一个Image对象
             Scene scene = new Scene(sP, 1060, 590);
-            primaryStage.getIcons().add(new Image("ueg_gov/image/ueg_gov.png"));
-            primaryStage.setTitle("UEG Video Player");//swing 中的 jframe
+            primaryStage.getIcons().add(ugimg);
+            primaryStage.setTitle("United Earth Government 人员管理系统");//swing 中的 jframe
             primaryStage.setScene(scene);
             primaryStage.show();
             mP1.play();
             mP1.currentTimeProperty().addListener((observable, oldTime, newTime) -> {
                 if(newTime==null){
-
+                    //从一个界面跳转到另外一个新的界面
+                //同一个布局中加载不同的界面,这里主要是实现了主界面中的TreeView
 
                 }
             });
     }
 
     public static void main(String[] args) {
-
-
-
         launch(args);
-
     }
 }
