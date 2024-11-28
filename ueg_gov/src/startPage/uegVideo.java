@@ -11,6 +11,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import util.LanguageUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,7 +53,8 @@ public class uegVideo extends Application {
             //窗口图标在JavaFX程序中与Stage对象关联。其实本身就是一个Image对象
             Scene scene = new Scene(sP, 1060, 590);
             primaryStage.getIcons().add(ugimg);
-            primaryStage.setTitle("United Earth Government 人员管理系统");//swing 中的 jframe
+            LanguageUtil uvl = new LanguageUtil();
+            primaryStage.setTitle(uvl.PageTitle);//swing 中的 jframe
             primaryStage.setScene(scene);
             primaryStage.show();
             mP1.play();
