@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/24-autumn-java-array.iml" filepath="$PROJECT_DIR$/.idea/24-autumn-java-array.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ueg_gov/ueg_gov.iml" filepath="$PROJECT_DIR$/ueg_gov/ueg_gov.iml" />
-    </modules>
-  </component>
-</project>
