@@ -9,7 +9,7 @@ public class LanguageUtil {
    public static String PageTitle;
     public LanguageUtil(){
 
-        ResourceBundle rbMain=ResourceBundle.getBundle("util.dblogin.properties");
+        ResourceBundle rbMain=ResourceBundle.getBundle("util.DBLogin");
         String choose=rbMain.getString("jdbc.Language");
         if(choose=="English"){
             ResourceBundle rbEnglish=ResourceBundle.getBundle("util.English.properties");
@@ -41,7 +41,6 @@ public class LanguageUtil {
 
         }else{
             // 创建一个类，可以直接调用这个类的main函数
-
 
 
         }

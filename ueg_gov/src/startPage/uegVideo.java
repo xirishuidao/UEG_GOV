@@ -1,9 +1,6 @@
 package startPage;
 
-
-import com.sun.javaws.exceptions.ExitException;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
@@ -11,21 +8,18 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import util.LanguageUtil;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.net.URISyntaxException;
-
-import static javafx.application.Application.launch;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class uegVideo extends Application {
     //swing不支持视频，需要使用javaFX的media
         @Override
-        public void start(Stage primaryStage){
+        public void start(Stage primaryStage){//传入一个页面框架，默认调用
 
             /**
              * 2.3.Image加载项目ClassPath图片资源
@@ -36,8 +30,10 @@ public class uegVideo extends Application {
             Media md=null;
             Image ugimg=null;
               try {
-                md = new Media(new File("video/ueg_moss.mp4").toURI().toString());//任何目录地址必须使用new file
-                ugimg=new Image(new File("image/ueg_gov.png").toURI().toString());
+                md = new Media(getClass().getResource("/main/resource/ueg_moss.mp4").toString());//接受string
+                  ugimg = new Image(getClass().getResourceAsStream("/main/resource/ueg_gov.png"));//接受流文件
+
+
             } catch (IllegalArgumentException e){//嵌套swing
 
             } catch (RuntimeException e){//嵌套swing
@@ -62,6 +58,8 @@ public class uegVideo extends Application {
                 if(newTime==null){
                     //从一个界面跳转到另外一个新的界面
                 //同一个布局中加载不同的界面,这里主要是实现了主界面中的TreeView
+                    //TreeView a=(TreeView)sP.getChildren().get(0);
+
 
                 }
             });

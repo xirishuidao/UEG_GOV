@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc26d9b4-dfd9-43c1-baab-8944fbe615cb" name="更改" comment="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;" />
+    <list default="true" id="fc26d9b4-dfd9-43c1-baab-8944fbe615cb" name="更改" comment="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;">
+      <change afterPath="$PROJECT_DIR$/ueg_gov/src/main/resource/ueg_gov.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ueg_gov/src/main/resource/ueg_moss.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ueg_gov/src/startPage/ChooseLanguagePage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/out/production/ueg_gov/util/Chinese.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/out/production/ueg_gov/util/English.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/out/production/ueg_gov/util/France.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/out/production/ueg_gov/util/Russian.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/out/production/ueg_gov/util/dblogin.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/src/startPage/ChooseLanguagePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/ueg_gov/src/startPage/ChooseLanguagePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/src/startPage/uegVideo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ueg_gov/src/startPage/uegVideo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ueg_gov/src/util/LanguageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/ueg_gov/src/util/LanguageUtil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,33 +55,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JAR 应用程序.jl1.0.1.jar.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/HuaweiMoveData/Users/lth23/Desktop/小程序/intell java/24-autumn-java-array/ueg_gov",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "D:/HuaweiMoveData/Users/lth23/Desktop/小程序/intell java/24-autumn-java-array/ueg_gov/src/Main.java",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1954023",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true",
-    "应用程序.ChooseLanguagePage.executor": "Run",
-    "应用程序.Main.executor": "Run",
-    "应用程序.ueg1.executor": "Run",
-    "应用程序.uegVideo.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JAR 应用程序.jl1.0.1.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/HuaweiMoveData/Users/lth23/Desktop/小程序/intell java/24-autumn-java-array/ueg_gov/src/main/resource&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/HuaweiMoveData/Users/lth23/Desktop/小程序/intell java/24-autumn-java-array/ueg_gov/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1954023&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.ChooseLanguagePage.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Main.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.ueg1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.uegVideo.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\lth23\AppData\Local\Temp\qodana_output1\qodana.sarif.json" reportGuid="4bbcdfde-572d-4c68-8f0b-3a16dddc554b" reportId="24-autumn-java-array/qodana/2024-11-28" />
@@ -76,11 +89,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\HuaweiMoveData\Users\lth23\Desktop\小程序\intell java\24-autumn-java-array\ueg_gov\src\main\resource" />
       <recent name="D:\HuaweiMoveData\Users\lth23\Desktop\小程序\intell java\24-autumn-java-array\ueg_gov\src\startPage\Video" />
       <recent name="D:\HuaweiMoveData\Users\lth23\Desktop\小程序\intell java\24-autumn-java-array\ueg_gov\libs" />
       <recent name="D:\HuaweiMoveData\Users\lth23\Desktop\小程序\intell java\24-autumn-java-array\JavaFx windows x64" />
       <recent name="D:\HuaweiMoveData\Users\lth23\Desktop\小程序\intell java\24-autumn-java-array\vlc" />
-      <recent name="D:\HuaweiMoveData\Users\lth23\Desktop\小程序\intell java\24-autumn-java-array\ueg_gov\vedio" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\HuaweiMoveData\Users\lth23\Desktop\小程序\intell java\24-autumn-java-array\ueg_gov\image" />
@@ -181,7 +194,9 @@
       <workItem from="1732781489807" duration="3306000" />
       <workItem from="1732806332994" duration="3654000" />
       <workItem from="1732810499628" duration="15000" />
-      <workItem from="1732813358151" duration="340000" />
+      <workItem from="1732813358151" duration="381000" />
+      <workItem from="1732845483209" duration="6356000" />
+      <workItem from="1732869833230" duration="64000" />
     </task>
     <task id="LOCAL-00001" summary="idea 测试1">
       <option name="closed" value="true" />
@@ -351,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732813649304</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="2024/11/28-10 所有人请全部停止提交，否则项目会出问题&#10;&#10;Signed-off-by: 李天恒 &lt;lth2302143851@outlook.com&gt;">
+      <option name="closed" value="true" />
+      <created>1732813709922</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732813709922</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
