@@ -27,12 +27,12 @@ public class uegVideo extends Application {
              *…/resources/cat.jpg
              *
              */
-            Media md=null;
+            Media md=null,mm=null;
             Image ugimg=null;
               try {
-                md = new Media(getClass().getResource("/main/resource/ueg_moss.mp4").toString());//接受string
+                  md = new Media(getClass().getResource("/main/resource/ueg_moss.mp4").toString());//接受string
                   ugimg = new Image(getClass().getResourceAsStream("/main/resource/ueg_gov.png"));//接受流文件
-
+                  mm=new Media(getClass().getResource("/main/resource/mountocean.mp4").toString());
 
             } catch (IllegalArgumentException e){//嵌套swing
 
@@ -54,6 +54,11 @@ public class uegVideo extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
             mP1.play();
+
+
+            MediaPlayer mP2=new MediaPlayer(mm);
+            mediaView = new MediaView(mP2);
+
             mP1.currentTimeProperty().addListener((observable, oldTime, newTime) -> {
                 if(newTime==null){
                     //从一个界面跳转到另外一个新的界面
