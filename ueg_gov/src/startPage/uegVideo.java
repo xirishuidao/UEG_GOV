@@ -9,11 +9,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+
 
 
 public class uegVideo extends Application {
@@ -44,8 +40,8 @@ public class uegVideo extends Application {
             } catch (RuntimeException e){//嵌套swing
 
             }
-                MediaPlayer mP1=new MediaPlayer(md);
-                mediaView1 = new MediaView(mP1);
+                MediaPlayer mP1=new MediaPlayer(md);//创建播放器
+                mediaView1 = new MediaView(mP1);//视觉图
                 mediaView1.setFitWidth(1080);
                 mediaView1.setFitHeight(610);
                 mP1.volumeProperty().set(0.1);
@@ -61,39 +57,33 @@ public class uegVideo extends Application {
             sP.getChildren().add(mediaView1);
 
 
-
-
             //窗口图标在JavaFX程序中与Stage对象关联。其实本身就是一个Image对象
             Scene scene = new Scene(sP, 1060, 590);
             primaryStage.getIcons().add(ugimg);
-            //LanguageUtil uvl = new LanguageUtil();
-            //primaryStage.setTitle(uvl.PageTitle);//swing 中的 jframe
 
 
-
-
-            primaryStage.setScene(scene);
+            primaryStage.setScene(scene);//主页面显示
             primaryStage.show();
             mP1.play();
             // 设置当媒体播放完毕时执行的操作
             mP1.setOnEndOfMedia(() -> {
-                System.out.println("媒体播放完毕，正在停止...");
+               // System.out.println("媒体播放完毕，正在停止...");
                 mP1.stop(); // 停止播放
-                System.out.println("播放器状态: " + mP1.getStatus()); // 应该打印出 STOP
+               // System.out.println("播放器状态: " + mP1.getStatus()); // 应该打印出 STOP
             });
 
 
 
             mP1.statusProperty().addListener((observable, oldStatus, newStatus) -> {
-                System.out.println("Old Status: " + oldStatus + ", New Status: " + newStatus);
+                //System.out.println("Old Status: " + oldStatus + ", New Status: " + newStatus);
                 if (newStatus == MediaPlayer.Status.STOPPED) {
                     //从一个界面跳转到另外一个新的界面
                     //同一个布局中加载不同的界面, 使用StackPane进行界面切换
                     //StackPane允许你将多个节点堆叠在一起，并通过设置某个节点的可见性或将其置于顶部来显示不同的界面。
-                    System.out.println("播放器已停止");
+                    // System.out.println("播放器已停止");
 
                     //更换mp4
-                   sP.getChildren().remove(mediaView1); // 从布局中移除当前视频视图
+                    sP.getChildren().remove(mediaView1); // 从布局中移除当前视频视图
                     sP.getChildren().add(mediaView2); // 添加新的视频视图到布局
                     mP2.play(); // 播放新的视频
 
@@ -115,6 +105,6 @@ public class uegVideo extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        ChooseLanguagePage.main(args);
+        ChooseLanguagePage.main(args);//注意更改
     }
 }
