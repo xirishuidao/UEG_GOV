@@ -1,14 +1,15 @@
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-
-import java.util.ResourceBundle;
+import startPage.ChooseLanguagePage;
+import startPage.uegVideo;
 
 
 public class Main{
     public static void main(String[] args) {
+        uegVideo.main(args);
+        ChooseLanguagePage CL = new ChooseLanguagePage();
+        CL.setVisible(true);
+
+
+
 
 
 

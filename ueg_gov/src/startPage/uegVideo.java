@@ -1,6 +1,7 @@
 package startPage;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
@@ -27,7 +28,9 @@ public class uegVideo extends Application {
              *…/resources/cat.jpg
              *
              */
-
+            primaryStage.setResizable(false); // 不允许用户调整大小
+           primaryStage.setHeight(590);
+           primaryStage.setWidth(1060);
             Media md=null,mm=null;
             Image ugimg=null;
               try {
@@ -42,23 +45,28 @@ public class uegVideo extends Application {
             }
                 MediaPlayer mP1=new MediaPlayer(md);//创建播放器
                 mediaView1 = new MediaView(mP1);//视觉图
-                mediaView1.setFitWidth(1080);
-                mediaView1.setFitHeight(610);
+            mediaView1.setFitWidth(1080);
+            mediaView1.setFitHeight(610);
+
                 mP1.volumeProperty().set(0.1);
 
                 MediaPlayer mP2=new MediaPlayer(mm);
                 mediaView2 = new MediaView(mP2);
-                mediaView2.setFitWidth(1080);
-                mediaView2.setFitHeight(610);
+            mediaView2.setFitWidth(1080);
+           mediaView2.setFitHeight(610);
+
                 mP2.volumeProperty().set(0.1);
 
 
             StackPane sP = new StackPane();//页面的栈，可以切换页面
+            sP.setMinSize(1060,590);
+            sP.setPrefSize(1060,590);
+            sP.setMaxSize(1060,590);
             sP.getChildren().add(mediaView1);
 
 
             //窗口图标在JavaFX程序中与Stage对象关联。其实本身就是一个Image对象
-            Scene scene = new Scene(sP, 1060, 590);
+            Scene scene = new Scene(sP);
             primaryStage.getIcons().add(ugimg);
 
 
@@ -84,6 +92,7 @@ public class uegVideo extends Application {
 
                     //更换mp4
                     sP.getChildren().remove(mediaView1); // 从布局中移除当前视频视图
+                    mediaView1.getOnDragOver();
                     sP.getChildren().add(mediaView2); // 添加新的视频视图到布局
                     mP2.play(); // 播放新的视频
 
@@ -94,10 +103,13 @@ public class uegVideo extends Application {
 
             mP2.setOnEndOfMedia(() -> {
                 mP2.stop(); // 停止播放
+                Platform.exit();
             });
             mP2.statusProperty().addListener((observable, oldStatus, newStatus) -> {
                 if (newStatus == MediaPlayer.Status.STOPPED) {
-                primaryStage.close();
+
+                     primaryStage.hide();
+
                 }
             });
     }
@@ -105,6 +117,6 @@ public class uegVideo extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        ChooseLanguagePage.main(args);//注意更改
+        Platform.exit();
     }
 }
