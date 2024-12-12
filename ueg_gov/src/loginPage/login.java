@@ -1,23 +1,33 @@
+
+
+
+
+
+
+
+
+
 package loginPage;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Insets;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicButtonUI;
 class loginFrame extends JFrame{
 		public loginFrame(){
 			setSize(1060,600);
@@ -26,52 +36,80 @@ class loginFrame extends JFrame{
 			setLocationRelativeTo(null);
 			setResizable(false);
 			
-			JPanel con=new JPanel();
-			con.setBackground(Color.WHITE);
+			ImageJPanel con=new ImageJPanel();
+			//con.setBackground(Color.WHITE);
 			con.setLayout(null);
+			con.setBounds(0,0,1060,600);
 			
 			JLabel labelTitle = new JLabel("公民登录", JLabel.CENTER);
 			labelTitle.setPreferredSize(new Dimension(516, 100));
 			labelTitle.setFont(new Font("微软雅黑", Font.BOLD, 36));
+			labelTitle.setForeground(Color.white);
 			labelTitle.setBounds(335, 50, 380, 70);
 			
 			JLabel label1 = new JLabel("账户：");
 			JLabel label2 = new JLabel("密码：");
-			label1.setFont(new Font("微软雅黑", Font.BOLD, 16));
-			label2.setFont(new Font("微软雅黑", Font.BOLD, 16));
-			label1.setBounds(370, 136, 50, 30); // bound：边界， 设置位置和大小，setLocation()+setSize()
-			label2.setBounds(370, 207, 50, 30);
+			label1.setFont(new Font("微软雅黑", Font.BOLD, 20));
+			label2.setFont(new Font("微软雅黑", Font.BOLD, 20));
+			label1.setForeground(Color.white);
+			label2.setForeground(Color.white);
+			label1.setBounds(343, 136, 63, 30); // bound：边界， 设置位置和大小，setLocation()+setSize()
+			label2.setBounds(343, 207, 63, 30);
 			
 			JTextField tf_id = new JTextField(28);
 			JPasswordField pf_pwd = new JPasswordField(28);
 			tf_id.setBounds(430, 136, 220, 30); 
 			pf_pwd.setBounds(430, 207, 220, 30);
-			
+
 			JButton btn_login = new JButton("登录");
 			btn_login.setOpaque(true);
 			btn_login.setContentAreaFilled(true);
 			btn_login.setFont(new Font("微软雅黑", Font.BOLD, 16));
+			btn_login.setForeground(Color.white);
 			btn_login.setBackground(Color.gray);
 			btn_login.setBounds(465, 271, 120, 30);
+			btn_login.setBorderPainted(false);
 			
 			JButton btn_register = new JButton("注册账户");
 			btn_register.setOpaque(false);
 			btn_register.setContentAreaFilled(false);
-			btn_register.setFont(new Font("微软雅黑", Font.BOLD, 13));
+			btn_register.setFont(new Font("微软雅黑", Font.BOLD, 20));
+			btn_register.setForeground(Color.white);
 			btn_register.setBorderPainted(false);
 			btn_register.setBounds(460, 330, 120, 30);
 			
 			JButton btn_zhaohui=new JButton("找回密码");
 			btn_zhaohui.setOpaque(false);
 			btn_zhaohui.setContentAreaFilled(false);
-			btn_zhaohui.setFont(new Font("微软雅黑", Font.BOLD, 13));
+			btn_zhaohui.setFont(new Font("微软雅黑", Font.BOLD, 20));
+			btn_zhaohui.setForeground(Color.white);
 			btn_zhaohui.setBorderPainted(false);
 			btn_zhaohui.setBounds(315, 330, 120, 30);
+			
+			// 添加显示/隐藏密码的复选框
+	        JCheckBox showPasswordCheckBox = new JCheckBox("显示密码");
+	        showPasswordCheckBox.setFont(new Font("微软雅黑", Font.BOLD, 15));
+	        showPasswordCheckBox.setBounds(660, 210, 100, 30);
+	        showPasswordCheckBox.setForeground(Color.white);
+	        showPasswordCheckBox.setOpaque(false);
+	        showPasswordCheckBox.setContentAreaFilled(false);
+	        showPasswordCheckBox.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                if (showPasswordCheckBox.isSelected()) {
+	                    pf_pwd.setEchoChar((char) 0); // 显示密码
+	                } else {
+	                    pf_pwd.setEchoChar('•'); // 隐藏密码
+	                }
+	            }
+	        });
+			
 
 			JButton btn_zhengfu=new JButton("政府人员");
 			btn_zhengfu.setOpaque(false);
 			btn_zhengfu.setContentAreaFilled(false);
-			btn_zhengfu.setFont(new Font("微软雅黑", Font.BOLD, 13));
+			btn_zhengfu.setFont(new Font("微软雅黑", Font.BOLD, 20));
+			btn_zhengfu.setForeground(Color.white);
 			btn_zhengfu.setBorderPainted(false);
 			btn_zhengfu.setBounds(600, 330, 120, 30);
 			
@@ -121,34 +159,43 @@ class loginFrame extends JFrame{
 			con.add(btn_register);
 			con.add(btn_zhaohui);
 			con.add(btn_zhengfu);
-			//con.add(label3);
+			con.add(showPasswordCheckBox);
 			this.add(con);
 			
 		}
 }		
 
+class ImageJPanel extends JPanel {
+    private Image backgroundImage;
 
+    public ImageJPanel() {
+        try {
+            // 加载背景图片
+            backgroundImage = ImageIO.read(new File("src/loginPage/微信图片_20241205213005.png"));
+            System.out.println("图片加载成功");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("图片加载失败"); 
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // 绘制背景图片，可以设置图片的布局方式，这里使用的是居中
+        g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
+    }
+}
 
 public  class login{
 	public static void main(String[] args) {
 		loginFrame frame = new loginFrame();
+		
 		frame.setVisible(true);
 	}
 }
-		
-		
 
 
 
 
 
-
-
-
-
-
-
-
-
-
- 
