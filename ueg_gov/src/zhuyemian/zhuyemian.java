@@ -1,9 +1,6 @@
 package zhuyemian;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -20,33 +17,35 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 public class zhuyemian extends JFrame{
-	
+
 	public zhuyemian() {
-		
-		
-		this.setSize(1060,600);
+
+
+		this.setSize(1360,1000);
 		this.setLocationRelativeTo(null);
 		this.setTitle("UEG");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+
 		JPanel container=new JPanel();
 		container.setLayout(new BorderLayout());
 		this.add(container);
-		
+
 		// 创建顶部面板，用于放置图片和菜单栏
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS)); // 使用BoxLayout布局管理器
 		container.add(panel1,BorderLayout.NORTH);
-		
-		
+		panel1.setBackground(Color.white);
+
 		// 加载图片并创建JLabel显示图片
-		ImageIcon icon = new ImageIcon("src/zhuyemian/R-C.png"); // 替换为你的图片路径
-        JLabel imageLabel = new JLabel(icon);
-        imageLabel.setAlignmentX(0.0f); // 将图片对齐到左侧
-        imageLabel.setMinimumSize(new Dimension(1,1));
+		ImageIcon icon = new ImageIcon("E:\\java\\24-autumn-java-array\\ueg_gov\\src\\zhuyemian\\R-C.png"); // 替换为你的图片路径
+		int width = 109;
+		int height = 109;
+		Image img = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH); // 缩放图像
+		ImageIcon newIcon = new ImageIcon(img);
+        JLabel imageLabel = new JLabel(newIcon);
         // 添加菜单和菜单项
 		String menu[]= {"账户信息","个人信息","职业","驾驶证注册","跨区域许可证","公民健康"};
-		
+
 		String itmenu[][]= {
 				{"ID","姓名"},
 				{"身份证号","真实姓名","性别","国家地区","户籍地址","学历信息","出生年月"},
@@ -59,20 +58,27 @@ public class zhuyemian extends JFrame{
 		JMenuBar menuBar=new JMenuBar();
 		menuBar.setOpaque(true); // 确保菜单栏可以显示背景颜色
 		menuBar.setBackground(Color.white); // 设置菜单栏背景颜色为白色
+
+
+		// 添加个人中心标签
+		JLabel personalCenterLabel = new JLabel("个人中心");
+		personalCenterLabel.setFont(new Font("宋体", Font.BOLD, 27)); // 设置字体
+		personalCenterLabel.setForeground(Color.BLACK); // 设置文字颜色
+
 		// 将图片和菜单栏添加到顶部面板
         /*panel1.add(imageLabel);
         panel1.add(Box.createHorizontalGlue()); // 添加填充，使菜单栏靠右
         panel1.add(menuBar);
 		*/
 		ActionListener listener=new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String cmd=e.getActionCommand();
-				
+
 			}
 		};
-		
+
 			for (int i = 0; i < menu.length; i++) {
 			// 创建菜单
 			JMenu menu1 = new JMenu(menu[i]);
@@ -94,12 +100,14 @@ public class zhuyemian extends JFrame{
 				menuItem.addActionListener(listener);
 			}
 		}
-		
+		panel1.add(Box.createHorizontalStrut(36));
         panel1.add(imageLabel);// 将图片和菜单栏添加到顶部面板
-        panel1.add(Box.createHorizontalGlue()); // 添加填充，使菜单栏靠右
+        panel1.add(Box.createHorizontalStrut(72)); // 添加填充，使菜单栏靠右
         panel1.add(menuBar);
+		panel1.add(Box.createHorizontalStrut(91));
+		panel1.add(personalCenterLabel);
 	}
-	
+
 	private class MenuMouseListener extends MouseAdapter {
         @Override
         public void mouseEntered(MouseEvent e) {
@@ -123,7 +131,15 @@ public class zhuyemian extends JFrame{
 		zhuyemian from=new zhuyemian();
 		from.setVisible(true);
 	}
-	
+
 }
+
+
+
+
+
+
+
+
 
 

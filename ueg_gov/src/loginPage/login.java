@@ -166,12 +166,13 @@ class loginFrame extends JFrame{
 }		
 
 class ImageJPanel extends JPanel {
+
     private Image backgroundImage;
 
     public ImageJPanel() {
         try {
             // 加载背景图片
-            backgroundImage = ImageIO.read(new File("src/loginPage/微信图片_20241205213005.png"));
+            backgroundImage = ImageIO.read(new File("E:\\java\\24-autumn-java-array\\ueg_gov\\src\\loginPage\\微信图片_20241205213005.png"));
             System.out.println("图片加载成功");
         } catch (IOException e) {
             e.printStackTrace();
