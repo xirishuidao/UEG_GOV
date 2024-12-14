@@ -1,5 +1,7 @@
 package loginPage;
 
+import main.pages.BackgroundPanel;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -28,7 +30,7 @@ public class register extends JDialog {
         setLocationRelativeTo(null);
         setLayout(null);  
         
-        ImageJPanel con = new ImageJPanel();
+        BackgroundPanel con = new BackgroundPanel("/main/resource/login_bg.png");
         con.setLayout(null);
         con.setBounds(0,0,1060,600);
         

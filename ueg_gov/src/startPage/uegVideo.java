@@ -35,7 +35,7 @@ public class uegVideo extends Application {
             Image ugimg=null;
               try {
                   md = new Media(getClass().getResource("/main/resource/ueg_moss.mp4").toString());//接受string
-                  ugimg = new Image(getClass().getResourceAsStream("/main/resource/ueg_gov.png"));//接受流文件
+                  ugimg = new Image(getClass().getResourceAsStream("/main/resource/ueg_gov_w.png"));//接受流文件
                   mm=new Media(getClass().getResource("/main/resource/mountocean.mp4").toString());
                   //mt;
             } catch (IllegalArgumentException e){//嵌套swing

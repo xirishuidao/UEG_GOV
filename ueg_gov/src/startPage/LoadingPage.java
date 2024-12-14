@@ -1,10 +1,12 @@
 package startPage;
 
-import main.page.BackgroundPanel;
+import loginPage.LoginPage;
+import main.pages.BackgroundPanel;
+import main.pages.CheckFile;
+import util.DateBaseUtil;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicProgressBarUI;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,16 +15,67 @@ import java.util.ResourceBundle;
 
 
 public class LoadingPage extends JFrame {
-//加载检查所有相关配置，防止程序运行崩坏，大部分调用util
+    class Progress extends Thread {
+        JProgressBar progressBar;
+        JLabel loading;
+        ResourceBundle rb;
+        //进度条上的数字
+        int[] progressValues={30,60,90,100};
+        Progress(JProgressBar progressBar,JLabel loading,ResourceBundle rb)
+        {
+            this.progressBar=progressBar;
+            this.loading=loading;
+            this.rb=rb;
+        }
+        public void run()
+        {
+            for(int i=0;i<progressValues.length;i++)
+            {
+                try
+                {
+                    if(i==0){
+                        loading.setText(rb.getString("SoftwareCheck"));
+                        if(!CheckFile.run()){
+                            loading.setText(rb.getString("SoftwareCheck"));
+                            //errorpag
+                            break;
+                        }
+                        Thread.sleep(3000);
+                    }else if(i==1){
+                        loading.setText(rb.getString("LanguageCheck"));
+                        Thread.sleep(3000);
+                    }else if(i==2){
+                        loading.setText(rb.getString("DatabaseConnection"));
+                        Thread.sleep(3000);
+                        DateBaseUtil DBtest=new DateBaseUtil();
+                        if(DateBaseUtil.getConnection()==null){
+                            loading.setText("Connection is Error!");
+                            //弹出警告框
+                        }else{
+                            loading.setText(rb.getString("finishCheck"));
+                                //武轩页面
+                                Thread.sleep(500);
+                                setVisible(false);
+                                LoginPage lp=new LoginPage(rb);
+
+                        }
+                    }
+                }
+                catch(InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                //设置进度条的值
+                progressBar.setValue(progressValues[i]);
+            }
+        }
+    }
+
+    //加载检查所有相关配置，防止程序运行崩坏，大部分调用util
     public LoadingPage(ResourceBundle rb) throws UnsupportedEncodingException {
-
-        setLayout(null);
-        setSize(new Dimension(1060, 590));
-        BackgroundPanel jp = new BackgroundPanel("/main/LoadingPage.jpg");
-        jp.setLayout(null);
-        jp.setPreferredSize(new Dimension(1060,590));
-
-        InputStream imageStream = getClass().getResourceAsStream("/main/resource/ueg_gov.png");
+        setDefaultCloseOperation(3);
+        setResizable(false);
+        InputStream imageStream = getClass().getResourceAsStream("/main/resource/ueg_gov_p.png");
         Image iconImage = null;
         try {
             // 从输入流中读取图像
@@ -37,25 +90,58 @@ public class LoadingPage extends JFrame {
         } else {
             //默认标识
         }
+        setTitle(rb.getString("PageTitle"));
 
-      setTitle(rb.getString("PageTitle"));
 
+        setSize(new Dimension(1414,800));
+        BackgroundPanel jp = new BackgroundPanel("/main/resource/loading_bg.png");
+        jp.setLayout(null);
+        this.add(jp, BorderLayout.CENTER);
 
+        // 居中窗口
+        setLocationRelativeTo(null);
+
+        JLabel acTitle=new JLabel(rb.getString("announcement"));
+        acTitle.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,40));
+        acTitle.setForeground(Color.white);
+        acTitle.setSize(new Dimension(500,50));
+        acTitle.setLocation(new Point(480,40));
+        jp.add(acTitle);
+
+        JTextArea acText=new JTextArea(rb.getString("ANText"));
+        acText.setSize(new Dimension(1300,50));
+        acText.setLocation(new Point(220,150));
+        acText.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,35));
+        acText.setForeground(Color.white);
+        acText.setBackground(new Color(0,0,0,0));
+        acText.setAutoscrolls(true);
+        acText.setEditable(false);
+        jp.add(acText);
+        JLabel loading=new JLabel(rb.getString("ResourceIsLoading"));
+        loading.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,40));
+        loading.setForeground(Color.white);
+        loading.setSize(new Dimension(500,50));
+        loading.setLocation(new Point(480,450));
+        jp.add(loading);
+        JLabel acBottle=new JLabel(rb.getString("powerBy"));
+        acBottle.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,15));
+        acBottle.setForeground(Color.white);
+        acBottle.setSize(new Dimension(1200,50));
+        acBottle.setLocation(new Point(400,700));
+        jp.add(acBottle);
         //创建一个最小值是0，最大值是100，当前值是20的进度条
-
-        JLabel loading=new JLabel("正在加载");
-        loading.setLocation(new Point(getWidth()/2,getHeight()/2));
-
         JProgressBar pgbar=new JProgressBar(0,100);
-        pgbar.setValue(10);
+        pgbar.setValue(0);
         pgbar.setBorderPainted(true);
-        pgbar.setStringPainted(true);
-        pgbar.setIndeterminate(true);
-        pgbar.setUI(new BasicProgressBarUI());
-
-
+        pgbar.setSize(380,50);
+        pgbar.setLocation(500,550);
+        pgbar.setBorderPainted(true);
+        pgbar.setForeground(new Color(102,204,255));
+        pgbar.setBackground(Color.white);
         jp.add(pgbar);
-
+        //下面要开启一个线程来处理进度
+        Progress progress=new Progress(pgbar,loading,rb);
+        progress.start();
 
 
         setVisible(true);
@@ -63,7 +149,8 @@ public class LoadingPage extends JFrame {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-
+    ResourceBundle rb=ResourceBundle.getBundle("util.UEGLanguage_en");
+    LoadingPage a= new LoadingPage(rb);
     }
 
 

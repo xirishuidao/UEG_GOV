@@ -1,6 +1,6 @@
 package startPage;
 
-import main.page.BackgroundPanel;
+import main.pages.BackgroundPanel;
 import util.LanguageUtil;
 
 import javax.imageio.ImageIO;
@@ -15,42 +15,8 @@ public class ChooseLanguagePage extends JFrame {
 
 
         public ChooseLanguagePage() {
-            Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
-            int screenWidth = (int) screensize.getWidth();//获得屏幕得宽
-            int screenHeight = (int) screensize.getHeight();//获得屏幕得高
-
-            setSize(new Dimension(1500,800));
-            BackgroundPanel jp = new BackgroundPanel("/main/resource/Language_bg.png");
-            this.add(jp, BorderLayout.CENTER);
-            jp.setLayout(null);
-            JLabel jtc = new JLabel("请选择您的语言");
-            jtc.setSize(500, 100);
-            jtc.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 40));
-            jtc.setForeground(Color.black);
-            jtc.setLocation(600, 80);
-            jp.add(jtc);
-            JLabel jte = new JLabel("Please Choose Your Language");
-            jte.setSize(500, 80);
-            jte.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 35));
-            jte.setForeground(Color.black);
-            jte.setLocation(500, 160);
-            jp.add(jte);
-            JLabel jtf = new JLabel("Veuillez choisir votre langue");
-            jtf.setSize(500, 80);
-            jtf.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 35));
-            jtf.setForeground(Color.black);
-            jtf.setLocation(530, 240);
-            jp.add(jtf);
-            JLabel jtr = new JLabel("Пожалуйста, выберите свой язык");
-            jtr.setSize(700, 80);
-            jtr.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 35));
-            jtr.setForeground(Color.black);
-            jtr.setLocation(465, 320);
-            jp.add(jtr);
-            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
             //jar 包调用规范 ，需要所有图片以及视频文件在main.resource 包下，并使用文件流输出
-            InputStream imageStream = getClass().getResourceAsStream("/main/resource/ueg_gov.png");
+            InputStream imageStream = getClass().getResourceAsStream("/main/resource/ueg_gov_w.png");
             Image iconImage ;
             try {
                 // 从输入流中读取图像
@@ -65,6 +31,52 @@ public class ChooseLanguagePage extends JFrame {
             } else {
                 //默认标识
             }
+
+            setDefaultCloseOperation(3);
+            setResizable(false);
+
+
+
+            Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+            int screenWidth = (int) screensize.getWidth();//获得屏幕得宽
+            int screenHeight = (int) screensize.getHeight();//获得屏幕得高
+
+            setSize(new Dimension(1414,800));
+            BackgroundPanel jp = new BackgroundPanel("/main/resource/Language_bg.png");
+            this.add(jp, BorderLayout.CENTER);
+            jp.setLayout(null);
+            JLabel jtc = new JLabel("请选择您的语言");
+            jtc.setSize(500, 100);
+            jtc.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 40));
+            jtc.setForeground(Color.black);
+            jtc.setLocation(580, 80);
+            jp.add(jtc);
+            JLabel jte = new JLabel("Please Choose Your Language");
+            jte.setSize(500, 80);
+            jte.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 35));
+            jte.setForeground(Color.black);
+            jte.setLocation(480, 160);
+            jp.add(jte);
+            JLabel jtf = new JLabel("Veuillez choisir votre langue");
+            jtf.setSize(500, 80);
+            jtf.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 35));
+            jtf.setForeground(Color.black);
+            jtf.setLocation(510, 240);
+            jp.add(jtf);
+            JLabel jtr = new JLabel("Пожалуйста, выберите свой язык");
+            jtr.setSize(700, 80);
+            jtr.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 35));
+            jtr.setForeground(Color.black);
+            jtr.setLocation(445, 320);
+            jp.add(jtr);
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            JLabel acBottle=new JLabel("Created By 武轩 and 李天恒 | Copyright © 2025 MountOcean.All rights reserved.");
+            acBottle.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,15));
+            acBottle.setForeground(Color.black);
+            acBottle.setSize(new Dimension(1200,50));
+            acBottle.setLocation(new Point(480,700));
+            jp.add(acBottle);
+
 
             String[] LanguageSt = {"中文", "English", "Русский", "Français"};
             //选择列表
@@ -84,7 +96,7 @@ public class ChooseLanguagePage extends JFrame {
 
             listl.setVisible(true);
             listl.setSize(400, 140);
-            listl.setLocation(540, 420);
+            listl.setLocation(520, 420);
             listl.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             jp.add(listl);
 
@@ -104,7 +116,7 @@ public class ChooseLanguagePage extends JFrame {
             lang_result.setFont(new Font("HarmonyOS Sans SC", Font.PLAIN, 25));
 
             lang_result.setSize(520, 60);
-            lang_result.setLocation(490, 600);
+            lang_result.setLocation(470, 600);
             lang_result.addActionListener(e -> {//lambda表达式
 
                // 使用这个类，properties需要遵循一定的命名规范，一般的命名规范是： 自定义名语言代码国别代码.properties
@@ -120,6 +132,7 @@ public class ChooseLanguagePage extends JFrame {
                     Language="en";
                 }
                 try {
+                    setVisible(false);
                     LanguageUtil LU=new LanguageUtil(Language);
                     LoadingPage LP = new LoadingPage(LU.rb);
                 } catch (UnsupportedEncodingException ex) {

@@ -5,7 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ResourceBundle;
 
+import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -18,12 +22,12 @@ import javax.swing.JPanel;
 
 public class zhuyemian extends JFrame{
 
-	public zhuyemian() {
+	public zhuyemian(ResourceBundle rs) {
 
 
 		this.setSize(1360,1000);
 		this.setLocationRelativeTo(null);
-		this.setTitle("UEG");
+		this.setTitle(rs.getString("PageTitle"));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		JPanel container=new JPanel();
@@ -37,12 +41,32 @@ public class zhuyemian extends JFrame{
 		panel1.setBackground(Color.white);
 
 		// 加载图片并创建JLabel显示图片
-		ImageIcon icon = new ImageIcon("E:\\java\\24-autumn-java-array\\ueg_gov\\src\\zhuyemian\\R-C.png"); // 替换为你的图片路径
-		int width = 109;
-		int height = 109;
-		Image img = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH); // 缩放图像
-		ImageIcon newIcon = new ImageIcon(img);
-        JLabel imageLabel = new JLabel(newIcon);
+		InputStream imageStream1= getClass().getResourceAsStream("/main/resource/ueg_gov_p.png");
+		InputStream imageStream2 = getClass().getResourceAsStream("/main/resource/ueg_gov_b.png");
+		Image iconImage;
+		Image titleImage;
+		try {
+			// 从输入流中读取图像
+			iconImage = ImageIO.read(imageStream2);
+			titleImage = ImageIO.read(imageStream1);
+		} catch (IOException e) {
+			iconImage = null; // 可以选择设置一个默认图标或不做任何操作
+			titleImage = null;
+		}
+		// 检查图像是否成功加载
+		if (iconImage != null) {
+			// 设置窗口图标
+			setIconImage(titleImage);
+		} else {
+			//默认标识
+		}
+
+
+		  // 缩放图像 getscaledinstance
+		ImageIcon newIcon1 = new ImageIcon(iconImage.getScaledInstance(109, 109, Image.SCALE_SMOOTH));
+        JLabel imageLabel1 = new JLabel(newIcon1);
+		ImageIcon newIcon2= new ImageIcon(titleImage.getScaledInstance(109, 93, Image.SCALE_SMOOTH));
+		JLabel imageLabel2 = new JLabel(newIcon2);
         // 添加菜单和菜单项
 		String menu[]= {"账户信息","个人信息","职业","驾驶证注册","跨区域许可证","公民健康"};
 
@@ -60,10 +84,7 @@ public class zhuyemian extends JFrame{
 		menuBar.setBackground(Color.white); // 设置菜单栏背景颜色为白色
 
 
-		// 添加个人中心标签
-		JLabel personalCenterLabel = new JLabel("个人中心");
-		personalCenterLabel.setFont(new Font("宋体", Font.BOLD, 27)); // 设置字体
-		personalCenterLabel.setForeground(Color.BLACK); // 设置文字颜色
+
 
 		// 将图片和菜单栏添加到顶部面板
         /*panel1.add(imageLabel);
@@ -100,12 +121,12 @@ public class zhuyemian extends JFrame{
 				menuItem.addActionListener(listener);
 			}
 		}
-		panel1.add(Box.createHorizontalStrut(36));
-        panel1.add(imageLabel);// 将图片和菜单栏添加到顶部面板
-        panel1.add(Box.createHorizontalStrut(72)); // 添加填充，使菜单栏靠右
+		panel1.add(Box.createHorizontalStrut(78));
+        panel1.add(imageLabel1);// 将图片和菜单栏添加到顶部面板
+        panel1.add(Box.createHorizontalStrut(78)); // 添加填充，使菜单栏靠右
         panel1.add(menuBar);
-		panel1.add(Box.createHorizontalStrut(91));
-		panel1.add(personalCenterLabel);
+		panel1.add(Box.createHorizontalStrut(78));
+		panel1.add(imageLabel2);
 	}
 
 	private class MenuMouseListener extends MouseAdapter {
@@ -128,7 +149,7 @@ public class zhuyemian extends JFrame{
     }
 
 	public static void main(String[] args) {
-		zhuyemian from=new zhuyemian();
+		zhuyemian from=new zhuyemian(ResourceBundle.getBundle("util.UEGLanguage_zh"));
 		from.setVisible(true);
 	}
 
