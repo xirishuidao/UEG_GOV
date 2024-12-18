@@ -1,10 +1,9 @@
 package util;
 
-import javax.swing.*;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class DateBaseUtil {
+public class DataBaseUtil {
 
 
     private static final String DRIVER_CLASS ;

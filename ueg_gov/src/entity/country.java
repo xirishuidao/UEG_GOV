@@ -1,6 +1,6 @@
 package entity;
 
-import util.DateBaseUtil;
+import util.DataBaseUtil;
 
 import java.sql.Connection;
 import java.util.ResourceBundle;
@@ -10,7 +10,7 @@ public class country {
     private int countryCode;
     public country(ResourceBundle rb) {
        String Language=rb.getString("Language");
-        Connection cn=DateBaseUtil.getConnection();
+        Connection cn= DataBaseUtil.getConnection();
 
 
 

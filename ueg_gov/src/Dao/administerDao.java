@@ -1,7 +1,13 @@
 package Dao;
 
-public interface administerDao {
+import entity.administer;
 
+import java.util.List;
 
+public interface administerDao extends BaseDao{
+
+    int update(administer p);
+
+    administer getOneById(String aid);
 
 }

@@ -3,7 +3,8 @@ package startPage;
 import loginPage.LoginPage;
 import main.pages.BackgroundPanel;
 import main.pages.CheckFile;
-import util.DateBaseUtil;
+import main.pages.errPage;
+import util.DataBaseUtil;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -37,7 +38,8 @@ public class LoadingPage extends JFrame {
                         loading.setText(rb.getString("SoftwareCheck"));
                         if(!CheckFile.run()){
                             loading.setText(rb.getString("SoftwareCheck"));
-                            //errorpag
+                            setVisible(false);
+                            errPage.show(rb.getString("errorPageResource"),rb.getString("errorPageTitle"));
                             break;
                         }
                         Thread.sleep(3000);
@@ -47,10 +49,11 @@ public class LoadingPage extends JFrame {
                     }else if(i==2){
                         loading.setText(rb.getString("DatabaseConnection"));
                         Thread.sleep(3000);
-                        DateBaseUtil DBtest=new DateBaseUtil();
-                        if(DateBaseUtil.getConnection()==null){
+                        DataBaseUtil DBtest=new DataBaseUtil();
+                        if(DataBaseUtil.getConnection()==null){
                             loading.setText("Connection is Error!");
-                            //弹出警告框
+                            setVisible(false);
+                            errPage.show(rb.getString("errorPageNetwork"),rb.getString("errorPageTitle"));
                         }else{
                             loading.setText(rb.getString("finishCheck"));
                                 //武轩页面
@@ -63,7 +66,8 @@ public class LoadingPage extends JFrame {
                 }
                 catch(InterruptedException e)
                 {
-                    e.printStackTrace();
+                    setVisible(false);
+                    errPage.show(rb.getString("errorPageResource"),rb.getString("errorPageTitle"));
                 }
                 //设置进度条的值
                 progressBar.setValue(progressValues[i]);
@@ -88,7 +92,8 @@ public class LoadingPage extends JFrame {
             // 设置窗口图标
             setIconImage(iconImage);
         } else {
-            //默认标识
+            setVisible(false);
+            errPage.show(rb.getString("errorPageResource"),rb.getString("errorPageTitle"));
         }
         setTitle(rb.getString("PageTitle"));
 
