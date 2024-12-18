@@ -25,14 +25,15 @@ public class register extends JDialog {
     
     public register() {
     	setTitle("注册账户");
-        setSize(1060, 600);
+        setSize(1360, 1000);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
+        setResizable(false);
         setLayout(null);  
         
         BackgroundPanel con = new BackgroundPanel("/main/resource/login_bg.png");
         con.setLayout(null);
-        con.setBounds(0,0,1060,600);
+        con.setBounds(0,0,1360,1000);
         
         JLabel labelTitle = new JLabel("注册账户", JLabel.CENTER);
 		labelTitle.setPreferredSize(new Dimension(516, 100));

@@ -1,8 +1,6 @@
 package zhuyemian;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -20,9 +18,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-public class zhuyemian extends JFrame{
+public class zhuyemian_renminde extends JFrame{
 
-	public zhuyemian(ResourceBundle rs) {
+	public zhuyemian_renminde(ResourceBundle rs) {
 
 
 		this.setSize(1360,1000);
@@ -39,6 +37,7 @@ public class zhuyemian extends JFrame{
 		panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS)); // 使用BoxLayout布局管理器
 		container.add(panel1,BorderLayout.NORTH);
 		panel1.setBackground(Color.white);
+
 
 		// 加载图片并创建JLabel显示图片
 		InputStream imageStream1= getClass().getResourceAsStream("/main/resource/ueg_gov_p.png");
@@ -91,14 +90,7 @@ public class zhuyemian extends JFrame{
         panel1.add(Box.createHorizontalGlue()); // 添加填充，使菜单栏靠右
         panel1.add(menuBar);
 		*/
-		ActionListener listener=new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String cmd=e.getActionCommand();
-
-			}
-		};
 
 			for (int i = 0; i < menu.length; i++) {
 			// 创建菜单
@@ -117,8 +109,8 @@ public class zhuyemian extends JFrame{
 				menuItem.setFont(new Font("宋体", Font.BOLD, 16)); // 设置菜单项字体大小和样式
 				// 将菜单项添加到菜单
 				menu1.add(menuItem);
-				// 给菜单项注册动作监听器，监听菜单项的点击事件，也就是动作事件
-				menuItem.addActionListener(listener);
+				/*// 给菜单项注册动作监听器，监听菜单项的点击事件，也就是动作事件
+				menuItem.addActionListener(listener);*/
 			}
 		}
 		panel1.add(Box.createHorizontalStrut(78));
@@ -127,33 +119,115 @@ public class zhuyemian extends JFrame{
         panel1.add(menuBar);
 		panel1.add(Box.createHorizontalStrut(78));
 		panel1.add(imageLabel2);
+
+		//创建面板主面板
+		JPanel panel2=new JPanel();
+		panel2.setLayout(null);
+		panel2.setBackground(Color.white);
+		container.add(panel2,BorderLayout.CENTER);
+
+		JLabel geRenXinXi = new JLabel("账户信息");
+		geRenXinXi.setForeground(Color.BLACK);
+		geRenXinXi.setFont(new Font("微软雅黑", Font.BOLD, 34));
+		geRenXinXi.setBounds(10, 10, 360, 70);
+		panel2.add(geRenXinXi);
+
+		JLabel ID = new JLabel("ID");
+		ID.setForeground(Color.GRAY);
+		ID.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		ID.setBounds(70, 70, 360, 70);
+		panel2.add(ID);
+
+		JLabel xingming =new JLabel("姓名");
+		xingming.setForeground(Color.GRAY);
+		xingming.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		xingming.setBounds(70, 140, 360, 70);
+		panel2.add(xingming);
+
+		JLabel hujixinxi = new JLabel("个人信息");
+		hujixinxi.setForeground(Color.BLACK);
+		hujixinxi.setFont(new Font("微软雅黑", Font.BOLD, 34));
+		hujixinxi.setBounds(10, 200, 360, 70);
+		panel2.add(hujixinxi);
+
+
+		JLabel shenfenID = new JLabel("身份证号");
+		shenfenID.setForeground(Color.GRAY);
+		shenfenID.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		shenfenID.setBounds(70, 260, 360, 70);
+		panel2.add(shenfenID);
+
+		JLabel xingBie = new JLabel("性别");
+		xingBie.setForeground(Color.GRAY);
+		xingBie.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		xingBie.setBounds(70, 320, 360, 70);
+		panel2.add(xingBie);
+
+		JLabel guojia = new JLabel("国家");
+		guojia.setForeground(Color.GRAY);
+		guojia.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		guojia.setBounds(70, 380, 360, 70);
+		panel2.add(guojia);
+
+		JLabel xuelixinxi = new JLabel("学历");
+		xuelixinxi.setForeground(Color.GRAY);
+		xuelixinxi.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		xuelixinxi.setBounds(70, 440, 360, 70);
+		panel2.add(xuelixinxi);
+
+		JLabel time = new JLabel("出生日");
+		time.setForeground(Color.GRAY);
+		time.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		time.setBounds(70, 500, 360, 70);
+		panel2.add(time);
+
+		JLabel renzhixinxi = new JLabel("任职信息");
+		renzhixinxi.setForeground(Color.BLACK);
+		renzhixinxi.setFont(new Font("微软雅黑", Font.BOLD, 34));
+		renzhixinxi.setBounds(10, 560, 360, 70);
+		panel2.add(renzhixinxi);
+
+		JLabel gongzuo = new JLabel("工作信息");
+		gongzuo.setForeground(Color.GRAY);
+		gongzuo.setFont(new Font("微软雅黑", Font.BOLD, 27));
+		gongzuo.setBounds(70, 620, 360, 70);
+		panel2.add(gongzuo);
+
 	}
 
+	//鼠标悬停的时候变颜色
 	private class MenuMouseListener extends MouseAdapter {
         @Override
         public void mouseEntered(MouseEvent e) {
-            ((JMenu) e.getSource()).setBackground(Color.BLUE);
+            ((JMenu) e.getSource()).setBackground(Color.CYAN);
         }
 
+	//鼠标离开是默认的
         @Override
         public void mouseExited(MouseEvent e) {
-            ((JMenu) e.getSource()).setBackground(null);
+            ((JMenu) e.getSource()).setBackground(Color.white);
         }
 
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            if (e.getClickCount() == 2) { // 双击
-                ((JMenu) e.getSource()).setBackground(Color.BLUE);
-            }
-        }
     }
+	/*ActionListener listener=new ActionListener() {
 
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String cmd=e.getActionCommand();
+
+                }
+            };*/
 	public static void main(String[] args) {
-		zhuyemian from=new zhuyemian(ResourceBundle.getBundle("util.UEGLanguage_zh"));
+		zhuyemian_renminde from=new zhuyemian_renminde(ResourceBundle.getBundle("util.UEGLanguage_zh"));
 		from.setVisible(true);
 	}
 
 }
+
+
+
+
+
 
 
 
