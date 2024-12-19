@@ -6,7 +6,7 @@ import entity.citizen;
 import java.util.Collections;
 import java.util.List;
 
-public class citizenDaoImpl implements citizenDao {
+public class citizenDaoImpl  extends BaseDaoImpl implements citizenDao {
     @Override
     public int insert(citizen p) {
         return 0;
@@ -24,7 +24,9 @@ public class citizenDaoImpl implements citizenDao {
 
     @Override
     public citizen getOneById(String cid) {
-        return null;
+        String sql = "select * from citizen where cid=?";
+        citizen[] citizen1=(citizen[]) getOne(sql, cid);
+        return citizen1[0];
     }
 
     @Override
@@ -32,18 +34,5 @@ public class citizenDaoImpl implements citizenDao {
         return Collections.emptyList();
     }
 
-    @Override
-    public int executeUpdate(String sql, Object... params) {
-        return 0;
-    }
 
-    @Override
-    public Object[] getOne(String sql, Object... params) {
-        return new Object[0];
-    }
-
-    @Override
-    public List<Object[]> getMany(String sql, Object... params) {
-        return Collections.emptyList();
-    }
 }

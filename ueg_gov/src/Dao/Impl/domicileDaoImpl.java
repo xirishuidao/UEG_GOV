@@ -3,10 +3,7 @@ package Dao.Impl;
 import Dao.domicileDao;
 import entity.domicile;
 
-import java.util.Collections;
-import java.util.List;
-
-public class domicileDaoImpl implements domicileDao {
+public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
     @Override
     public int insert(domicile p) {
         return 0;
@@ -24,21 +21,9 @@ public class domicileDaoImpl implements domicileDao {
 
     @Override
     public domicile getOneById(String cid) {
-        return null;
+        String sql = "select * from domicile where cid = ?";
+        domicile[] d = (domicile[]) getOne(sql,cid);
+        return d[0];
     }
 
-    @Override
-    public int executeUpdate(String sql, Object... params) {
-        return 0;
-    }
-
-    @Override
-    public Object[] getOne(String sql, Object... params) {
-        return new Object[0];
-    }
-
-    @Override
-    public List<Object[]> getMany(String sql, Object... params) {
-        return Collections.emptyList();
-    }
 }

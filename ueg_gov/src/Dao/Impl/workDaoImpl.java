@@ -6,10 +6,12 @@ import entity.work;
 import java.util.Collections;
 import java.util.List;
 
-public class workDaoImpl implements workDao {
+public class workDaoImpl  extends BaseDaoImpl  implements workDao {
     @Override
     public int insert(work p) {
-        return 0;
+        String sql="insert into work values(?,?,?,?,?,?,?,?)";
+        int row=executeUpdate(sql,p.getCid(),p.getWname(),p.getWlevel(),p.getWaddress(),p.getWcompany());
+        return row;
     }
 
     @Override
@@ -24,21 +26,11 @@ public class workDaoImpl implements workDao {
 
     @Override
     public work getOneById(String cid) {
-        return null;
+        String sql = "select * from work where cid = ?";
+        work [] work1=(work[]) getOne(sql,cid);
+        return work1[0];
     }
 
-    @Override
-    public int executeUpdate(String sql, Object... params) {
-        return 0;
-    }
 
-    @Override
-    public Object[] getOne(String sql, Object... params) {
-        return new Object[0];
-    }
 
-    @Override
-    public List<Object[]> getMany(String sql, Object... params) {
-        return Collections.emptyList();
-    }
 }

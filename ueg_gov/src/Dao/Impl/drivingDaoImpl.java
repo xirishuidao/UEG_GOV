@@ -6,7 +6,7 @@ import entity.driving;
 import java.util.Collections;
 import java.util.List;
 
-public class drivingDaoImpl implements drivingDao {
+public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
     @Override
     public int insert(driving p) {
         return 0;
@@ -29,7 +29,9 @@ public class drivingDaoImpl implements drivingDao {
 
     @Override
     public driving getOneById(String did) {
-        return null;
+        String sql = "select * from driving where did = ?";
+        driving[] driving1 = (driving[]) getOne(sql,did);
+        return driving1[0];
     }
 
     @Override
@@ -37,18 +39,4 @@ public class drivingDaoImpl implements drivingDao {
         return Collections.emptyList();
     }
 
-    @Override
-    public int executeUpdate(String sql, Object... params) {
-        return 0;
-    }
-
-    @Override
-    public Object[] getOne(String sql, Object... params) {
-        return new Object[0];
-    }
-
-    @Override
-    public List<Object[]> getMany(String sql, Object... params) {
-        return Collections.emptyList();
-    }
 }

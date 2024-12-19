@@ -6,7 +6,7 @@ import entity.visa;
 import java.util.Collections;
 import java.util.List;
 
-public class visaDaoImpl implements visaDao {
+public class visaDaoImpl  extends BaseDaoImpl  implements visaDao {
     @Override
     public int insert(visa p) {
         return 0;
@@ -29,11 +29,14 @@ public class visaDaoImpl implements visaDao {
 
     @Override
     public visa getOneById(long vid) {
-        return null;
+        String sql = "select * from visa where vid = ?";
+        visa[] visa1=(visa[]) getOne(sql,vid);
+        return visa1[0];
     }
 
     @Override
     public List<visa> getPartc(long cid) {
+
         return Collections.emptyList();
     }
 
@@ -42,18 +45,5 @@ public class visaDaoImpl implements visaDao {
         return Collections.emptyList();
     }
 
-    @Override
-    public int executeUpdate(String sql, Object... params) {
-        return 0;
-    }
 
-    @Override
-    public Object[] getOne(String sql, Object... params) {
-        return new Object[0];
-    }
-
-    @Override
-    public List<Object[]> getMany(String sql, Object... params) {
-        return Collections.emptyList();
-    }
 }

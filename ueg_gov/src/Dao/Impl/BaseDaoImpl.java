@@ -20,21 +20,18 @@ public class BaseDaoImpl implements BaseDao {
         Connection con = null;
         PreparedStatement ps = null;
 
-        int rows = 0; // 定义一个变量，存储受影响的行数
+        int rows = 0;
 
         try {
             con = DataBaseUtil.getConnection();
             ps = con.prepareStatement(sql);
 
             for (int i = 0; i < params.length; i++) {
-                // 设置第i+1个参数的值为数组中的第i+1个值
-                // 数组的索引从0开始，sql语句的?的索引从1开始
-                // 遍历一下传入的每个sql语句需要的参数的值，设置为对应的?的值
                 ps.setObject(i + 1, params[i]);
             }
             rows = ps.executeUpdate();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            return -1;
         } finally {
             DataBaseUtil.close(null, ps, con);
         }
@@ -46,42 +43,35 @@ public class BaseDaoImpl implements BaseDao {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        // 定义一个列表，存储查询到的多个成绩记录
 
         con = DataBaseUtil.getConnection();
 
-        Object[] data = null; //定义一个数组用于存储查询结果
+        Object[] data = null;
 
         try {
             ps = con.prepareStatement(sql);
 
             for (int i = 0; i < params.length; i++) {
-                // 设置第i+1个参数的值为数组中的第i+1个值
-                // 数组的索引从0开始，sql语句的?的索引从1开始
-                // 遍历一下传入的每个sql语句需要的参数的值，设置为对应的?的值
                 ps.setObject(i + 1, params[i]);
             }
 
-            // 执行查询，获得结果集
             rs = ps.executeQuery();
 
-            //获取查询到的列的数量
             int count=rs.getMetaData().getColumnCount();
             data=new Object[count];
 
-            // 循环读取每一行记录
             if (rs.next()) {
                 for(int i=0;i<count;i++) {
-                    data[i]=rs.getObject(i+1); //获取对应列的数据，存入数组
+                    data[i]=rs.getObject(i+1);
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+           return null;
         } finally {
             DataBaseUtil.close(rs, ps, con);
         }
 
-        return data; //将存储了查询结果的数组返回
+        return data;
     }
 
     @Override
@@ -98,18 +88,13 @@ public class BaseDaoImpl implements BaseDao {
             ps = con.prepareStatement(sql);
 
             for (int i = 0; i < params.length; i++) {
-                // 设置第i+1个参数的值为数组中的第i+1个值
-                // 数组的索引从0开始，sql语句的?的索引从1开始
-                // 遍历一下传入的每个sql语句需要的参数的值，设置为对应的?的值
                 ps.setObject(i + 1, params[i]);
             }
 
-            // 执行查询，获得结果集
             rs = ps.executeQuery();
 
-            int count=rs.getMetaData().getColumnCount(); //获取查询到的列的数量
+            int count=rs.getMetaData().getColumnCount();
 
-            // 循环读取每一行记录
             while (rs.next()) {
 
                 Object[] data=new Object[count];
@@ -121,7 +106,7 @@ public class BaseDaoImpl implements BaseDao {
                 list.add(data);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            return null;
         } finally {
             DataBaseUtil.close(rs, ps, con);
         }
