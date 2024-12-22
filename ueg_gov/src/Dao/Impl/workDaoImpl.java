@@ -3,6 +3,7 @@ package Dao.Impl;
 import Dao.workDao;
 import entity.work;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,21 +17,61 @@ public class workDaoImpl  extends BaseDaoImpl  implements workDao {
 
     @Override
     public int update(work p) {
-        return 0;
+        String sql="update work set wname=?,wlevel=?,waddress=?,wcompany=? where cid=?";
+        int row=executeUpdate(sql,p.getWname(),p.getWlevel(),p.getWaddress(),p.getWcompany(),p.getCid());
+        return row;
+    }
+
+
+
+
+    @Override
+    public int deleteById(long cid) {
+        String sql="delete from work where cid=?";
+        int row=executeUpdate(sql,cid);
+        return row;
     }
 
     @Override
-    public int deleteById(String cid) {
-        return 0;
-    }
-
-    @Override
-    public work getOneById(String cid) {
+    public work getOneById(long cid) {
         String sql = "select * from work where cid = ?";
-        work [] work1=(work[]) getOne(sql,cid);
-        return work1[0];
+       work work1=new work();
+       Object [] ob1=getOne(sql,cid);
+       for(int i=0;i<ob1.length;i++){
+           switch (i){
+               case 0:work1.setCid(Long.valueOf(ob1[i].toString()));break;
+               case 1:work1.setWname(ob1[i].toString());break;
+               case 2:work1.setWlevel(ob1[i].toString());break;
+               case 3:work1.setWaddress(ob1[i].toString());break;
+               case 4:work1.setWcompany(ob1[i].toString());break;
+           }
+       }
+        return work1;
     }
 
+
+
+
+    @Override
+    public List<work> getOneByMohu(String a, String b) {
+        String sql="select * from work where ?=?";
+        work work1=new work();
+        List<work> workList=new ArrayList<>();
+        List<Object []> obList=getMany(sql,a,"%"+b+"%");
+        for(Object [] ob1:obList){
+            for(int i=0;i<ob1.length;i++){
+                switch (i){
+                    case 0:work1.setCid(Long.valueOf(ob1[i].toString()));break;
+                    case 1:work1.setWname(ob1[i].toString());break;
+                    case 2:work1.setWlevel(ob1[i].toString());break;
+                    case 3:work1.setWaddress(ob1[i].toString());break;
+                    case 4:work1.setWcompany(ob1[i].toString());break;
+                }
+            }
+            workList.add(work1);
+        }
+        return workList;
+    }
 
 
 }

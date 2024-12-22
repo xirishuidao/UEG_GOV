@@ -17,7 +17,7 @@ public class administerDaoImpl extends BaseDaoImpl implements administerDao {
 
 
     @Override
-    public administer getOneById(String aid) {
+    public administer getOneById(long aid) {
         String sql = "select * from administer where aid=?";
         administer [] administer1=(administer[]) getOne(sql,aid);
         return administer1[0];

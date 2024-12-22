@@ -8,6 +8,6 @@ public interface administerDao extends BaseDao{
 
     int update(administer p);
 
-    administer getOneById(String aid);
+    administer getOneById(long aid);
 
 }

@@ -9,11 +9,10 @@ public interface workDao  extends BaseDao{
 
     int update(work p);
 
-    int deleteById(String cid);
+    int deleteById(long cid);
 
-    work getOneById(String cid);
+    work getOneById(long cid);
 
-
-
+    List<work> getOneByMohu(String a,String b);
 
 }

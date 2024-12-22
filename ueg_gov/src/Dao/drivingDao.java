@@ -9,11 +9,18 @@ public interface drivingDao extends BaseDao {
 
     int update(driving p);
 
-    int deleteByDid(String did);
+    int deleteByDid(long did);
 
-    int deleteByCid(String did);
+    int deleteByCid(long did);
 
-    driving getOneById(String did);
+    driving getOneById(long did);
 
-    List<driving> getPart(long cid);
+    List<driving> getPart1(long cid);
+
+    List<driving> getPart2(int daddress);
+
+    List<driving> getPart3(String a,String  b);
+
+
+
 }

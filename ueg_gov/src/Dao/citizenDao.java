@@ -9,9 +9,9 @@ public interface citizenDao extends BaseDao{
 
     int update(citizen p);
 
-    int deleteById(String cid);
+    int deleteById(long cid);
 
-    citizen getOneById(String cid);
+    citizen getOneById(long cid);
 
-    List<citizen> getPart(String tiaojian);
+    List<citizen> getPartByTiaojian(String Tiaojian);
 }

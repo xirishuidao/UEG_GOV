@@ -2,16 +2,15 @@ package Dao;
 
 import entity.healthy;
 
-import java.util.List;
-
 public interface healthyDao extends BaseDao{
     int insert(healthy p);
 
     int update(healthy p);
 
-    int deleteById(String cid);
+    int deleteById(long cid);
 
-    healthy getOneById(String cid);
+    healthy getOneById(long cid);
 
+    healthy getOneByMohu(String a,String b);
 
 }

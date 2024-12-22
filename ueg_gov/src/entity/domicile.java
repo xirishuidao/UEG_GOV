@@ -22,7 +22,7 @@ public class domicile {
         this.cid = cid;
     }
 
-    public long cid() {
+    public long getCid() {
         return cid;
     }
 
@@ -30,7 +30,7 @@ public class domicile {
         this.cid = cid;
     }
 
-    public String cname() {
+    public String getCname() {
         return cname;
     }
 
@@ -38,7 +38,7 @@ public class domicile {
         this.cname = cname;
     }
 
-    public String cgender() {
+    public String getCgender() {
         return cgender;
     }
 
@@ -46,7 +46,7 @@ public class domicile {
         this.cgender = cgender;
     }
 
-    public String caddress() {
+    public String getCaddress() {
         return caddress;
     }
 
@@ -54,15 +54,7 @@ public class domicile {
         this.caddress = caddress;
     }
 
-    public String cdegree() {
-        return cdegree;
-    }
-
-    public void setCdegree(String cdegree) {
-        this.cdegree = cdegree;
-    }
-
-    public int ccountry() {
+    public int getCcountry() {
         return ccountry;
     }
 
@@ -70,7 +62,15 @@ public class domicile {
         this.ccountry = ccountry;
     }
 
-    public String cdatetime() {
+    public String getCdegree() {
+        return cdegree;
+    }
+
+    public void setCdegree(String cdegree) {
+        this.cdegree = cdegree;
+    }
+
+    public String getCdatetime() {
         return cdatetime;
     }
 

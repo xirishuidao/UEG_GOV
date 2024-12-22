@@ -17,5 +17,7 @@ public interface visaDao extends BaseDao{
 
     List<visa> getPartc(long cid);
 
-    List<visa> getParts(int vstate);
+    List<visa> getPart2(String a,int b);
+
+    List<visa> getPart1(String a,String b);
 }

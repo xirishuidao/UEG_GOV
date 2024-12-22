@@ -9,8 +9,11 @@ public interface domicileDao extends BaseDao{
 
     int update(domicile p);
 
-    int deleteById(String cid);
+    int deleteById(long cid);
 
-    domicile getOneById(String cid);
+    domicile getOneById(long cid);
+
+    List<domicile> getmanyByMohu(String type,String ocntext);
+
 
 }
