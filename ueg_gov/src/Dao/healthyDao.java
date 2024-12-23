@@ -2,6 +2,8 @@ package Dao;
 
 import entity.healthy;
 
+import java.util.List;
+
 public interface healthyDao extends BaseDao{
     int insert(healthy p);
 
@@ -11,6 +13,8 @@ public interface healthyDao extends BaseDao{
 
     healthy getOneById(long cid);
 
-    healthy getOneByMohu(String a,String b);
+   List<healthy> getOneByMohu(String a, String b);
+
+    List<healthy> getOneByMohu(String a, int b);
 
 }

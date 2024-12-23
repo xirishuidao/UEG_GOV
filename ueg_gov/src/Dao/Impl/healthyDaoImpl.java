@@ -50,7 +50,12 @@ public class healthyDaoImpl  extends BaseDaoImpl  implements healthyDao {
     }
 
     @Override
-    public healthy getOneByMohu(String a, String b) {//暂时先不用
+    public List<healthy> getOneByMohu(String a, String b) {//暂时先不用
+        return null;
+    }
+
+    @Override
+    public List<healthy> getOneByMohu(String a, int b) {
         return null;
     }
 

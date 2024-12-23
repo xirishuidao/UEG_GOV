@@ -42,4 +42,6 @@ public interface visaService {
 
     boolean updatedata();
 
+    //查单个
+
 }

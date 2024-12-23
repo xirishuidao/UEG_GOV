@@ -3,6 +3,7 @@ package Dao.Impl;
 import Dao.drivingDao;
 import entity.driving;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -45,7 +46,7 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
             switch(i){
                 case 0:driving1.setDid((Long)ob1[i]);break;
                 case 1:driving1.setDtype((String)ob1[i]);break;
-                case 2:driving1.setDtime((String)ob1[i]);break;
+                case 2:driving1.setDtime((Date) ob1[i]);break;
                 case 3:driving1.setCid((Long)ob1[i]);break;
                 case 4:driving1.setDaddress((int)ob1[i]);break;
             }
@@ -65,7 +66,7 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
                 switch(i){
                     case 0:driving1.setDid((Long)ob1[i]);break;
                     case 1:driving1.setDtype((String)ob1[i]);break;
-                    case 2:driving1.setDtime((String)ob1[i]);break;
+                    case 2:driving1.setDtime((Date) ob1[i]);break;
                     case 3:driving1.setCid((Long)ob1[i]);break;
                     case 4:driving1.setDaddress((int)ob1[i]);break;
                 }
@@ -87,7 +88,7 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
                 switch(i){
                     case 0:driving1.setDid((Long)ob1[i]);break;
                     case 1:driving1.setDtype((String)ob1[i]);break;
-                    case 2:driving1.setDtime((String)ob1[i]);break;
+                    case 2:driving1.setDtime((Date) ob1[i]);break;
                     case 3:driving1.setCid((Long)ob1[i]);break;
                     case 4:driving1.setDaddress((int)ob1[i]);break;
                 }
@@ -99,7 +100,7 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
 
     @Override
     public List<driving> getPart3(String a,String b) {
-        String sql = "select * from driving where ?=?";
+        String sql = "select * from driving where ? like ?";
         List<driving> drivingList=null;
         driving driving1=null;
         List<Object []> obList=(List<Object []>)getMany(sql,a,"%"+b+"%");
@@ -109,7 +110,7 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
                 switch(i){
                     case 0:driving1.setDid((Long)ob1[i]);break;
                     case 1:driving1.setDtype((String)ob1[i]);break;
-                    case 2:driving1.setDtime((String)ob1[i]);break;
+                    case 2:driving1.setDtime((Date) ob1[i]);break;
                     case 3:driving1.setCid((Long)ob1[i]);break;
                     case 4:driving1.setDaddress((int)ob1[i]);break;
                 }

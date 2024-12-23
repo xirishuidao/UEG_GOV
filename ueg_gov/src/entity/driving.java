@@ -1,16 +1,18 @@
 package entity;
 
+import java.sql.Date;
+
 public class driving {
  private long did;
  private String dtype;
- private String dtime;
+ private Date dtime;
  private int daddress;
  private long cid;
 
     public driving() {
     }
 
-    public driving(long did, String dtype, String dtime, long cid, int daddress) {
+    public driving(long did, String dtype, Date dtime, long cid, int daddress) {
         this.did = did;
         this.dtype = dtype;
         this.dtime = dtime;
@@ -35,11 +37,11 @@ public class driving {
         this.dtype = dtype;
     }
 
-    public String getDtime() {
+    public Date getDtime() {
         return dtime;
     }
 
-    public void setDtime(String dtime) {
+    public void setDtime(Date dtime) {
         this.dtime = dtime;
     }
 

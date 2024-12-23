@@ -5,6 +5,7 @@ import entity.domicile;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
@@ -54,6 +55,29 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
         domicile domicile1=new domicile();
         List<domicile> domicileList1=new ArrayList<domicile>();
         List<Object []> ob1=getMany(sql,type,"%"+context+"%");
+        for(Object [] o:ob1){
+            for(int i=0;i<o.length;i++){
+                switch(i){
+                    case 0:domicile1.setCid((long)o[0]);break;
+                    case 1:domicile1.setCname((String)o[1]);break;
+                    case 2:domicile1.setCgender((String)o[2]);break;
+                    case 3:domicile1.setCaddress((String)o[3]);break;
+                    case 4:domicile1.setCcountry((int)o[4]);break;
+                    case 5:domicile1.setCdegree((String)o[5]);break;
+                    case 6:domicile1.setCdatetime((Date) o[5]);break;
+                }
+            }
+            domicileList1.add(domicile1);
+        }
+        return domicileList1;
+    }
+
+    @Override
+    public List<domicile> getmanyByCountry(int country) {
+        String sql="select * from domicile where ccountry = ?";
+        domicile domicile1=new domicile();
+        List<domicile> domicileList1=new ArrayList<domicile>();
+        List<Object []> ob1=getMany(sql,country);
         for(Object [] o:ob1){
             for(int i=0;i<o.length;i++){
                 switch(i){
