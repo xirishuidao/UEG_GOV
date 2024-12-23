@@ -1,5 +1,7 @@
 package entity;
 
+import java.sql.Date;
+
 public class domicile {
     private long cid;
     private String cname;
@@ -7,11 +9,11 @@ public class domicile {
     private String caddress;
     private int ccountry;
     private String cdegree;
-    private String cdatetime;
+    private Date cdatetime;
 
     public domicile(){}
 
-    public domicile(String cgender, String cdatetime, String cdegree, int ccountry, String caddress, String cname, long cid) {
+    public domicile(String cgender, Date cdatetime, String cdegree, int ccountry, String caddress, String cname, long cid) {
 
         this.cgender = cgender;
         this.cdatetime = cdatetime;
@@ -70,11 +72,11 @@ public class domicile {
         this.cdegree = cdegree;
     }
 
-    public String getCdatetime() {
+    public Date getCdatetime() {
         return cdatetime;
     }
 
-    public void setCdatetime(String cdatetime) {
+    public void setCdatetime(Date cdatetime) {
         this.cdatetime = cdatetime;
     }
 }

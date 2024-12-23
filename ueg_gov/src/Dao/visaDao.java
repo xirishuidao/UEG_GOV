@@ -2,6 +2,7 @@ package Dao;
 
 import entity.visa;
 
+import java.sql.Date;
 import java.util.List;
 
 public interface visaDao extends BaseDao{
@@ -19,5 +20,5 @@ public interface visaDao extends BaseDao{
 
     List<visa> getPart2(String a,int b);
 
-    List<visa> getPart1(String a,String b);
+    List<visa> getPart1(String a, String b);
 }

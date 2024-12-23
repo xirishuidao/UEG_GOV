@@ -3,6 +3,7 @@ package Dao.Impl;
 import Dao.visaDao;
 import entity.visa;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +46,8 @@ public class visaDaoImpl  extends BaseDaoImpl  implements visaDao {
                 case 0:v1.setCid((Long)ob1[i]);break;
                 case 1:v1.setVid((Long)ob1[i]);break;
                 case 2:v1.setVname((int)ob1[i]);break;
-                case 3:v1.setVsdate((String)ob1[i]);break;
-                case 4:v1.setVedate((String)ob1[i]);break;
+                case 3:v1.setVsdate((Date) ob1[i]);break;
+                case 4:v1.setVedate((Date)ob1[i]);break;
                 case 5:v1.setVstate((int)ob1[i]);break;
             }
         }
@@ -65,8 +66,8 @@ public class visaDaoImpl  extends BaseDaoImpl  implements visaDao {
                     case 0:v1.setCid((Long)ob1[i]);break;
                     case 1:v1.setVid((Long)ob1[i]);break;
                     case 2:v1.setVname((int)ob1[i]);break;
-                    case 3:v1.setVsdate((String)ob1[i]);break;
-                    case 4:v1.setVedate((String)ob1[i]);break;
+                    case 3:v1.setVsdate((Date) ob1[i]);break;
+                    case 4:v1.setVedate((Date) ob1[i]);break;
                     case 5:v1.setVstate((int)ob1[i]);break;
                 }
             }
@@ -87,8 +88,8 @@ public class visaDaoImpl  extends BaseDaoImpl  implements visaDao {
                     case 0:v1.setCid((Long)ob1[i]);break;
                     case 1:v1.setVid((Long)ob1[i]);break;
                     case 2:v1.setVname((int)ob1[i]);break;
-                    case 3:v1.setVsdate((String)ob1[i]);break;
-                    case 4:v1.setVedate((String)ob1[i]);break;
+                    case 3:v1.setVsdate((Date) ob1[i]);break;
+                    case 4:v1.setVedate((Date) ob1[i]);break;
                     case 5:v1.setVstate((int)ob1[i]);break;
                 }
             }
@@ -99,7 +100,7 @@ public class visaDaoImpl  extends BaseDaoImpl  implements visaDao {
 
     @Override
     public List<visa> getPart1(String a, String b) {
-        String sql="select * from visa where ?=?";
+        String sql="select * from visa where ? like ?";
         List<visa> visaList=new ArrayList<>();
         visa v1=new visa();
         List<Object []> objList=getMany(sql,a,"%"+b+"%");
@@ -109,8 +110,8 @@ public class visaDaoImpl  extends BaseDaoImpl  implements visaDao {
                     case 0:v1.setCid((Long)ob1[i]);break;
                     case 1:v1.setVid((Long)ob1[i]);break;
                     case 2:v1.setVname((int)ob1[i]);break;
-                    case 3:v1.setVsdate((String)ob1[i]);break;
-                    case 4:v1.setVedate((String)ob1[i]);break;
+                    case 3:v1.setVsdate((Date)ob1[i]);break;
+                    case 4:v1.setVedate((Date)ob1[i]);break;
                     case 5:v1.setVstate((int)ob1[i]);break;
                 }
             }

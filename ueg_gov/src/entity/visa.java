@@ -1,16 +1,19 @@
 package entity;
 
+import java.sql.Date;
+
 public class visa {
     private long cid;
-    private int vname;
+
     private long vid;
-    private String vsdate;
-    private String vedate;
+    private int vname;
+    private Date vsdate;
+    private Date vedate;
     private int vstate;
 
     public visa() {}
 
-    public visa(long cid, int vname, long vid, String vedate, String vsdate, int vstate) {
+    public visa(long cid,  long vid,int vname, Date vedate, Date vsdate, int vstate) {
         this.cid = cid;
         this.vname = vname;
         this.vid = vid;
@@ -43,19 +46,19 @@ public class visa {
         this.vid = vid;
     }
 
-    public String getVsdate() {
+    public Date getVsdate() {
         return vsdate;
     }
 
-    public void setVsdate(String vsdate) {
+    public void setVsdate(Date vsdate) {
         this.vsdate = vsdate;
     }
 
-    public String getVedate() {
+    public Date getVedate() {
         return vedate;
     }
 
-    public void setVedate(String vedate) {
+    public void setVedate(Date vedate) {
         this.vedate = vedate;
     }
 

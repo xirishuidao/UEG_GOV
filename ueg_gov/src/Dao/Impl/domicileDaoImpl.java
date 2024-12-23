@@ -3,6 +3,7 @@ package Dao.Impl;
 import Dao.domicileDao;
 import entity.domicile;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                 case 3:domicile1.setCaddress((String)ob1[3]);break;
                 case 4:domicile1.setCcountry((int)ob1[4]);break;
                 case 5:domicile1.setCdegree((String)ob1[5]);break;
-                case 6:domicile1.setCdatetime((String)ob1[5]);break;
+                case 6:domicile1.setCdatetime((Date) ob1[5]);break;
             }
         }
         return  domicile1;
@@ -49,10 +50,10 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
 
     @Override
     public List<domicile> getmanyByMohu(String type, String context) {
-        String sql="select * from domicile where ?=?";
+        String sql="select * from domicile where ? like ?";
         domicile domicile1=new domicile();
         List<domicile> domicileList1=new ArrayList<domicile>();
-        List<Object []> ob1=getMany(sql,type,context);
+        List<Object []> ob1=getMany(sql,type,"%"+context+"%");
         for(Object [] o:ob1){
             for(int i=0;i<o.length;i++){
                 switch(i){
@@ -62,7 +63,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                     case 3:domicile1.setCaddress((String)o[3]);break;
                     case 4:domicile1.setCcountry((int)o[4]);break;
                     case 5:domicile1.setCdegree((String)o[5]);break;
-                    case 6:domicile1.setCdatetime((String)o[5]);break;
+                    case 6:domicile1.setCdatetime((Date) o[5]);break;
                 }
             }
             domicileList1.add(domicile1);
