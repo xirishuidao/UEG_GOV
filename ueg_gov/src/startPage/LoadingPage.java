@@ -12,6 +12,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 
@@ -154,7 +155,8 @@ public class LoadingPage extends JFrame {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-    ResourceBundle rb=ResourceBundle.getBundle("util.UEGLanguage_en");
+
+    ResourceBundle rb=ResourceBundle.getBundle("util.UEGLanguage",new Locale("en"));
     LoadingPage a= new LoadingPage(rb);
     }
 

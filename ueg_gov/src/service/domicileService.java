@@ -32,6 +32,17 @@ public interface domicileService {
     List<domicile> findByName(int country);
 
     //查单个
+    String getcname(long cid);
+
+    String getcaddress(long cid);
+
+    int getccountry(long cid);
+
+    String getcdegree(long cid);
+
+    String getcgender(long cid);
+
+    Date getcdatetime(long cid);
 
 
 

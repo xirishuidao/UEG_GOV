@@ -2,7 +2,7 @@ package entity;
 
 public class healthy {
     private long cid;
-    private char cgender;
+    private String cgender;
     private String cblood;
     private double cheight;
     private double cveight;
@@ -15,7 +15,7 @@ public class healthy {
     public healthy() {
     }
 
-    public healthy(long cid, char cgender, String cblood, double cheight, double cveight, int ccode, int chandicapped, String cdisease1, String cdisease2) {
+    public healthy(long cid, String cgender, String cblood, double cheight, double cveight, int ccode, int chandicapped, String cdisease1, String cdisease2) {
         this.cid = cid;
         this.cgender = cgender;
         this.cblood = cblood;
@@ -43,11 +43,11 @@ public class healthy {
         this.cblood = cblood;
     }
 
-    public char getCgender() {
+    public String getCgender() {
         return cgender;
     }
 
-    public void setCgender(char cgender) {
+    public void setCgender(String cgender) {
         this.cgender = cgender;
     }
 

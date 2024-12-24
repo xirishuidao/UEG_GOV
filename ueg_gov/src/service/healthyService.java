@@ -6,27 +6,36 @@ import java.util.List;
 
 public interface healthyService {
     //增加
-    int insert(long cid,char Cgender,String Cblood,double height,double veight,int ccode,int Chandicapped,String Cdisease1,String Cdisease2);
+    int insert(long cid,String Cgender,String Cblood,double height,double veight,int ccode,int Chandicapped,String Cdisease1,String Cdisease2);
 
     //修改
-    int update(long cid,char Cgender,String Cblood,double height,double veight,int ccode,int Chandicapped,String Cdisease1,String Cdisease2);
+    int update(long cid,String Cgender,String Cblood,double height,double veight,int ccode,int Chandicapped,String Cdisease1,String Cdisease2);
     //删除
 
     int delete(long cid);
     //查询
 
-    healthy getOnByCid(long cid);
+    healthy findOnByCid(long cid);
 
-    List<healthy> getAllByblood(String blood);
+    List<healthy> findAllByblood(String blood);
 
-    List<healthy> getAllByCcode(int ccode);
+    List<healthy> findAllByCcode(int ccode);
 
-    List<healthy> getAllByChandicapped(int chandicapped);
+    List<healthy> findAllByChandicapped(int chandicapped);
 
-    List<healthy> getAllByCheight(double cheight);
+    List<healthy> findAllByCheight(double cheight);
 
-    List<healthy> getAllByCveight(double cveight);
+    List<healthy> findAllByCveight(double cveight);
 
     //查单个
+
+    String getCboold(long cid);
+    String getCdisease1(long cid);
+    String getCdisease2(long cid);
+    int getCcode(long cid);
+    int getChandicapped(long cid);
+    double getCheight(long cid);
+    double getCveight(long cid);
+    String getCgender(long cid);
 
 }

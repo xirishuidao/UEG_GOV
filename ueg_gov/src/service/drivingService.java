@@ -21,17 +21,23 @@ public interface drivingService {
     int update(long did, String dtype, Date dtime, long cid, int daddress);
 
     //查询
-    driving getByDid(long did);
+    driving findByDid(long did);
 
-    List<driving> getByDtype(String dtype);
+    List<driving> findByDtype(String dtype);
 
-    List<driving> getByCid(long cid);
+    List<driving> findByCid(long cid);
 
-    List<driving> getByDtime(String dtime);
+    List<driving> findByDtime(String dtime);
 
-    List<driving> getByDaddress(int daddress);
+    List<driving> findByDaddress(int daddress);
 
     //查单个
+
+    String getDtype(long did);
+    long getCid(long did);//这个表示修改驾驶器修改主人，可以不用
+    Date getDtime(long did);
+    int getDaddress(long did);
+
 
 
 }

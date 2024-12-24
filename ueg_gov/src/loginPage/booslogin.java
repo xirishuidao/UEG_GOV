@@ -3,7 +3,7 @@ package loginPage;
 
 
 import main.pages.BackgroundPanel;
-import zhuyemian.zhuyemian_zhengfurenyuan;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -68,8 +68,7 @@ public class booslogin extends JFrame {
             if ("123".equals(username) && "123".equals(password)) {
                 JOptionPane.showMessageDialog(null, "登录成功！");
                 dispose(); // 关闭窗口
-                zhuyemian_zhengfurenyuan zhuyemian_zhengfurenyuanDialog = new zhuyemian_zhengfurenyuan(ResourceBundle.getBundle("util.UEGLanguage_zh"));
-                zhuyemian_zhengfurenyuanDialog.setVisible(true);
+
             } else {
                 JOptionPane.showMessageDialog(null, "用户名或密码错误！");
             }

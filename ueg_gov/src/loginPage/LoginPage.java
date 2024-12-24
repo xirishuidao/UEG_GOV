@@ -1,8 +1,8 @@
 package loginPage;
 
 import main.pages.BackgroundPanel;
-import zhuyemian.zhuyemian_renminde;
-import zhuyemian.zhuyemian_zhengfurenyuan;
+
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -119,8 +119,7 @@ public class LoginPage extends JFrame {
 	                if ("123".equals(username) && "123".equals(password)) {
 	                    JOptionPane.showMessageDialog(null, "登录成功！");
 						dispose(); // 关闭窗口
-						zhuyemian_renminde zhuyemian_renminde = new zhuyemian_renminde(ResourceBundle.getBundle("util.UEGLanguage_zh"));
-						zhuyemian_renminde.setVisible(true);
+
 	                } else {
 	                    JOptionPane.showMessageDialog(null, "用户名或密码错误！");
 	                }

@@ -16,4 +16,6 @@ public interface domicileDao extends BaseDao{
     List<domicile> getmanyByMohu(String type,String ocntext);
 
     List<domicile> getmanyByCountry(int country);
+
+
 }

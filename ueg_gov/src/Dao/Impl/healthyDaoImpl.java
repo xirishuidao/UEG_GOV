@@ -36,7 +36,7 @@ public class healthyDaoImpl  extends BaseDaoImpl  implements healthyDao {
         for(int i=0;i<ob1.length;i++){
             switch (i){
                 case 0:healthy1.setCid((Long)ob1[i]);break;
-                case 1:healthy1.setCgender((char)ob1[i]);break;
+                case 1:healthy1.setCgender((String) ob1[i]);break;
                 case 2:healthy1.setCblood((String)ob1[i]);break;
                 case 3:healthy1.setCheight((Double)ob1[i]);break;
                 case 4:healthy1.setCveight((Double)ob1[i]);break;

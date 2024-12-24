@@ -23,22 +23,16 @@ public class administerServiceImpl implements administerService {
 
     @Override
     public int update(long aid,String apwd, String aname) {
-        if(apwd==""){
-            apwd=findPassword(aid);
-        }
-        if(aname==""){
-            aname=findName(aid);
-        }
+        apwd=apwd.equals("")?findPassword(aid):apwd;
+        aname=aname.equals("")?findName(aid):aname;
+
         administerDaoImpl administerDaoImpl1 = new administerDaoImpl();
         administer a=new administer();
         a.setAid(aid);
         a.setApwd(apwd);
         a.setAname(aname);
        int row=administerDaoImpl1.update(a);
-       if(row==1){
-           return 0;
-       } else {
-           return -1;
-       }
+        row = row==1?0:-1;
+        return row;
     }
 }

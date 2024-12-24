@@ -17,17 +17,17 @@ public interface visaService {
      * 4 已生效，未过期
      * 5 过期
      */
-    List<visa> getState(int state);
+    List<visa> findState(int state);
 
-    visa getOnbyid(long vid);
+    visa findOnbyid(long vid);
 
-    List<visa> getId(long cid);
+    List<visa> findId(long cid);
 
-    List<visa> getCountry(int country);
+    List<visa> findCountry(int country);
 
-    List<visa> getsdate(String date);
+    List<visa> findsdate(String date);
 
-    List<visa> getedate(String date);
+    List<visa> findedate(String date);
 
     //增加
 
@@ -43,5 +43,15 @@ public interface visaService {
     boolean updatedata();
 
     //查单个
+    Date getVsdate(long vid);
+
+    Date getVetate(long vid);
+
+    long getCid(long vid);
+
+    int getVname(long vid);
+
+    int getVstate(long vid);
+
 
 }
