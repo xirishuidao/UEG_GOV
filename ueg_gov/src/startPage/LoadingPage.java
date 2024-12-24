@@ -22,7 +22,7 @@ public class LoadingPage extends JFrame {
         JLabel loading;
         ResourceBundle rb;
         //进度条上的数字
-        int[] progressValues={30,60,90,100};
+        int[] progressValues={40,80,100};
         Progress(JProgressBar progressBar,JLabel loading,ResourceBundle rb)
         {
             this.progressBar=progressBar;
@@ -31,11 +31,11 @@ public class LoadingPage extends JFrame {
         }
         public void run()
         {
-            for(int i=0;i<progressValues.length;i++)
+            for(int i=0;i<progressValues.length+1;i++)
             {
                 try
                 {
-                    if(i==0){
+                    if(i==1){
                         loading.setText(rb.getString("SoftwareCheck"));
                         if(!CheckFile.run()){
                             loading.setText(rb.getString("SoftwareCheck"));
@@ -44,10 +44,12 @@ public class LoadingPage extends JFrame {
                             break;
                         }
                         Thread.sleep(3000);
-                    }else if(i==1){
-                        loading.setText(rb.getString("LanguageCheck"));
-                        Thread.sleep(3000);
                     }else if(i==2){
+                        loading.setText(rb.getString("LanguageCheck"));
+                        Thread.sleep(2000);
+
+
+                    }else if(i==0){
                         loading.setText(rb.getString("DatabaseConnection"));
                         Thread.sleep(3000);
                         DataBaseUtil DBtest=new DataBaseUtil();
@@ -55,14 +57,16 @@ public class LoadingPage extends JFrame {
                             loading.setText("Connection is Error!");
                             setVisible(false);
                             errPage.show(rb.getString("errorPageNetwork"),rb.getString("errorPageTitle"));
-                        }else{
-                            loading.setText(rb.getString("finishCheck"));
-                                //武轩页面
-                                Thread.sleep(500);
-                                setVisible(false);
-                                LoginPage lp=new LoginPage(rb);
-
                         }
+                    }else{
+                        //武轩页面
+                        loading.setText(rb.getString("finishCheck"));
+                        Thread.sleep(2000);
+
+                        //setVisible(false);
+                        LoginPage lp=new LoginPage(rb);
+                        dispose();
+
                     }
                 }
                 catch(InterruptedException e)
@@ -71,7 +75,9 @@ public class LoadingPage extends JFrame {
                     errPage.show(rb.getString("errorPageResource"),rb.getString("errorPageTitle"));
                 }
                 //设置进度条的值
-                progressBar.setValue(progressValues[i]);
+                if(i!=progressValues.length) {
+                    progressBar.setValue(progressValues[i]);
+                }
             }
         }
     }

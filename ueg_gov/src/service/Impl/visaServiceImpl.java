@@ -5,10 +5,7 @@ import Dao.Impl.visaDaoImpl;
 import entity.visa;
 import service.visaService;
 
-import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class visaServiceImpl implements visaService {
@@ -55,7 +52,7 @@ public class visaServiceImpl implements visaService {
     }
 
     @Override
-    public int insert(long cid, long vid, int vname, Date vsdate, Date vedate, int vstate) {
+    public int insert(long cid, long vid, int vname, String vsdate, String vedate, int vstate) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=new visa(cid,vid,vname, vsdate, vedate, vstate);
         int row=impl.insert(v);
@@ -80,7 +77,7 @@ public class visaServiceImpl implements visaService {
     }
 
     @Override
-    public int update(long cid, long vid, int vname, Date vsdate, Date vedate, int vstate) {
+    public int update(long cid, long vid, int vname, String vsdate, String vedate, int vstate) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=new visa(cid,vid,vname, vsdate, vedate, vstate);
         int row=impl.update(v);
@@ -91,14 +88,14 @@ public class visaServiceImpl implements visaService {
 
 
     @Override
-    public Date getVsdate(long vid) {
+    public String getVsdate(long vid) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneById(vid);
         return v.getVsdate();
     }
 
     @Override
-    public Date getVetate(long vid) {
+    public String getVetate(long vid) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneById(vid);
         return v.getVedate();
@@ -150,17 +147,17 @@ public class visaServiceImpl implements visaService {
         sql="update visa set vstate = ? where vid = ?";
         LocalDate a=LocalDate.now();
         for(int i=0;i<lb.size();i++){
-            Date b=(Date)lb.get(i)[3];
-            Date c=(Date)lb.get(i)[3];
+            LocalDate b=LocalDate.parse(lb.get(i)[3].toString());
+            LocalDate c=LocalDate.parse(lb.get(i)[4].toString());
             int s=(int)lb.get(i)[5];
-            if(b.toLocalDate().isAfter(a)&&s==3){
+            if(b.isBefore(a)&&s==3){
                 s=4;
             }
-            if(c.toLocalDate().isBefore(a)&&s==4){
+            if(c.isBefore(a)&&(s==4||s==3)){
                 s=5;
             }
-            int row= impl.executeUpdate(sql,lb.get(i)[1],s);
-            if(row!=1){
+            int row= impl.executeUpdate(sql,s,lb.get(i)[1]);
+            if(row>1){
                 return false;
             }
         }

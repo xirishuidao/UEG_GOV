@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class healthyDaoImpl  extends BaseDaoImpl  implements healthyDao {
+    //9
+
     @Override
     public int insert(healthy p) {
         String sql = "insert into healthy values(?,?,?,?,?,?,?,?,?)";

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class drivingServiceImpl implements drivingService {
     @Override
-    public int insert(long did, String dtype, Date dtime, long cid, int daddress) {
+    public int insert(long did, String dtype, String dtime, long cid, int daddress) {
         dtype = dtype.equals("")?getDtype(did):dtype;
         dtime = dtime.equals("")?getDtime(did):dtime;
         cid=cid==0?getCid(did):cid;
@@ -39,7 +39,7 @@ public class drivingServiceImpl implements drivingService {
     }
 
     @Override
-    public int update(long did, String dtype, Date dtime, long cid, int daddress) {
+    public int update(long did, String dtype, String dtime, long cid, int daddress) {
         dtype = dtype.equals("")?getDtype(did):dtype;
         dtime = dtime.equals("")?getDtime(did):dtime;
         cid=cid==0?getCid(did):cid;
@@ -101,7 +101,7 @@ public class drivingServiceImpl implements drivingService {
     }
 
     @Override
-    public Date getDtime(long did) {
+    public String getDtime(long did) {
         drivingDaoImpl dDI1 = new drivingDaoImpl();
         driving d1=dDI1.getOneById(did);
         return d1.getDtime();

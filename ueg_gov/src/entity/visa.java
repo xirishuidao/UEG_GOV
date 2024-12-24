@@ -7,13 +7,13 @@ public class visa {
 
     private long vid;
     private int vname;
-    private Date vsdate;
-    private Date vedate;
+    private String vsdate;
+    private String vedate;
     private int vstate;
 
     public visa() {}
 
-    public visa(long cid,  long vid,int vname, Date vedate, Date vsdate, int vstate) {
+    public visa(long cid,  long vid,int vname, String vedate, String vsdate, int vstate) {
         this.cid = cid;
         this.vname = vname;
         this.vid = vid;
@@ -46,19 +46,19 @@ public class visa {
         this.vid = vid;
     }
 
-    public Date getVsdate() {
+    public String getVsdate() {
         return vsdate;
     }
 
-    public void setVsdate(Date vsdate) {
+    public void setVsdate(String vsdate) {
         this.vsdate = vsdate;
     }
 
-    public Date getVedate() {
+    public String getVedate() {
         return vedate;
     }
 
-    public void setVedate(Date vedate) {
+    public void setVedate(String vedate) {
         this.vedate = vedate;
     }
 

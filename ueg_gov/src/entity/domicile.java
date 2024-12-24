@@ -9,11 +9,11 @@ public class domicile {
     private String caddress;
     private int ccountry;
     private String cdegree;
-    private Date cdatetime;
+    private String cdatetime;
 
     public domicile(){}
 
-    public domicile(String cgender, Date cdatetime, String cdegree, int ccountry, String caddress, String cname, long cid) {
+    public domicile(String cgender, String cdatetime, String cdegree, int ccountry, String caddress, String cname, long cid) {
 
         this.cgender = cgender;
         this.cdatetime = cdatetime;
@@ -72,11 +72,11 @@ public class domicile {
         this.cdegree = cdegree;
     }
 
-    public Date getCdatetime() {
+    public String getCdatetime() {
         return cdatetime;
     }
 
-    public void setCdatetime(Date cdatetime) {
+    public void setCdatetime(String cdatetime) {
         this.cdatetime = cdatetime;
     }
 }

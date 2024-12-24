@@ -76,6 +76,7 @@ public class BaseDaoImpl implements BaseDao {
 
     @Override
     public List<Object[]> getMany(String sql, Object... params) {
+
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

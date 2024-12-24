@@ -8,10 +8,10 @@ import java.util.List;
 public interface domicileService {
 
     //增加
-    int insert(long cid,String cgender, Date cdatetime, String cdegree, int ccountry, String caddress, String cname);
+    int insert(long cid,String cgender, String cdatetime, String cdegree, int ccountry, String caddress, String cname);
 
     //修改
-    int update(String cgender, Date cdatetime, String cdegree, int ccountry, String caddress, String cname,long cid);
+    int update(String cgender, String cdatetime, String cdegree, int ccountry, String caddress, String cname,long cid);
 
 
     //删除
@@ -42,7 +42,7 @@ public interface domicileService {
 
     String getcgender(long cid);
 
-    Date getcdatetime(long cid);
+    String getcdatetime(long cid);
 
 
 

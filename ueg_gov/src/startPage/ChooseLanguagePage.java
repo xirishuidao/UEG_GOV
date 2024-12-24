@@ -132,9 +132,10 @@ public class ChooseLanguagePage extends JFrame {
                     Language="en";
                 }
                 try {
-                    setVisible(false);
+
                     LanguageUtil LU=new LanguageUtil(Language);
                     LoadingPage LP = new LoadingPage(LU.rb);
+                    dispose();
                 } catch (UnsupportedEncodingException ex) {
                     throw new RuntimeException(ex);
                 }

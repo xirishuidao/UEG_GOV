@@ -10,7 +10,7 @@ import java.util.List;
 
 public class domicileServiceImpl implements domicileService {
     @Override
-    public int insert(long cid, String cgender, Date cdatetime, String cdegree, int ccountry, String caddress, String cname) {
+    public int insert(long cid, String cgender, String cdatetime, String cdegree, int ccountry, String caddress, String cname) {
         cgender = cgender.equals("") ? getcgender(cid):cgender;
         cdatetime = cdatetime.equals("") ? getcdatetime(cid) : cdatetime;
         cdegree = cdegree.equals("") ? getcdegree(cid) : cdegree;
@@ -33,7 +33,7 @@ public class domicileServiceImpl implements domicileService {
     }
 
     @Override
-    public int update(String cgender, Date cdatetime, String cdegree, int ccountry, String caddress, String cname, long cid) {
+    public int update(String cgender, String cdatetime, String cdegree, int ccountry, String caddress, String cname, long cid) {
         cgender = cgender.equals("") ? getcgender(cid):cgender;
         cdatetime = cdatetime.equals("") ? getcdatetime(cid) : cdatetime;
         cdegree = cdegree.equals("") ? getcdegree(cid) : cdegree;
@@ -136,7 +136,7 @@ public class domicileServiceImpl implements domicileService {
     }
 
     @Override
-    public Date getcdatetime(long cid) {
+    public String getcdatetime(long cid) {
         domicileDaoImpl dao = new domicileDaoImpl();
         domicile d1=dao.getOneById(cid);
         return d1.getCdatetime();

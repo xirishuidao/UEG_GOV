@@ -31,21 +31,21 @@ public interface visaService {
 
     //增加
 
-    int insert(long cid,long vid,int vname,Date vsdate,Date vedate,int vstate);
+    int insert(long cid, long vid, int vname, String vsdate, String vedate, int vstate);
 
     //删除
     int deletec(long cid);
     int deletev(long cid);
 
     //修改
-    int update(long cid,long vid,int vname,Date vsdate,Date vedate,int vstate);
+    int update(long cid, long vid, int vname, String vsdate, String vedate, int vstate);
 
     boolean updatedata();
 
     //查单个
-    Date getVsdate(long vid);
+    String getVsdate(long vid);
 
-    Date getVetate(long vid);
+    String getVetate(long vid);
 
     long getCid(long vid);
 

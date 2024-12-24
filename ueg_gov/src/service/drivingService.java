@@ -8,7 +8,7 @@ import java.util.List;
 public interface drivingService {
     //增加
 
-    int insert(long did, String dtype, Date dtime, long cid, int daddress);
+    int insert(long did, String dtype, String dtime, long cid, int daddress);
 
     //删除
 
@@ -18,7 +18,7 @@ public interface drivingService {
 
     //修改
 
-    int update(long did, String dtype, Date dtime, long cid, int daddress);
+    int update(long did, String dtype, String dtime, long cid, int daddress);
 
     //查询
     driving findByDid(long did);
@@ -35,7 +35,7 @@ public interface drivingService {
 
     String getDtype(long did);
     long getCid(long did);//这个表示修改驾驶器修改主人，可以不用
-    Date getDtime(long did);
+    String getDtime(long did);
     int getDaddress(long did);
 
 

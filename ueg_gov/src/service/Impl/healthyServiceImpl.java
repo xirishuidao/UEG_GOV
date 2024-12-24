@@ -72,7 +72,7 @@ public class healthyServiceImpl implements healthyService {
         healthy h1 =hdi1.getOneById(cid);
         return h1;
     }
-
+    //以后功能会上线---------------------------------------------------------------------------------------------------
     @Override
     public List<healthy> findAllByblood(String blood) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
@@ -93,7 +93,7 @@ public class healthyServiceImpl implements healthyService {
         List<healthy> hlist1 =hdi1.getOneByMohu("chandicapped",chandicapped);
         return hlist1;
     }
-    //暂议------------------------------------------------------------------
+
     @Override
     public List<healthy> findAllByCheight(double cheight) {
         return Collections.emptyList();
@@ -103,7 +103,7 @@ public class healthyServiceImpl implements healthyService {
     public List<healthy> findAllByCveight(double cveight) {
         return Collections.emptyList();
     }
-    //--------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------
 
     @Override
     public String getCboold(long cid) {

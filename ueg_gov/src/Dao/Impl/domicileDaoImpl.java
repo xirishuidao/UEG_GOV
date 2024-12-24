@@ -9,17 +9,20 @@ import java.util.Collections;
 import java.util.List;
 
 public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
+
+ //7
+
     @Override
     public int insert(domicile p) {
         String sql = "insert into domicile values(?,?,?,?,?,?,?)";
-        int row=executeUpdate(sql,p.getCid(),p.getCname(),p.getCdegree(),p.getCaddress(),p.getCcountry(),p.getCdegree(),p.getCdatetime());
+        int row=executeUpdate(sql,p.getCid(),p.getCname(),p.getCdegree(),p.getCaddress(),p.getCcountry(),p.getCdegree(), Date.valueOf(p.getCdatetime()));
         return row;
     }
 
     @Override
     public int update(domicile p) {
-        String sql= "update domicile set cname=?,cdegree=?,caddress=?,ccountry=?,cdatetime=? where cid=?";
-        int row=executeUpdate(sql,p.getCname(),p.getCdegree(),p.getCaddress(),p.getCcountry(),p.getCdatetime(),p.getCid());
+        String sql= "update domicile set cgender=?,cname=?,cdegree=?,caddress=?,ccountry=?,cdatetime=? where cid=?";
+        int row=executeUpdate(sql,p.getCgender(),p.getCname(),p.getCdegree(),p.getCaddress(),p.getCcountry(), Date.valueOf(p.getCdatetime()),p.getCid());
         return row;
     }
 
@@ -43,7 +46,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                 case 3:domicile1.setCaddress((String)ob1[3]);break;
                 case 4:domicile1.setCcountry((int)ob1[4]);break;
                 case 5:domicile1.setCdegree((String)ob1[5]);break;
-                case 6:domicile1.setCdatetime((Date) ob1[5]);break;
+                case 6:domicile1.setCdatetime((String) ob1[5]);break;
             }
         }
         return  domicile1;
@@ -64,7 +67,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                     case 3:domicile1.setCaddress((String)o[3]);break;
                     case 4:domicile1.setCcountry((int)o[4]);break;
                     case 5:domicile1.setCdegree((String)o[5]);break;
-                    case 6:domicile1.setCdatetime((Date) o[5]);break;
+                    case 6:domicile1.setCdatetime((String) o[5]);break;
                 }
             }
             domicileList1.add(domicile1);
@@ -87,7 +90,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                     case 3:domicile1.setCaddress((String)o[3]);break;
                     case 4:domicile1.setCcountry((int)o[4]);break;
                     case 5:domicile1.setCdegree((String)o[5]);break;
-                    case 6:domicile1.setCdatetime((Date) o[5]);break;
+                    case 6:domicile1.setCdatetime((String) o[5]);break;
                 }
             }
             domicileList1.add(domicile1);

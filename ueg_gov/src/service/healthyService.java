@@ -17,6 +17,8 @@ public interface healthyService {
 
     healthy findOnByCid(long cid);
 
+
+    //以后功能会上线------------------------------------------------------------------------
     List<healthy> findAllByblood(String blood);
 
     List<healthy> findAllByCcode(int ccode);
@@ -26,7 +28,7 @@ public interface healthyService {
     List<healthy> findAllByCheight(double cheight);
 
     List<healthy> findAllByCveight(double cveight);
-
+    //-------------------------------------------------------------------------------------
     //查单个
 
     String getCboold(long cid);
