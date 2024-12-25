@@ -31,6 +31,7 @@ public class BaseDaoImpl implements BaseDao {
             }
             rows = ps.executeUpdate();
         } catch (Exception ex) {
+            ex.printStackTrace();
             return -1;
         } finally {
             DataBaseUtil.close(null, ps, con);

@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LanguageUtil {
-    public ResourceBundle rb;
+    public static ResourceBundle rb;
     public LanguageUtil(String Language){
            this.rb=ResourceBundle.getBundle("util.UEGLanguage",new Locale(Language));
     }

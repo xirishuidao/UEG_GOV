@@ -17,7 +17,7 @@ public class citizenDaoImpl  extends BaseDaoImpl implements citizenDao {
 
     @Override
     public int update(citizen p) {
-        String sql="update citizen set cname=?,cpwd=?,where cid=?";
+        String sql="update citizen set cname=?,cpwd=? where cid=?";
         int row=executeUpdate(sql,p.getCname(),p.getCpwd(),p.getCid());
         return row;
     }

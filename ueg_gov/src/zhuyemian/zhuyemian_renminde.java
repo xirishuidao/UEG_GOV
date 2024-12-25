@@ -1,5 +1,7 @@
 package zhuyemian;
 
+import util.DataBaseUtil;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -168,6 +170,7 @@ public class zhuyemian_renminde extends JFrame {
 
 		public MenuActionListener(int index) {
 			this.cardIndex = index;
+
 		}
 
 		@Override
@@ -177,9 +180,11 @@ public class zhuyemian_renminde extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		DataBaseUtil.getConnection();
 		ResourceBundle resourceBundle = ResourceBundle.getBundle("util.UEGLanguage_zh");
 		zhuyemian_renminde frame = new zhuyemian_renminde(resourceBundle);
 		frame.setVisible(true);
+
 	}
 }
 

@@ -113,6 +113,7 @@ public class jiankangxinxi extends JPanel {
         x6.setBounds(36, 370, 360, 70);
         add(x6);
 
+
     }
 
 }
