@@ -79,7 +79,7 @@ public class gerenxinxi_zfde extends JPanel {
         xueli.setForeground(Color.BLACK);
         xueli.setFont(new Font("微软雅黑", Font.BOLD, 27));
         xueli.setBounds(70, 370, 360, 70);
-        add(xueli);
+        add(xueli); 
 
         JTextField xueli_ = new JTextField();
         xueli_.setBounds(240, 390, 360, 40);
