@@ -1,15 +1,11 @@
 package zhuyemian;
 
-import main.pages.errPage;
 import main.pages.warningPage;
 import service.Impl.citizenServiceImpl;
 import util.DataBaseUtil;
 import util.LanguageUtil;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class zhanghuxinxi extends JPanel {
 
@@ -36,6 +32,36 @@ public class zhanghuxinxi extends JPanel {
         ID.setFont(new Font("微软雅黑", Font.BOLD, 27));
         ID.setBounds(270, 130, 360, 70);
         add(ID);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         JTextField ID_ = new JTextField();

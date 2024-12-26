@@ -1,16 +1,17 @@
-package zhuyemian;
+package zhuyemian_zfde;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
-public class jiashizhengxinxi extends JPanel {
-    public jiashizhengxinxi() {
+public class jiashizhengxinximohuchaxun extends JFrame {
+    public jiashizhengxinximohuchaxun() {
 
-        setLayout(null);
-        setPreferredSize(new Dimension(700, 600));
-        setBackground(Color.white);
 
+        this.setSize(700,600);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setTitle("模糊查询");
 
         this.setLayout(new FlowLayout());
         String items[] = {"驾驶证号", "种类", "注册时间", "注册地点"};
@@ -33,12 +34,16 @@ public class jiashizhengxinxi extends JPanel {
         table.setAutoCreateRowSorter(true);
         add(table);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setPreferredSize(new Dimension(1100,700));
+        scrollPane.setPreferredSize(new Dimension(500,370));
         this.add(scrollPane);
 
         btnSearch.addActionListener(e->{
 
         });
+    }
+
+    public static void main(String[] args) {
+        new jiashizhengxinximohuchaxun().setVisible(true);
     }
 
 }

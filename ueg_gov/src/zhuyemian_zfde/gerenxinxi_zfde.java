@@ -1,14 +1,18 @@
 package zhuyemian_zfde;
 
+import service.Impl.domicileServiceImpl;
+
 import javax.swing.*;
 import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 
 public class gerenxinxi_zfde extends JPanel {
 
     public gerenxinxi_zfde() {
+        domicileServiceImpl domicileServiceImpl = new domicileServiceImpl();
 
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
@@ -75,7 +79,7 @@ public class gerenxinxi_zfde extends JPanel {
         xueli.setForeground(Color.BLACK);
         xueli.setFont(new Font("微软雅黑", Font.BOLD, 27));
         xueli.setBounds(70, 370, 360, 70);
-        add(xueli);
+        add(xueli); 
 
         JTextField xueli_ = new JTextField();
         xueli_.setBounds(240, 390, 360, 40);
@@ -156,25 +160,50 @@ public class gerenxinxi_zfde extends JPanel {
 
 
         btnSearch.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            xingming_.setText(domicileServiceImpl.getcname(id));
+            xingbie_.setText(domicileServiceImpl.getcgender(id));
+            nianyue_.setText(String.valueOf(domicileServiceImpl.getcdatetime(id)));
+            huji_.setText(domicileServiceImpl.getcaddress(id));
+            xueli_.setText(domicileServiceImpl.getcdegree(id));
+            diqu_.setText(String.valueOf(domicileServiceImpl.getccountry(id)));
         });
 
 
         btnAdd.addActionListener(e -> {
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            String xingmingx=xingming_.getText();
+            String xingbiex=xingbie_.getText();
+            String  nianyuex=nianyue_.getText();
+            String hujixx=huji_.getText();
+            String xuelix=xueli_.getText();
+            String diqux=diqu_.getText();
 
+            domicileServiceImpl.insert(id,xingbiex,nianyuex,xuelix, Integer.parseInt(diqux),hujixx,xingmingx);
         });
 
 
         btnDelete.addActionListener(e -> {
 
+
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            domicileServiceImpl.delete(id);
         });
 
 
         btnUpdate.addActionListener(e -> {
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            String xingmingx=xingming_.getText();
+            String xingbiex=xingbie_.getText();
+            String nianyuex= nianyue_.getText();
+            String hujixx=huji_.getText();
+            String xuelix=xueli_.getText();
+            String diqux=diqu_.getText();
 
+            domicileServiceImpl.update(xingbiex,nianyuex,xuelix, Integer.parseInt(diqux),hujixx,xingmingx,id);
         });
 
-
+        btnMoHuSearch.addActionListener(e -> {new gerenxinximohuchaxun().setVisible(true);});
     }
 
 

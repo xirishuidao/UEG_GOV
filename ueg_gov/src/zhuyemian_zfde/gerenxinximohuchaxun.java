@@ -1,19 +1,20 @@
-package zhuyemian;
+package zhuyemian_zfde;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
-public class jiashizhengxinxi extends JPanel {
-    public jiashizhengxinxi() {
+public class gerenxinximohuchaxun extends JFrame {
+    public gerenxinximohuchaxun() {
 
-        setLayout(null);
-        setPreferredSize(new Dimension(700, 600));
-        setBackground(Color.white);
-
+        this.setSize(700,600);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setTitle("模糊查询");
 
         this.setLayout(new FlowLayout());
-        String items[] = {"驾驶证号", "种类", "注册时间", "注册地点"};
+
+        String items[] = {"身份证号","真实姓名","性别","国家地区","户籍地址","学历信息","出生年月"};
         JComboBox<String> box = new JComboBox<>(items);
         box.setPreferredSize(new Dimension(109, 30));
         this.add(box);
@@ -31,16 +32,18 @@ public class jiashizhengxinxi extends JPanel {
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         table.setDefaultRenderer(Object.class, centerRenderer);
         table.setAutoCreateRowSorter(true);
-        add(table);
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setPreferredSize(new Dimension(1100,700));
+        scrollPane.setPreferredSize(new Dimension(500,370));
         this.add(scrollPane);
 
         btnSearch.addActionListener(e->{
 
         });
     }
+    public static void main(String[] args) {
+        new gerenxinximohuchaxun().setVisible(true);
+    }
+
 
 }
-
 

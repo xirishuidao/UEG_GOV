@@ -138,6 +138,8 @@ public class zhiye_zfde extends JPanel {
 
         });
 
+        btnMoHuSearch.addActionListener(e -> {new zhiyemohuchaxun().setVisible(true);});
+
 
     }
 }
