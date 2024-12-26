@@ -1,8 +1,5 @@
 package zhuyemian;
 
-import util.DataBaseUtil;
-import util.LanguageUtil;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,8 +68,8 @@ public class zhuyemian_renminde extends JFrame {
 		jiashizhengxinxi jiashiZhengxinxi = new jiashizhengxinxi();
 		cardPanel.add(jiashiZhengxinxi, "Card4");
 
-		visaCardPage_ManyR visaCardPage_ManyR = new visaCardPage_ManyR();
-		cardPanel.add(visaCardPage_ManyR, "Card5");
+		kuaquyuxukezhengxinxi kuaquyuxukeZhengxinxi = new kuaquyuxukezhengxinxi();
+		cardPanel.add(kuaquyuxukeZhengxinxi, "Card5");
 
 		jiankangxinxi jiankangXinxi = new jiankangxinxi();
 		cardPanel.add(jiankangXinxi, "Card6");
@@ -93,10 +90,11 @@ public class zhuyemian_renminde extends JFrame {
 			titleImage = null;
 		}
 		// 检查图像是否成功加载
-		if (titleImage != null) {
+		if (iconImage != null) {
 			// 设置窗口图标
 			setIconImage(titleImage);
 		}
+
 		// 缩放图像 getscaledinstance
 		ImageIcon newIcon1 = new ImageIcon(iconImage.getScaledInstance(109, 109, Image.SCALE_SMOOTH));
 		JLabel imageLabel1 = new JLabel(newIcon1);
@@ -104,13 +102,13 @@ public class zhuyemian_renminde extends JFrame {
 		JLabel imageLabel2 = new JLabel(newIcon2);
 
 		// 添加菜单和菜单项
-		String menu[] = {"账户信息", "个人信息", "职业信息", "驾驶证信息",rs.getString("listVisaPageR0"), "健康信息"};
+		String menu[] = {"账户信息", "个人信息", "职业信息", "驾驶证信息", "跨区域许可证信息", "健康信息"};
 		String itmenu[][]= {
 				{"ID","姓名"},
 				{"身份证号","真实姓名","性别","国家地区","户籍地址","学历信息","出生年月"},
 				{"任职信息","工作地址","单位","职业等级"},
 				{"驾驶证号","种类","注册时间","注册地点"},
-				{rs.getString("listVisaPageR1"),rs.getString("listVisaPageR2"),rs.getString("listVisaPageR3")},
+				{"到达地","许可证编号","开始日期","终止日期","许可证状态"},
 				{"血型","性别","身高","体重","残疾等级","疾病等"},
 		};
 		// 创建菜单栏
@@ -120,7 +118,6 @@ public class zhuyemian_renminde extends JFrame {
 
 		for (int i = 0; i < menu.length; i++) {
 			// 创建菜单
-
 			JMenu menu1 = new JMenu(menu[i]);
 			menu1.setOpaque(true); // 设置菜单为不透明
 			menu1.setBackground(Color.white);// 设置菜单背景颜色
@@ -151,7 +148,6 @@ public class zhuyemian_renminde extends JFrame {
 		panel1.add(Box.createHorizontalStrut(78));
 		panel1.add(imageLabel2);
 
-		setVisible(true);
 
 	}
 
@@ -172,24 +168,18 @@ public class zhuyemian_renminde extends JFrame {
 
 		public MenuActionListener(int index) {
 			this.cardIndex = index;
-
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
 			cardLayout.show(cardPanel, "Card" + (cardIndex + 1)); // 根据索引显示对应的卡片
 		}
-
 	}
 
 	public static void main(String[] args) {
-		DataBaseUtil.getConnection();
-		LanguageUtil a=new LanguageUtil("zh");
-		ResourceBundle resourceBundle = LanguageUtil.rb;
+		ResourceBundle resourceBundle = ResourceBundle.getBundle("util.UEGLanguage_zh");
 		zhuyemian_renminde frame = new zhuyemian_renminde(resourceBundle);
 		frame.setVisible(true);
-
 	}
 }
 

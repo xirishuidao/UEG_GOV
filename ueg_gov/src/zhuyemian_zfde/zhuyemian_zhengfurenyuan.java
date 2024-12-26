@@ -1,7 +1,5 @@
 package zhuyemian_zfde;
 
-import util.DataBaseUtil;
-import util.LanguageUtil;
 import zhuyemian.*;
 
 import java.awt.*;
@@ -73,8 +71,8 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
         jiashizhengxinxi_zfde jiashiZhengxinxi = new jiashizhengxinxi_zfde();
         cardPanel.add(jiashiZhengxinxi, "Card4");
 
-        visaCardPage_ManyG vcp_mg = new visaCardPage_ManyG();
-        cardPanel.add(vcp_mg, "Card5");
+        kuaquyuxukezheng_zfde kuaquyuxukeZhengxinxi = new kuaquyuxukezheng_zfde();
+        cardPanel.add(kuaquyuxukeZhengxinxi, "Card5");
 
         jiankang_zfde jiankangXinxi = new jiankang_zfde();
         cardPanel.add(jiankangXinxi, "Card6");
@@ -107,13 +105,13 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
         JLabel imageLabel2 = new JLabel(newIcon2);
 
         // 添加菜单和菜单项
-        String menu[] = {"账户信息", "个人信息", "职业信息", "驾驶证信息",rs.getString("listVisaPageR0"), "健康信息"};
+        String menu[] = {"账户信息", "个人信息", "职业信息", "驾驶证信息", "跨区域许可证信息", "健康信息"};
         String itmenu[][]= {
                 {"ID","姓名"},
                 {"身份证号","真实姓名","性别","国家地区","户籍地址","学历信息","出生年月"},
                 {"任职信息","工作地址","单位","职业等级"},
                 {"驾驶证号","种类","注册时间","注册地点"},
-                {rs.getString("listVisaPageG1"),rs.getString("listVisaPageR2")},
+                {"到达地","许可证编号","开始日期","终止日期","许可证状态"},
                 {"血型","性别","身高","体重","残疾等级","疾病等"},
         };
         // 创建菜单栏
@@ -182,9 +180,7 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
     }
 
     public static void main(String[] args) {
-        DataBaseUtil.getConnection();
-        LanguageUtil a=new LanguageUtil("zh");
-        ResourceBundle resourceBundle = LanguageUtil.rb;
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("util.UEGLanguage_zh");
         zhuyemian_zhengfurenyuan frame = new zhuyemian_zhengfurenyuan(resourceBundle);
         frame.setVisible(true);
     }
