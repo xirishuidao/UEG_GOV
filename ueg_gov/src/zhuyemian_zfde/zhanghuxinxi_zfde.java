@@ -127,7 +127,7 @@ public class zhanghuxinxi_zfde extends JPanel {
             long id = Long.parseLong(ID_.getText());
             String xingmingxx = xingming_.getText();
             String mimaxx = mima_.getText();
-            citizenServiceImpl.update(id, mimaxx, xingmingxx);
+            citizenServiceImpl.update(id, xingmingxx, mimaxx);
         });
 
 

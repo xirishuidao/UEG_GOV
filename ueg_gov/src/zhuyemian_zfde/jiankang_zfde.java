@@ -1,10 +1,14 @@
 package zhuyemian_zfde;
 
+import service.Impl.healthyServiceImpl;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class jiankang_zfde extends JPanel {
+
     public jiankang_zfde() {
+        healthyServiceImpl healthyServiceImpl = new healthyServiceImpl();
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
         setBackground(Color.white);
@@ -145,27 +149,47 @@ public class jiankang_zfde extends JPanel {
         btnUpdate.setBounds(650, 630, 100, 30);
         add(btnUpdate);
 
-        JButton btnMoHuSearch = new JButton("模糊查询");
-        btnMoHuSearch.setBounds(801, 630, 100, 30);
-        add(btnMoHuSearch);
 
         btnSearch.addActionListener(e -> {
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            xingbie_.setText(healthyServiceImpl.getCgender(id));
+            xuexing_.setText(healthyServiceImpl.getCboold(id));
+            shengao_.setText(String.valueOf(healthyServiceImpl.getCheight(id)));
+            tizhong_.setText(String.valueOf(healthyServiceImpl.getCveight(id)));
+            canji_.setText(String.valueOf(healthyServiceImpl.getChandicapped(id)));
+            jibing_.setText(String.valueOf(healthyServiceImpl.getCcode(id)));
 
         });
 
 
         btnAdd.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            String xingbiex=xingbie_.getText();
+            String xuexingx=xuexing_.getText();
+            double shengaox=Integer.parseInt(shengao_.getText());
+            double tizhongx=Integer.parseInt(tizhong_.getText());
+            int canjix=Integer.parseInt(canji_.getText());
+            int jibingx=Integer.parseInt(jibing_.getText());
+            healthyServiceImpl.insert(id,xingbiex,xuexingx,shengaox,tizhongx,canjix,jibingx,"a","a");
         });
+
+
 
 
         btnDelete.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            healthyServiceImpl.delete(id);
         });
 
-
         btnUpdate.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            String xingbiex=xingbie_.getText();
+            String xuexingx=xuexing_.getText();
+            double shengaox=Double.parseDouble(shengao_.getText());
+            double tizhongx=Double.parseDouble(tizhong_.getText());
+            int canjix=Integer.parseInt(canji_.getText());
+            int jibingx=Integer.parseInt(jibing_.getText());
+            healthyServiceImpl.update(id,xingbiex,xuexingx,shengaox,tizhongx,canjix,jibingx,"a","c");
         });
 
 

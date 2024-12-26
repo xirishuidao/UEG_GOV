@@ -121,7 +121,6 @@ public class jiashizhengxinxi_zfde extends JPanel {
 
         });
 
-        btnMoHuSearch.addActionListener(e -> {new jiashizhengxinximohuchaxun().setVisible(true);});
     }
 
 

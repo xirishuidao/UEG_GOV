@@ -10,7 +10,7 @@ import java.util.List;
 public class citizenDaoImpl  extends BaseDaoImpl implements citizenDao {
     @Override
     public int insert(citizen p) {
-        String sql = "insert into citizen values(?,?,?,?,?,?)";
+        String sql = "insert into citizen values(?,?,?,?,?)";
         int row=executeUpdate(sql,p.getCid(),p.getCname(),p.getCpwd(),"","");
         return row;
     }

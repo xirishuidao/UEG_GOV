@@ -1,12 +1,15 @@
 package zhuyemian_zfde;
 
+import service.Impl.workServiceImpl;
+
 import javax.swing.*;
 import java.awt.*;
+
 
 public class zhiye_zfde extends JPanel {
 
     public zhiye_zfde() {
-
+        workServiceImpl workServiceImpl = new workServiceImpl();
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
         setBackground(Color.white);
@@ -121,21 +124,37 @@ public class zhiye_zfde extends JPanel {
 
         btnSearch.addActionListener(e -> {
 
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            renzhi_.setText(workServiceImpl.findwname(id));
+            dizhi_.setText(workServiceImpl.findwaddress(id));
+            danwei.setText(workServiceImpl.findwcompany(id));
+            dengji_.setText(workServiceImpl.findwlevel(id));
         });
-
+        /*public int update(long cid, String wname, String wlevel, String waddress, String wcompany) {*/
 
         btnAdd.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            String wnamex= renzhi_.getText();
+            String waddressx= dizhi_.getText();
+            String wcompanyx= danwei_.getText();
+            String wlevelx= dengji_.getText();
+            workServiceImpl.insert(id,wnamex,waddressx,wcompanyx,wlevelx);
         });
 
 
         btnDelete.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            workServiceImpl.delete(id);
         });
 
 
         btnUpdate.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            String wnamex= renzhi_.getText();
+            String waddressx= dizhi_.getText();
+            String wcompanyx= danwei_.getText();
+            String wlevelx= dengji_.getText();
+            workServiceImpl.update(id,wnamex,waddressx,wcompanyx,wlevelx);
         });
 
         btnMoHuSearch.addActionListener(e -> {new zhiyemohuchaxun().setVisible(true);});
