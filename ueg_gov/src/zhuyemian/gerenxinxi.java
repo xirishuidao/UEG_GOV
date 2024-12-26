@@ -3,6 +3,9 @@ package zhuyemian;
 
 
 
+import service.Impl.citizenServiceImpl;
+import util.cidBaseUtil;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,6 +33,10 @@ public class gerenxinxi extends  JPanel{
         shenfenzhenghao_.setBounds(240, 90, 360, 40);
         add(shenfenzhenghao_);
 
+        shenfenzhenghao_.setText(String.valueOf(cidBaseUtil.cid));
+
+
+
         JLabel xingming = new JLabel("真实姓名:");
         xingming.setForeground(Color.BLACK);
         xingming.setFont(new Font("微软雅黑", Font.BOLD, 27));
@@ -39,6 +46,9 @@ public class gerenxinxi extends  JPanel{
         JTextField xingming_ = new JTextField();
         xingming_.setBounds(240, 150, 360, 40);
         add(xingming_);
+
+        citizenServiceImpl citizenService = new citizenServiceImpl();
+        xingming_.setText(citizenService.findname(cidBaseUtil.cid));
 
         JLabel xingbie = new JLabel("性别:");
         xingbie.setForeground(Color.BLACK);

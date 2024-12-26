@@ -1,5 +1,7 @@
 package zhuyemian_zfde;
 
+import entity.country;
+import entity.visa;
 import main.pages.warningPage;
 import service.Impl.visaServiceImpl;
 import util.cidBaseUtil;
@@ -50,7 +52,7 @@ public class visaCardPage_OneG extends JFrame {
 
 
 
-        JLabel kuaquyuxukezhengxinxi = new JLabel(rs.getString("listVisaPageR1"));
+        JLabel kuaquyuxukezhengxinxi = new JLabel(rs.getString("listVisaPageG1"));
         kuaquyuxukezhengxinxi.setForeground(Color.BLACK);
         kuaquyuxukezhengxinxi.setFont(new Font("微软雅黑", Font.BOLD+Font.ITALIC, 34));
         kuaquyuxukezhengxinxi.setBounds(460, 10, 360, 70);
@@ -64,6 +66,7 @@ public class visaCardPage_OneG extends JFrame {
 
         JTextField vnameT = new JTextField();
         vnameT.setBounds(450, 130, 360, 40);
+        vnameT.setEditable(false);
         panel.add(vnameT);
 
         JLabel shi = new JLabel(rs.getString("vsdate"));
@@ -72,19 +75,42 @@ public class visaCardPage_OneG extends JFrame {
         shi.setBounds(200, 180, 360, 70);
         panel.add(shi);
 
-        JTextField vstateT = new JTextField();
-        vstateT.setBounds(450, 200, 360, 40);
-        panel.add(vstateT);
+        JTextField vsdateT = new JTextField();
+        vsdateT.setBounds(450, 200, 360, 40);
+        vsdateT.setEditable(false);
+        panel.add(vsdateT);
 
         JLabel zhong = new JLabel(rs.getString("vedate"));
+
         zhong.setForeground(Color.BLACK);
         zhong.setFont(new Font("微软雅黑", Font.BOLD, 27));
         zhong.setBounds(200, 260, 360, 70);
         panel.add(zhong);
 
-        JTextField vetateT = new JTextField();
-        vetateT.setBounds(450, 280, 360, 40);
-        panel.add(vetateT);
+        JTextField vedateT = new JTextField();
+        vedateT.setBounds(450, 280, 360, 40);
+        vedateT.setEditable(false);
+        panel.add(vedateT);
+
+        JLabel jid = new JLabel(rs.getString("cid"));
+        jid.setForeground(Color.BLACK);
+        jid.setFont(new Font("微软雅黑", Font.BOLD, 27));
+        jid.setBounds(200, 340, 360, 70);
+        panel.add(jid);
+
+        JTextField cidT = new JTextField();
+        cidT.setBounds(450, 360, 360, 40);
+        cidT.setEditable(false);
+        panel.add(cidT);
+
+        visaServiceImpl visaServiceImpl = new visaServiceImpl();
+        visa vtmp=visaServiceImpl.getStateOne();
+        if(vtmp!=null) {
+            cidT.setText(String.valueOf(vtmp.getCid()));
+            vsdateT.setText(vtmp.getVsdate());
+            vedateT.setText(vtmp.getVedate());
+            vnameT.setText(String.valueOf(vtmp.getVname()));
+        }
 
 
 
@@ -106,30 +132,58 @@ public class visaCardPage_OneG extends JFrame {
         x3.setBounds(170, 260, 360, 70);
         panel.add(x3);
 
+        JLabel x4 = new JLabel("|");
+        x4.setForeground(Color.cyan);
+        x4.setFont(new Font("微软雅黑", Font.BOLD, 36));
+        x4.setBounds(170, 340, 360, 70);
+        panel.add(x4);
 
-        JButton jb1=new JButton(rs.getString("listVisaPageR1"));
-        jb1.setBounds(350,400,360,70);
+
+        JButton jb1=new JButton(rs.getString("agreeVisa"));
+        jb1.setBounds(250,420,200,50);
         panel.add(jb1);
-        jb1.addActionListener(e->{
-          int vname= Integer.valueOf(vnameT.getText());
-          String vsdate=vstateT.getText();
-          String vedate=vetateT.getText();
-          int vstate=1;
 
-        LocalDateTime ldt= LocalDateTime.now();
-        long vid=0;
-        int s=ldt.getMinute();
-        int h=ldt.getHour();
-        int d=ldt.getDayOfMonth();
-        int m=ldt.getMonthValue();
-        int y=ldt.getYear();
-        String tmp=String.valueOf(cidBaseUtil.cid)+String.valueOf(y)+String.valueOf(m)+String.valueOf(d)+String.valueOf(h)+String.valueOf(s);
-        vid=Long.parseLong(tmp);
-            visaServiceImpl vsi=new visaServiceImpl();
-           int row=vsi.insert(cidBaseUtil.cid,vid,vname,vsdate,vedate,vstate);
-           if(row!=0){
-               warningPage.show(rs.getString("warningPageName"),rs.getString("warningPageTitle"));
-           }
+        JButton jb2=new JButton(rs.getString("disagreeVisa"));
+        jb2.setBounds(550,420,200,50);
+        panel.add(jb2);
+        jb1.addActionListener(e->{
+          if(vtmp!=null){
+              vtmp.setVstate(3);
+              visaServiceImpl.update(vtmp.getCid(),vtmp.getVid(),vtmp.getVname(), vtmp.getVsdate(), vtmp.getVedate(),3);
+          }
+            visa vtmp1=visaServiceImpl.getStateOne();
+            if(vtmp1!=null) {
+                vtmp.setCid(vtmp1.getCid());
+                vtmp.setVid(vtmp1.getVid());
+                vtmp.setVname(vtmp1.getVname());
+                vtmp.setVsdate(vtmp1.getVsdate());
+                vtmp.setVedate(vtmp1.getVedate());
+                vtmp.setVstate(vtmp1.getVstate());
+                cidT.setText(String.valueOf(vtmp.getCid()));
+                vsdateT.setText(vtmp.getVsdate());
+                vedateT.setText(vtmp.getVedate());
+                vnameT.setText(String.valueOf(vtmp.getVname()));
+            }
+        });
+        jb2.addActionListener(e->{
+            if(vtmp!=null){
+                vtmp.setVstate(2);
+                visaServiceImpl.update(vtmp.getCid(),vtmp.getVid(),vtmp.getVname(), vtmp.getVsdate(), vtmp.getVedate(),2);
+            }
+            visa vtmp1=visaServiceImpl.getStateOne();
+            if(vtmp1!=null) {
+                vtmp.setCid(vtmp1.getCid());
+                vtmp.setVid(vtmp1.getVid());
+                vtmp.setVname(vtmp1.getVname());
+                vtmp.setVsdate(vtmp1.getVsdate());
+                vtmp.setVedate(vtmp1.getVedate());
+                vtmp.setVstate(vtmp1.getVstate());
+                cidT.setText(String.valueOf(vtmp.getCid()));
+                vsdateT.setText(vtmp.getVsdate());
+                vedateT.setText(vtmp.getVedate());
+                vnameT.setText(String.valueOf(vtmp.getVname()));
+            }
+
         });
 
 

@@ -142,7 +142,7 @@ public class visaServiceImpl implements visaService {
     public visa getStateOne() {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneByState();
-        if(v==null) {
+        if(v!=null) {
             return v;
         }
         return null;

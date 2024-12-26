@@ -10,8 +10,8 @@ import java.util.List;
 public class workDaoImpl  extends BaseDaoImpl  implements workDao {
     @Override
     public int insert(work p) {
-        String sql="insert into work values(?,?,?,?,?,?,?,?)";
-        int row=executeUpdate(sql,p.getCid(),p.getWname(),p.getWlevel(),p.getWaddress(),p.getWcompany());
+        String sql="insert into work values(?,?,?,?,?)";
+        int row=executeUpdate(sql,p.getWname(),p.getWlevel(),p.getCid(),p.getWaddress(),p.getWcompany());
         return row;
     }
 

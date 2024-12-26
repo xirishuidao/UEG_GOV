@@ -189,7 +189,6 @@ public class zhuyemian_renminde extends JFrame {
 		ResourceBundle resourceBundle = LanguageUtil.rb;
 		zhuyemian_renminde frame = new zhuyemian_renminde(resourceBundle);
 		frame.setVisible(true);
-
 	}
 }
 

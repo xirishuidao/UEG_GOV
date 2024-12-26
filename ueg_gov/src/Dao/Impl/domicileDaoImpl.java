@@ -72,10 +72,20 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
 
     @Override
     public List<domicile> getmanyByMohu(String type, String context) {
-        String sql="select * from domicile where ? like ?";
-
+        String sql="select * from domicile";
+        if(type.equals("cname")){
+            sql="select * from domicile where cname like ?";
+        }else if(type.equals("cgender")){
+            sql="select * from domicile where cgender like ?";
+        }else if(type.equals("caddress")){
+            sql="select * from domicile where caddress like ?";
+        }else if(type.equals("cdegree")){
+            sql="select * from domicile where cdegree like ?";
+        }else if(type.equals("cdatetime")){
+            sql="select * from domicile where cdatetime like ?";
+        }
         List<domicile> domicileList1=new ArrayList<domicile>();
-        List<Object []> ob1=getMany(sql,type,"%"+context+"%");
+        List<Object []> ob1=getMany(sql,'%'+context+'%');
         for(Object [] o:ob1){
             domicile domicile1=new domicile();
             for(int i=0;i<o.length;i++){
@@ -86,7 +96,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                     case 3:domicile1.setCaddress((String)o[3]);break;
                     case 4:domicile1.setCcountry((int)o[4]);break;
                     case 5:domicile1.setCdegree((String)o[5]);break;
-                    case 6:domicile1.setCdatetime(o[5].toString());break;
+                    case 6:domicile1.setCdatetime(o[6].toString());break;
                 }
             }
             domicileList1.add(domicile1);

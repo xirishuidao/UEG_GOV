@@ -156,6 +156,9 @@ public class visaDaoImpl  extends BaseDaoImpl  implements visaDao {
         String sql="select * from visa where vstate=1 LIMIT 1";
         visa v1=new visa();
         Object [] ob1=getOne(sql);
+        if(ob1==null){
+            return null;
+        }
         for(int i=0;i<ob1.length;i++){
             switch(i){
                 case 0:v1.setCid((Long)ob1[i]);break;

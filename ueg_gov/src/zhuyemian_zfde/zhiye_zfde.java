@@ -138,7 +138,7 @@ public class zhiye_zfde extends JPanel {
             String waddressx= dizhi_.getText();
             String wcompanyx= danwei_.getText();
             String wlevelx= dengji_.getText();
-            workServiceImpl.insert(id,wnamex,waddressx,wcompanyx,wlevelx);
+            workServiceImpl.insert(id,wnamex,wlevelx,waddressx,wcompanyx);
         });
 
 
@@ -154,7 +154,7 @@ public class zhiye_zfde extends JPanel {
             String waddressx= dizhi_.getText();
             String wcompanyx= danwei_.getText();
             String wlevelx= dengji_.getText();
-            workServiceImpl.update(id,wnamex,waddressx,wcompanyx,wlevelx);
+            workServiceImpl.update(id,wnamex,wlevelx,waddressx,wcompanyx);
         });
 
         btnMoHuSearch.addActionListener(e -> {new zhiyemohuchaxun().setVisible(true);});

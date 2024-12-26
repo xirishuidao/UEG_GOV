@@ -56,7 +56,7 @@ public class visaCardPage_ManyG extends JPanel{
 
         this.add(scrollPane);
 
-        JButton btnChange1 = new JButton(rs.getString("listVisaPageR1"));
+        JButton btnChange1 = new JButton(rs.getString("listVisaPageG1"));
         btnChange1.setBounds(550, 630, 200, 50);
         this.add(btnChange1);
 

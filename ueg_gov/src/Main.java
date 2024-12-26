@@ -1,3 +1,4 @@
+import entity.country;
 import startPage.ChooseLanguagePage;
 import startPage.uegVideo;
 
@@ -7,11 +8,6 @@ public class Main{
         uegVideo.main(args);
         ChooseLanguagePage CL = new ChooseLanguagePage();
         CL.setVisible(true);
-
-
-
-
-
 
 
 

@@ -116,10 +116,16 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
 
     @Override
     public List<driving> getPart3(String a,String b) {
-        String sql = "select * from driving where ? like ?";
+        String sql = "select * from driving ";
+        if(a=="dtime"){
+             sql = "select * from driving where dtime like ?";
+        }else if(a=="dtype"){
+             sql = "select * from driving where dtype like ?";
+        }
+
         List<driving> drivingList;
 
-        List<Object []> obList= getMany(sql,a,"%"+b+"%");
+        List<Object []> obList= getMany(sql,'%'+b+'%');
         drivingList= new ArrayList<>();
         for(Object[] ob1:obList){
             driving driving1=new driving();

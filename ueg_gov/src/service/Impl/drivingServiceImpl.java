@@ -82,7 +82,7 @@ public class drivingServiceImpl implements drivingService {
     @Override
     public List<driving> findByDaddress(int daddress) {
         drivingDaoImpl dDI1 = new drivingDaoImpl();
-        List<driving> dlist1=dDI1.getPart1(daddress);
+        List<driving> dlist1=dDI1.getPart2(daddress);
         return dlist1;
     }
 
