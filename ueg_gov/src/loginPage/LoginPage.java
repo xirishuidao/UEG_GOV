@@ -1,13 +1,19 @@
 package loginPage;
 
 import main.pages.BackgroundPanel;
-
+import main.pages.warningPage;
+import service.Impl.citizenServiceImpl;
+import util.DataBaseUtil;
+import util.LanguageUtil;
+import util.cidBaseUtil;
+import zhuyemian.zhuyemian_renminde;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LoginPage extends JFrame {
@@ -49,6 +55,12 @@ public class LoginPage extends JFrame {
 			JPasswordField pf_pwd = new JPasswordField(28);
 			pf_pwd.setBounds(540, 400, 220, 30);
 			con.add(pf_pwd);
+
+			JLabel bo=new JLabel(rs.getString("powerBy"));
+			bo.setFont(new Font("微软雅黑", Font.BOLD, 15));
+			bo.setForeground(Color.white);
+			bo.setBounds(400, 700, 1300, 40);
+			con.add(bo);
 
 			// 添加显示/隐藏密码的复选框
 			JCheckBox showPasswordCheckBox = new JCheckBox("显示密码");
@@ -105,6 +117,8 @@ public class LoginPage extends JFrame {
 			btn_zhengfu.setBorderPainted(false);
 			btn_zhengfu.setBounds(763, 600, 120, 30);
 			add(btn_zhengfu);
+
+
 			//JLabel label3 = new JLabel("政府人员入口");
 			//JButton btn_root = new JButton("");
 			//label3.setBounds(586,360,220,100);
@@ -112,16 +126,22 @@ public class LoginPage extends JFrame {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	                // 在这里编写登录逻辑
-	                String username = tf_id.getText(); // 获取用户名
+	                long id =Long.parseLong(tf_id.getText()); // 获取用户名
 	                String password = new String(pf_pwd.getPassword()); // 获取密码
 
+					citizenServiceImpl csi = new citizenServiceImpl();
+					String pwd=csi.findpasswd(id);
+
 	                // 这里可以添加验证用户名和密码的逻辑
-	                if ("123".equals(username) && "123".equals(password)) {
-	                    JOptionPane.showMessageDialog(null, "登录成功！");
-						dispose(); // 关闭窗口
+	                if (pwd.equals(password)) {
+						cidBaseUtil cbu1 = new cidBaseUtil(id);
+					zhuyemian_renminde zr=new zhuyemian_renminde(rs);
+
+					dispose();
+
 
 	                } else {
-	                    JOptionPane.showMessageDialog(null, "用户名或密码错误！");
+						warningPage.show(rs.getString("LoginPageName"),rs.getString("LoginPageTitle"));
 	                }
 	            }
 	        });
@@ -152,10 +172,13 @@ public class LoginPage extends JFrame {
 
 
 			this.add(con);
+
+			setVisible(true);
 		}
 
 	public static void main(String[] args) {
-		ResourceBundle rs=ResourceBundle.getBundle("util.UEGLanguage_zh");
+		ResourceBundle rs=ResourceBundle.getBundle("util.UEGLanguage",new Locale("zh"));
+		LanguageUtil.rb=rs;
 		LoginPage frame = new LoginPage(rs);
 		frame.setVisible(true);
 	}

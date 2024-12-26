@@ -104,41 +104,59 @@ public class domicileServiceImpl implements domicileService {
     public String getcname(long cid) {
         domicileDaoImpl dao = new domicileDaoImpl();
         domicile d1=dao.getOneById(cid);
-        return d1.getCname();
+        if(d1!=null) {
+            return d1.getCname();
+        }
+        return null;
     }
 
     @Override
     public String getcaddress(long cid) {
         domicileDaoImpl dao = new domicileDaoImpl();
         domicile d1=dao.getOneById(cid);
-        return d1.getCaddress();
+        if(d1!=null) {
+            return d1.getCaddress();
+        }
+        return null;
     }
 
     @Override
     public int getccountry(long cid) {
         domicileDaoImpl dao = new domicileDaoImpl();
         domicile d1=dao.getOneById(cid);
-        return d1.getCcountry();
+        if(d1!=null) {
+            return d1.getCcountry();
+        }
+        return 0;
     }
 
     @Override
     public String getcdegree(long cid) {
         domicileDaoImpl dao = new domicileDaoImpl();
         domicile d1=dao.getOneById(cid);
-        return d1.getCdegree();
+        if(d1!=null) {
+            return d1.getCdegree();
+        }
+        return null;
     }
 
     @Override
     public String getcgender(long cid) {
         domicileDaoImpl dao = new domicileDaoImpl();
         domicile d1=dao.getOneById(cid);
-        return d1.getCgender();
+        if(d1!=null) {
+            return d1.getCgender();
+        }
+        return null;
     }
 
     @Override
     public String getcdatetime(long cid) {
         domicileDaoImpl dao = new domicileDaoImpl();
         domicile d1=dao.getOneById(cid);
-        return d1.getCdatetime();
+        if(d1!=null) {
+            return d1.getCdatetime();
+        }
+        return null;
     }
 }

@@ -21,4 +21,6 @@ public interface visaDao extends BaseDao{
     List<visa> getPart2(String a,int b);
 
     List<visa> getPart1(String a, String b);
+
+    visa getOneByState();
 }

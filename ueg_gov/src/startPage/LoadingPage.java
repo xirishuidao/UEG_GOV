@@ -63,7 +63,7 @@ public class LoadingPage extends JFrame {
                         loading.setText(rb.getString("finishCheck"));
                         Thread.sleep(2000);
 
-                        //setVisible(false);
+
                         LoginPage lp=new LoginPage(rb);
                         dispose();
 
@@ -117,17 +117,20 @@ public class LoadingPage extends JFrame {
         acTitle.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,40));
         acTitle.setForeground(Color.white);
         acTitle.setSize(new Dimension(500,50));
-        acTitle.setLocation(new Point(480,40));
+        acTitle.setLocation(new Point(600,40));
         jp.add(acTitle);
 
         JTextArea acText=new JTextArea(rb.getString("ANText"));
-        acText.setSize(new Dimension(1300,50));
-        acText.setLocation(new Point(220,150));
-        acText.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,35));
-        acText.setForeground(Color.white);
-        acText.setBackground(new Color(0,0,0,0));
+        acText.setSize(new Dimension(1200,250));
+        acText.setLocation(new Point(100,150));
+        acText.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,30));
+        acText.setForeground(new Color(255, 239, 182));
+        acText.setBackground(new Color(255,250,250,1));
         acText.setAutoscrolls(true);
         acText.setEditable(false);
+        // 启用自动换行
+        acText.setLineWrap(true); // 启用自动换行
+        //acText.setWrapStyleWord(true); // 按照单词边界换行
         jp.add(acText);
         JLabel loading=new JLabel(rb.getString("ResourceIsLoading"));
         loading.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,40));
@@ -139,7 +142,7 @@ public class LoadingPage extends JFrame {
         acBottle.setFont(new Font("HarmonyOS Sans SC",Font.PLAIN,15));
         acBottle.setForeground(Color.white);
         acBottle.setSize(new Dimension(1200,50));
-        acBottle.setLocation(new Point(400,700));
+        acBottle.setLocation(new Point(500,700));
         jp.add(acBottle);
         //创建一个最小值是0，最大值是100，当前值是20的进度条
         JProgressBar pgbar=new JProgressBar(0,100);
@@ -162,7 +165,7 @@ public class LoadingPage extends JFrame {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-    ResourceBundle rb=ResourceBundle.getBundle("util.UEGLanguage",new Locale("en"));
+    ResourceBundle rb=ResourceBundle.getBundle("util.UEGLanguage",new Locale("zh"));
     LoadingPage a= new LoadingPage(rb);
     }
 

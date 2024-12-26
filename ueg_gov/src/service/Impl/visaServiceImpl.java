@@ -6,6 +6,7 @@ import entity.visa;
 import service.visaService;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 public class visaServiceImpl implements visaService {
@@ -47,7 +48,7 @@ public class visaServiceImpl implements visaService {
     @Override
     public List<visa> findedate(String date) {
         visaDaoImpl impl = new visaDaoImpl();
-        List<visa> vl=impl.getPart1("vsdate",date);
+        List<visa> vl=impl.getPart1("vedate",date);
         return vl;
     }
 
@@ -91,36 +92,64 @@ public class visaServiceImpl implements visaService {
     public String getVsdate(long vid) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneById(vid);
-        return v.getVsdate();
+        if(v==null) {
+            return v.getVsdate();
+        }
+        return null;
     }
 
     @Override
     public String getVetate(long vid) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneById(vid);
-        return v.getVedate();
+        if(v==null) {
+            return v.getVedate();
+        }
+        return null;
     }
 
     @Override
     public long getCid(long vid) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneById(vid);
-        return v.getCid();
+        if(v==null) {
+            return v.getCid();
+        }
+        return 0;
     }
 
     @Override
     public int getVname(long vid) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneById(vid);
-        return v.getVname();
+        if(v==null) {
+            return v.getVname();
+        }
+        return 0;
     }
 
     @Override
     public int getVstate(long vid) {
         visaDaoImpl impl = new visaDaoImpl();
         visa v=impl.getOneById(vid);
-        return v.getVstate();
+        if(v==null) {
+            return v.getVstate();
+        }
+        return 0;
     }
+
+    @Override
+    public visa getStateOne() {
+        visaDaoImpl impl = new visaDaoImpl();
+        visa v=impl.getOneByState();
+        if(v==null) {
+            return v;
+        }
+        return null;
+    }
+
+
+
 
 
     /*
@@ -150,13 +179,15 @@ public class visaServiceImpl implements visaService {
             LocalDate b=LocalDate.parse(lb.get(i)[3].toString());
             LocalDate c=LocalDate.parse(lb.get(i)[4].toString());
             int s=(int)lb.get(i)[5];
+            int row=0;
             if(b.isBefore(a)&&s==3){
                 s=4;
             }
-            if(c.isBefore(a)&&(s==4||s==3)){
-                s=5;
+            if(c.isBefore(a)){
+                deletev((Long)lb.get(i)[1]);
+            }else {
+                 row = impl.executeUpdate(sql, s, lb.get(i)[1]);
             }
-            int row= impl.executeUpdate(sql,s,lb.get(i)[1]);
             if(row>1){
                 return false;
             }

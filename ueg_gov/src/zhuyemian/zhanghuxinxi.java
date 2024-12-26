@@ -85,15 +85,17 @@ public class zhanghuxinxi extends JPanel {
         JButton change = new JButton("change");
         change.setBounds(550, 500, 150, 50);
         change.addActionListener(e->{
-          long cid=Long.parseLong(ID_.getText());
-          String cname=xingming_.getText();
-          String cpwd=mima_.getText();
-           int row=impl.update(cid,cname,cpwd);
-            System.out.println(row);
-           if(row==-1){
-               warningPage.show(  LanguageUtil.rb.getString("warningPageTitle"),LanguageUtil.rb.getString("warningPageName"));
-           }
-
+            if(ID_.getText().equals("")){}
+            else {
+                long cid = Long.parseLong(ID_.getText());
+                String cname = xingming_.getText();
+                String cpwd = mima_.getText();
+                int row = impl.update(cid, cname, cpwd);
+                System.out.println(row);
+                if (row == -1) {
+                    warningPage.show(LanguageUtil.rb.getString("warningPageTitle"), LanguageUtil.rb.getString("warningPageName"));
+                }
+            }
         });
         add(change);
 

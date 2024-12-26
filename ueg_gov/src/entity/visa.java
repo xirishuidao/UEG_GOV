@@ -13,7 +13,7 @@ public class visa {
 
     public visa() {}
 
-    public visa(long cid,  long vid,int vname, String vedate, String vsdate, int vstate) {
+    public visa(long cid,  long vid,int vname, String vsdate, String vedate, int vstate) {
         this.cid = cid;
         this.vname = vname;
         this.vid = vid;
