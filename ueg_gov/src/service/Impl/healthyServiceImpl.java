@@ -109,56 +109,80 @@ public class healthyServiceImpl implements healthyService {
     public String getCboold(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getCblood();
+        if(h1!=null) {
+            return h1.getCblood();
+        }
+        return null;
     }
 
     @Override
     public String getCdisease1(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getCdisease1();
+        if(h1!=null) {
+            return h1.getCdisease1();
+        }
+        return null;
     }
 
     @Override
     public String getCdisease2(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getCdisease2();
+        if(h1!=null) {
+            return h1.getCdisease2();
+        }
+        return null;
     }
 
     @Override
     public int getCcode(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getCcode();
+        if(h1!=null) {
+            return h1.getCcode();
+        }
+        return 0;
     }
 
     @Override
     public int getChandicapped(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getChandicapped();
+        if(h1!=null) {
+            return h1.getChandicapped();
+        }
+        return 0;
     }
 
     @Override
     public double getCheight(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getCheight();
+        if(h1!=null) {
+            return h1.getCheight();
+        }
+        return 0;
     }
 
     @Override
     public double getCveight(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getCveight();
+        if(h1!=null) {
+            return h1.getCveight();
+        }
+        return 0;
     }
 
     @Override
     public String getCgender(long cid) {
         healthyDaoImpl hdi1 = new healthyDaoImpl();
         healthy h1 =hdi1.getOneById(cid);
-        return h1.getCgender();
+        if(h1!=null) {
+            return h1.getCgender();
+        }
+        return null;
     }
 
 

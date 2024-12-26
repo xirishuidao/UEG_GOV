@@ -11,14 +11,20 @@ public class administerServiceImpl implements administerService {
     public String findPassword(long aid) {
         administerDaoImpl administerDaoImpl1 = new administerDaoImpl();
        administer a=administerDaoImpl1.getOneById(aid);
-        return a.getApwd();
+       if(a!=null) {
+           return a.getApwd();
+       }
+       return null;
     }
 
     @Override
     public String findName(long aid) {
         administerDaoImpl administerDaoImpl1 = new administerDaoImpl();
         administer a=administerDaoImpl1.getOneById(aid);
-        return a.getAname();
+        if(a!=null) {
+            return a.getAname();
+        }
+        return null;
     }
 
     @Override

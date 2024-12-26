@@ -53,5 +53,8 @@ public interface visaService {
 
     int getVstate(long vid);
 
+    //审批专用
+
+    visa getStateOne();
 
 }

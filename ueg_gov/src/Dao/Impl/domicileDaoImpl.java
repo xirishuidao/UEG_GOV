@@ -38,27 +38,46 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
         String sql="select * from domicile where cid=?";
         domicile domicile1=new domicile();
         Object [] ob1=getOne(sql,cid);
-        for(int i=0;i<ob1.length;i++){
-            switch(i){
-                case 0:domicile1.setCid((long)ob1[0]);break;
-                case 1:domicile1.setCname((String)ob1[1]);break;
-                case 2:domicile1.setCgender((String)ob1[2]);break;
-                case 3:domicile1.setCaddress((String)ob1[3]);break;
-                case 4:domicile1.setCcountry((int)ob1[4]);break;
-                case 5:domicile1.setCdegree((String)ob1[5]);break;
-                case 6:domicile1.setCdatetime((String) ob1[5]);break;
+        if(ob1==null){
+            return null;
+        }else {
+            for (int i = 0; i < ob1.length; i++) {
+                switch (i) {
+                    case 0:
+                        domicile1.setCid((long) ob1[0]);
+                        break;
+                    case 1:
+                        domicile1.setCname((String) ob1[1]);
+                        break;
+                    case 2:
+                        domicile1.setCgender((String) ob1[2]);
+                        break;
+                    case 3:
+                        domicile1.setCaddress((String) ob1[3]);
+                        break;
+                    case 4:
+                        domicile1.setCcountry((int) ob1[4]);
+                        break;
+                    case 5:
+                        domicile1.setCdegree((String) ob1[5]);
+                        break;
+                    case 6:
+                        domicile1.setCdatetime(ob1[5].toString());
+                        break;
+                }
             }
+            return domicile1;
         }
-        return  domicile1;
     }
 
     @Override
     public List<domicile> getmanyByMohu(String type, String context) {
         String sql="select * from domicile where ? like ?";
-        domicile domicile1=new domicile();
+
         List<domicile> domicileList1=new ArrayList<domicile>();
         List<Object []> ob1=getMany(sql,type,"%"+context+"%");
         for(Object [] o:ob1){
+            domicile domicile1=new domicile();
             for(int i=0;i<o.length;i++){
                 switch(i){
                     case 0:domicile1.setCid((long)o[0]);break;
@@ -67,7 +86,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                     case 3:domicile1.setCaddress((String)o[3]);break;
                     case 4:domicile1.setCcountry((int)o[4]);break;
                     case 5:domicile1.setCdegree((String)o[5]);break;
-                    case 6:domicile1.setCdatetime((String) o[5]);break;
+                    case 6:domicile1.setCdatetime(o[5].toString());break;
                 }
             }
             domicileList1.add(domicile1);
@@ -78,10 +97,11 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
     @Override
     public List<domicile> getmanyByCountry(int country) {
         String sql="select * from domicile where ccountry = ?";
-        domicile domicile1=new domicile();
+
         List<domicile> domicileList1=new ArrayList<domicile>();
         List<Object []> ob1=getMany(sql,country);
         for(Object [] o:ob1){
+            domicile domicile1=new domicile();
             for(int i=0;i<o.length;i++){
                 switch(i){
                     case 0:domicile1.setCid((long)o[0]);break;
@@ -90,7 +110,7 @@ public class domicileDaoImpl extends BaseDaoImpl implements domicileDao {
                     case 3:domicile1.setCaddress((String)o[3]);break;
                     case 4:domicile1.setCcountry((int)o[4]);break;
                     case 5:domicile1.setCdegree((String)o[5]);break;
-                    case 6:domicile1.setCdatetime((String) o[5]);break;
+                    case 6:domicile1.setCdatetime(o[5].toString());break;
                 }
             }
             domicileList1.add(domicile1);

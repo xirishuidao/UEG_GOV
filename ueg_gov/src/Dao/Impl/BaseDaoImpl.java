@@ -31,7 +31,6 @@ public class BaseDaoImpl implements BaseDao {
             }
             rows = ps.executeUpdate();
         } catch (Exception ex) {
-            ex.printStackTrace();
             return -1;
         } finally {
             DataBaseUtil.close(null, ps, con);
@@ -61,12 +60,19 @@ public class BaseDaoImpl implements BaseDao {
             int count=rs.getMetaData().getColumnCount();
             data=new Object[count];
 
+
+            boolean num=true;
             if (rs.next()) {
                 for(int i=0;i<count;i++) {
                     data[i]=rs.getObject(i+1);
                 }
+                num=false;
+            }
+            if(num==true) {
+                return null;
             }
         } catch (SQLException e) {
+            e.printStackTrace();
            return null;
         } finally {
             DataBaseUtil.close(rs, ps, con);

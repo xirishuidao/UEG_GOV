@@ -44,31 +44,45 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
         String sql = "select * from driving where did = ?";
         driving driving1=new driving();
         Object [] ob1= getOne(sql,did);
-        for(int i=0;i<ob1.length;i++){
-            switch(i){
-                case 0:driving1.setDid((Long)ob1[i]);break;
-                case 1:driving1.setDtype((String)ob1[i]);break;
-                case 2:driving1.setDtime((String) ob1[i]);break;
-                case 3:driving1.setCid((Long)ob1[i]);break;
-                case 4:driving1.setDaddress((int)ob1[i]);break;
+        if(ob1==null){
+            return null;
+        }else {
+            for (int i = 0; i < ob1.length; i++) {
+                switch (i) {
+                    case 0:
+                        driving1.setDid((Long) ob1[i]);
+                        break;
+                    case 1:
+                        driving1.setDtype((String) ob1[i]);
+                        break;
+                    case 2:
+                        driving1.setDtime(ob1[i].toString());
+                        break;
+                    case 3:
+                        driving1.setCid((Long) ob1[i]);
+                        break;
+                    case 4:
+                        driving1.setDaddress((int) ob1[i]);
+                        break;
+                }
             }
+            return driving1;
         }
-        return driving1;
     }
 
     @Override
     public List<driving> getPart1(long cid) {
         String sql = "select * from driving where cid = ?";
         List<driving> drivingList;
-        driving driving1=new driving();
         List<Object []> obList= getMany(sql,cid);
         drivingList= new ArrayList<>();
         for(Object[] ob1:obList){
+            driving driving1=new driving();
             for(int i=0;i<ob1.length;i++){
                 switch(i){
                     case 0:driving1.setDid((Long)ob1[i]);break;
                     case 1:driving1.setDtype((String)ob1[i]);break;
-                    case 2:driving1.setDtime((String) ob1[i]);break;
+                    case 2:driving1.setDtime(ob1[i].toString());break;
                     case 3:driving1.setCid((Long)ob1[i]);break;
                     case 4:driving1.setDaddress((int)ob1[i]);break;
                 }
@@ -82,15 +96,15 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
     public List<driving> getPart2(int daddress){
         String sql = "select * from driving where daddress = ?";
         List<driving> drivingList;
-        driving driving1=new driving();
         List<Object []> obList= getMany(sql,daddress);
         drivingList= new ArrayList<>();
         for(Object[] ob1:obList){
+            driving driving1=new driving();
             for(int i=0;i<ob1.length;i++){
                 switch(i){
                     case 0:driving1.setDid((Long)ob1[i]);break;
                     case 1:driving1.setDtype((String)ob1[i]);break;
-                    case 2:driving1.setDtime((String) ob1[i]);break;
+                    case 2:driving1.setDtime(ob1[i].toString());break;
                     case 3:driving1.setCid((Long)ob1[i]);break;
                     case 4:driving1.setDaddress((int)ob1[i]);break;
                 }
@@ -104,15 +118,16 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
     public List<driving> getPart3(String a,String b) {
         String sql = "select * from driving where ? like ?";
         List<driving> drivingList;
-        driving driving1=null;
+
         List<Object []> obList= getMany(sql,a,"%"+b+"%");
         drivingList= new ArrayList<>();
         for(Object[] ob1:obList){
+            driving driving1=new driving();
             for(int i=0;i<ob1.length;i++){
                 switch(i){
                     case 0:driving1.setDid((Long)ob1[i]);break;
                     case 1:driving1.setDtype((String)ob1[i]);break;
-                    case 2:driving1.setDtime((String) ob1[i]);break;
+                    case 2:driving1.setDtime( ob1[i].toString());break;
                     case 3:driving1.setCid((Long)ob1[i]);break;
                     case 4:driving1.setDaddress((int)ob1[i]);break;
                 }

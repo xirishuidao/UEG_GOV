@@ -90,27 +90,39 @@ public class drivingServiceImpl implements drivingService {
     public String getDtype(long did) {
         drivingDaoImpl dDI1 = new drivingDaoImpl();
         driving d1=dDI1.getOneById(did);
-        return d1.getDtype();
+        if(d1!=null) {
+            return d1.getDtype();
+        }
+        return null;
     }
 
     @Override
     public long getCid(long did) {
         drivingDaoImpl dDI1 = new drivingDaoImpl();
         driving d1=dDI1.getOneById(did);
-        return d1.getCid();
+        if(d1!=null) {
+            return d1.getCid();
+        }
+        return 0;
     }
 
     @Override
     public String getDtime(long did) {
         drivingDaoImpl dDI1 = new drivingDaoImpl();
         driving d1=dDI1.getOneById(did);
-        return d1.getDtime();
+        if(d1!=null) {
+            return d1.getDtime();
+        }
+        return null;
     }
 
     @Override
     public int getDaddress(long did) {
         drivingDaoImpl dDI1 = new drivingDaoImpl();
         driving d1=dDI1.getOneById(did);
-        return d1.getDaddress();
+        if(d1!=null) {
+            return d1.getDaddress();
+        }
+        return 0;
     }
 }

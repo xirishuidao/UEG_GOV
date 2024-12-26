@@ -29,7 +29,7 @@ public class citizenServiceImpl implements citizenService {
     }
 
     @Override
-    public int update(long cid, String cpwd, String cname) {
+    public int update(long cid, String cname, String cpwd) {
         cpwd = cpwd.equals("") ? findpasswd(cid) : cpwd;
         cname = cname.equals("") ? findname(cid) : cname;
 
@@ -48,13 +48,19 @@ public class citizenServiceImpl implements citizenService {
     public String findpasswd(long cid) {
         citizenDaoImpl impl = new citizenDaoImpl();
     citizen c= impl.getOneById(cid);
-    return c.getCpwd();
+    if(c!=null) {
+        return c.getCpwd();
+    }
+    return null;
     }
 
     @Override
     public String findname(long cid) {
         citizenDaoImpl impl = new citizenDaoImpl();
         citizen c= impl.getOneById(cid);
-        return c.getCname();
+        if(c!=null) {
+            return c.getCname();
+        }
+        return null;
     }
 }
