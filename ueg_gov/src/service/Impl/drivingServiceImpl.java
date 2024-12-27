@@ -46,7 +46,7 @@ public class drivingServiceImpl implements drivingService {
         daddress = daddress==0?getDaddress(did):daddress;
         drivingDaoImpl dDI1 = new drivingDaoImpl();
         driving d=new driving(did,dtype,dtime, cid, daddress);
-        int row=dDI1.insert(d);
+        int row=dDI1.update(d);
         row = row==1?0:-1;
         return row;
     }

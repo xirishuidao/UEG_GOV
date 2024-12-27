@@ -1,5 +1,6 @@
 package zhuyemian_zfde;
 
+import main.pages.BackgroundPanel;
 import util.DataBaseUtil;
 import util.LanguageUtil;
 import zhuyemian.*;
@@ -15,7 +16,6 @@ import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
 public class zhuyemian_zhengfurenyuan extends JFrame {
 
     private CardLayout cardLayout;
@@ -27,6 +27,7 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle(rs.getString("PageTitle"));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
 
         JPanel container = new JPanel();
         container.setLayout(new BorderLayout());
@@ -46,8 +47,12 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
 
         JPanel SOUTHPanel = new JPanel();
         container.add(SOUTHPanel, BorderLayout.SOUTH);
-        SOUTHPanel.setPreferredSize(new Dimension(100,100));
-        SOUTHPanel.setBackground(Color.GRAY);
+        SOUTHPanel.setPreferredSize(new Dimension(1360,100));
+        SOUTHPanel.setBackground(Color.white);
+        JLabel j1=new JLabel(rs.getString("powerBy"));
+        j1.setBounds(300,30,500,50);
+        SOUTHPanel.add(j1);
+
 
         // 创建卡片布局面板
         cardLayout = new CardLayout();
@@ -79,7 +84,10 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
         jiankang_zfde jiankangXinxi = new jiankang_zfde();
         cardPanel.add(jiankangXinxi, "Card6");
 
-
+        BackgroundPanel jc1=new BackgroundPanel("/main/resource/main_back.png");
+        jc1.setBounds(0,0,1200,600);
+        jc1.setBackground(Color.white);
+        cardPanel.add(jc1, "Card0");
 
         // 加载图片并创建JLabel显示图片
         InputStream imageStream1 = getClass().getResourceAsStream("/main/resource/ueg_gov_p.png");
@@ -107,14 +115,14 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
         JLabel imageLabel2 = new JLabel(newIcon2);
 
         // 添加菜单和菜单项
-        String menu[] = {"账户信息", "个人信息", "职业信息", "驾驶证信息",rs.getString("listVisaPageR0"), "健康信息"};
+        String menu[] = {rs.getString("listCitizenPageR0"),rs.getString("listDomiPageR0"),rs.getString("listWorkPageR0"),rs.getString("listDriPageR0"),rs.getString("listVisaPageR0"),rs.getString("listHealthyPageR0")};
         String itmenu[][]= {
-                {"ID","姓名"},
-                {"身份证号","真实姓名","性别","国家地区","户籍地址","学历信息","出生年月"},
-                {"任职信息","工作地址","单位","职业等级"},
-                {"驾驶证号","种类","注册时间","注册地点"},
+                {rs.getString("cid"),rs.getString("cname")},
+                {rs.getString("cid"),rs.getString("cname"),rs.getString("cgender"),rs.getString("caddress"),rs.getString("cdegree"),rs.getString("ctime")},
+                {rs.getString("wname"),rs.getString("wlevel"),rs.getString("waddress"),rs.getString("wcompany")},
+                {rs.getString("did"),rs.getString("dtype"),rs.getString("daddress"),rs.getString("dtime")},
                 {rs.getString("listVisaPageG1"),rs.getString("listVisaPageR2")},
-                {"血型","性别","身高","体重","残疾等级","疾病等"},
+                {rs.getString("cblood"),rs.getString("cheight"),rs.getString("cveight"),rs.getString("cgender")},
         };
         // 创建菜单栏
         JMenuBar menuBar = new JMenuBar();
@@ -153,6 +161,10 @@ public class zhuyemian_zhengfurenyuan extends JFrame {
         panel1.add(Box.createHorizontalStrut(78));
         panel1.add(imageLabel2);
 
+
+        cardLayout.show(cardPanel, "Card0");
+
+        setVisible(true);
 
     }
 

@@ -1,63 +1,66 @@
 package zhuyemian_zfde;
 
 import service.Impl.workServiceImpl;
+import util.LanguageUtil;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ResourceBundle;
 
 
 public class zhiye_zfde extends JPanel {
 
     public zhiye_zfde() {
+        ResourceBundle rs= LanguageUtil.rb;
         workServiceImpl workServiceImpl = new workServiceImpl();
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
         setBackground(Color.white);
 
-        JLabel zhiye = new JLabel("职业信息");
+        JLabel zhiye = new JLabel(rs.getString("listWorkPageR0"));
         zhiye.setForeground(Color.BLACK);
         zhiye.setFont(new Font("微软雅黑", Font.BOLD + Font.ITALIC, 34));
         zhiye.setBounds(460, 10, 360, 70);
         add(zhiye);
 
-        JLabel renzhi = new JLabel("任职信息:");
+        JLabel renzhi = new JLabel(rs.getString("wname"));
         renzhi.setForeground(Color.BLACK);
         renzhi.setFont(new Font("微软雅黑", Font.BOLD, 27));
         renzhi.setBounds(70, 100, 360, 70);
         add(renzhi);
 
         JTextField renzhi_ = new JTextField();
-        renzhi_.setBounds(240, 120, 360, 40);
+        renzhi_.setBounds(440, 120, 360, 40);
         add(renzhi_);
 
-        JLabel dizhi = new JLabel("工作地址:");
+        JLabel dizhi = new JLabel(rs.getString("waddress"));
         dizhi.setForeground(Color.BLACK);
         dizhi.setFont(new Font("微软雅黑", Font.BOLD, 27));
         dizhi.setBounds(70, 200, 360, 70);
         add(dizhi);
 
         JTextField dizhi_ = new JTextField();
-        dizhi_.setBounds(240, 220, 360, 40);
+        dizhi_.setBounds(440, 220, 360, 40);
         add(dizhi_);
 
-        JLabel danwei = new JLabel("单位:");
+        JLabel danwei = new JLabel(rs.getString("wcompany"));
         danwei.setForeground(Color.BLACK);
         danwei.setFont(new Font("微软雅黑", Font.BOLD, 27));
         danwei.setBounds(70, 300, 360, 70);
         add(danwei);
 
         JTextField danwei_ = new JTextField();
-        danwei_.setBounds(240, 320, 360, 40);
+        danwei_.setBounds(440, 320, 360, 40);
         add(danwei_);
 
-        JLabel dengji = new JLabel("职业等级:");
+        JLabel dengji = new JLabel(rs.getString("wlevel"));
         dengji.setForeground(Color.BLACK);
         dengji.setFont(new Font("微软雅黑", Font.BOLD, 27));
         dengji.setBounds(70, 393, 360, 70);
         add(dengji);
 
         JTextField dengji_ = new JTextField();
-        dengji_.setBounds(240, 417, 360, 40);
+        dengji_.setBounds(440, 417, 360, 40);
         add(dengji_);
 
         JLabel x1 = new JLabel("|");
@@ -84,14 +87,14 @@ public class zhiye_zfde extends JPanel {
         x4.setBounds(36, 400, 360, 70);
         add(x4);
 
-        JLabel shenfenzhenghao = new JLabel("身份证号:");
+        JLabel shenfenzhenghao = new JLabel(rs.getString("cid"));
         shenfenzhenghao.setForeground(Color.BLACK);
         shenfenzhenghao.setFont(new Font("微软雅黑", Font.BOLD, 27));
         shenfenzhenghao.setBounds(70, 499, 360, 70);
         add(shenfenzhenghao);
 
         JTextField shenfenzhenghao_ = new JTextField();
-        shenfenzhenghao_.setBounds(240, 516, 360, 40);
+        shenfenzhenghao_.setBounds(440, 516, 360, 40);
         add(shenfenzhenghao_);
 
         JLabel x5 = new JLabel("|");
@@ -101,19 +104,19 @@ public class zhiye_zfde extends JPanel {
         add(x5);
 
 
-        JButton btnSearch = new JButton("查询");
+        JButton btnSearch = new JButton(rs.getString("query"));
         btnSearch.setBounds(200, 630, 100, 30);
         add(btnSearch);
 
-        JButton btnAdd = new JButton("插入");
+        JButton btnAdd = new JButton(rs.getString("insert"));
         btnAdd.setBounds(350, 630, 100, 30);
         add(btnAdd);
 
-        JButton btnDelete = new JButton("删除");
+        JButton btnDelete = new JButton(rs.getString("delete"));
         btnDelete.setBounds(500, 630, 100, 30);
         add(btnDelete);
 
-        JButton btnUpdate = new JButton("更新");
+        JButton btnUpdate = new JButton(rs.getString("update"));
         btnUpdate.setBounds(650, 630, 100, 30);
         add(btnUpdate);
 

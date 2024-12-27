@@ -1,6 +1,7 @@
 package zhuyemian_zfde;
 
 import service.Impl.domicileServiceImpl;
+import util.LanguageUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.util.ResourceBundle;
 
 public class gerenxinxi_zfde extends JPanel {
 
@@ -18,81 +20,83 @@ public class gerenxinxi_zfde extends JPanel {
         setPreferredSize(new Dimension(700, 600));
         setBackground(Color.white);
 
+        ResourceBundle rs= LanguageUtil.rb;
+
         // 添加个人信息标签
-        JLabel gerenxinxi = new JLabel("个人信息");
+        JLabel gerenxinxi = new JLabel(rs.getString("listDomiPageR0"));
         gerenxinxi.setForeground(Color.BLACK);
         gerenxinxi.setFont(new Font("微软雅黑", Font.BOLD+Font.ITALIC, 34));
         gerenxinxi.setBounds(460, 10, 360, 70);
         add(gerenxinxi);
 
-        JLabel shenfenzhenghao = new JLabel("身份证号:");
+        JLabel shenfenzhenghao = new JLabel(rs.getString("cid"));
         shenfenzhenghao.setForeground(Color.BLACK);
         shenfenzhenghao.setFont(new Font("微软雅黑", Font.BOLD, 27));
         shenfenzhenghao.setBounds(70, 70, 360, 70);
         add(shenfenzhenghao);
 
         JTextField shenfenzhenghao_ = new JTextField();
-        shenfenzhenghao_.setBounds(240, 90, 360, 40);
+        shenfenzhenghao_.setBounds(440, 90, 360, 40);
         add(shenfenzhenghao_);
 
-        JLabel xingming = new JLabel("真实姓名:");
+        JLabel xingming = new JLabel(rs.getString("cname"));
         xingming.setForeground(Color.BLACK);
         xingming.setFont(new Font("微软雅黑", Font.BOLD, 27));
         xingming.setBounds(70, 130, 360, 70);
         add(xingming);
 
         JTextField xingming_ = new JTextField();
-        xingming_.setBounds(240, 150, 360, 40);
+        xingming_.setBounds(440, 150, 360, 40);
         add(xingming_);
 
-        JLabel xingbie = new JLabel("性别:");
+        JLabel xingbie = new JLabel(rs.getString("cgender"));
         xingbie.setForeground(Color.BLACK);
         xingbie.setFont(new Font("微软雅黑", Font.BOLD, 27));
         xingbie.setBounds(70, 190, 360, 70);
         add(xingbie);
 
         JTextField xingbie_ = new JTextField();
-        xingbie_.setBounds(240, 209, 360, 40);
+        xingbie_.setBounds(440, 209, 360, 40);
         add(xingbie_);
 
-        JLabel nianyue = new JLabel("出生年月:");
+        JLabel nianyue = new JLabel(rs.getString("ctime"));
         nianyue.setForeground(Color.BLACK);
         nianyue.setFont(new Font("微软雅黑", Font.BOLD, 27));
         nianyue.setBounds(70, 250, 360, 70);
         add(nianyue);
 
         JTextField nianyue_ = new JTextField();
-        nianyue_.setBounds(240, 270, 360, 40);
+        nianyue_.setBounds(440, 270, 360, 40);
         add(nianyue_);
 
-        JLabel huji = new JLabel("户籍地址:");
+        JLabel huji = new JLabel(rs.getString("caddress"));
         huji.setForeground(Color.BLACK);
         huji.setFont(new Font("微软雅黑", Font.BOLD, 27));
         huji.setBounds(70, 313, 360, 70);
         add(huji);
 
         JTextField huji_ = new JTextField();
-        huji_.setBounds(240, 330, 360, 40);
+        huji_.setBounds(440, 330, 360, 40);
         add(huji_);
 
-        JLabel xueli = new JLabel("学历:");
+        JLabel xueli = new JLabel(rs.getString("cdegree"));
         xueli.setForeground(Color.BLACK);
         xueli.setFont(new Font("微软雅黑", Font.BOLD, 27));
         xueli.setBounds(70, 370, 360, 70);
         add(xueli); 
 
         JTextField xueli_ = new JTextField();
-        xueli_.setBounds(240, 390, 360, 40);
+        xueli_.setBounds(440, 390, 360, 40);
         add(xueli_);
 
-        JLabel diqu = new JLabel("国家地区:");
+        JLabel diqu = new JLabel(rs.getString("ccountry"));
         diqu.setForeground(Color.BLACK);
         diqu.setFont(new Font("微软雅黑", Font.BOLD, 27));
         diqu.setBounds(70, 443, 360, 70);
         add(diqu);
 
         JTextField diqu_ = new JTextField();
-        diqu_.setBounds(240, 463, 360, 40);
+        diqu_.setBounds(440, 463, 360, 40);
         add(diqu_);
 
         JLabel x1 = new JLabel("|");
@@ -137,23 +141,23 @@ public class gerenxinxi_zfde extends JPanel {
         x7.setBounds(36, 443, 360, 70);
         add(x7);
 
-        JButton btnSearch = new JButton("查询");
+        JButton btnSearch = new JButton(rs.getString("query"));
         btnSearch.setBounds(200, 540, 100, 30);
         add(btnSearch);
 
-        JButton btnAdd = new JButton("插入");
+        JButton btnAdd = new JButton(rs.getString("insert"));
         btnAdd.setBounds(350, 540, 100, 30);
         add(btnAdd);
 
-        JButton btnDelete = new JButton("删除");
+        JButton btnDelete = new JButton(rs.getString("delete"));
         btnDelete.setBounds(500, 540, 100, 30);
         add(btnDelete);
 
-        JButton btnUpdate = new JButton("更新");
+        JButton btnUpdate = new JButton(rs.getString("update"));
         btnUpdate.setBounds(650, 540, 100, 30);
         add(btnUpdate);
 
-        JButton btnMoHuSearch = new JButton("模糊查询");
+        JButton btnMoHuSearch = new JButton(rs.getString("mohu"));
         btnMoHuSearch.setBounds(801, 540, 100, 30);
         add(btnMoHuSearch);
 

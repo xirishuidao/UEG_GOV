@@ -52,7 +52,7 @@ public class workServiceImpl implements workService {
         c.setWcompany(wcompany);
 
         workDaoImpl impl = new workDaoImpl();
-        int row=impl.insert(c);
+        int row=impl.update(c);
         row = row==1?0:-1;
         return row;
     }

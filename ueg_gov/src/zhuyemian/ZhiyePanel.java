@@ -1,66 +1,68 @@
 package zhuyemian;
 
 import service.Impl.workServiceImpl;
+import util.LanguageUtil;
 import util.cidBaseUtil;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ResourceBundle;
 
 public class ZhiyePanel extends JPanel {
 
     public ZhiyePanel() {
 
-
+        ResourceBundle rs= LanguageUtil.rb;
 
 
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
         setBackground(Color.white);
 
-        JLabel zhiye = new JLabel("职业信息");
+        JLabel zhiye = new JLabel(rs.getString("listWorkPageR0"));
         zhiye.setForeground(Color.BLACK);
         zhiye.setFont(new Font("微软雅黑", Font.BOLD + Font.ITALIC, 34));
         zhiye.setBounds(460, 10, 360, 70);
         add(zhiye);
 
-        JLabel renzhi = new JLabel("任职信息:");
+        JLabel renzhi = new JLabel(rs.getString("wname"));
         renzhi.setForeground(Color.BLACK);
         renzhi.setFont(new Font("微软雅黑", Font.BOLD, 27));
         renzhi.setBounds(70, 100, 360, 70);
         add(renzhi);
 
         JTextField renzhi_ = new JTextField();
-        renzhi_.setBounds(240, 120, 360, 40);
+        renzhi_.setBounds(440, 120, 360, 40);
         add(renzhi_);
 
-        JLabel dizhi = new JLabel("工作地址:");
+        JLabel dizhi = new JLabel(rs.getString("waddress"));
         dizhi.setForeground(Color.BLACK);
         dizhi.setFont(new Font("微软雅黑", Font.BOLD, 27));
         dizhi.setBounds(70, 200, 360, 70);
         add(dizhi);
 
         JTextField dizhi_ = new JTextField();
-        dizhi_.setBounds(240, 220, 360, 40);
+        dizhi_.setBounds(440, 220, 360, 40);
         add(dizhi_);
 
-        JLabel danwei = new JLabel("单位:");
+        JLabel danwei = new JLabel(rs.getString("wcompany"));
         danwei.setForeground(Color.BLACK);
         danwei.setFont(new Font("微软雅黑", Font.BOLD, 27));
         danwei.setBounds(70, 300, 360, 70);
         add(danwei);
 
         JTextField danwei_ = new JTextField();
-        danwei_.setBounds(240, 320, 360, 40);
+        danwei_.setBounds(440, 320, 360, 40);
         add(danwei_);
 
-        JLabel dengji = new JLabel("职业等级:");
+        JLabel dengji = new JLabel(rs.getString("wlevel"));
         dengji.setForeground(Color.BLACK);
         dengji.setFont(new Font("微软雅黑", Font.BOLD, 27));
         dengji.setBounds(70, 393, 360, 70);
         add(dengji);
 
         JTextField dengji_ = new JTextField();
-        dengji_.setBounds(240, 419, 360, 40);
+        dengji_.setBounds(440, 419, 360, 40);
         add(dengji_);
 
         JLabel x1 = new JLabel("|");

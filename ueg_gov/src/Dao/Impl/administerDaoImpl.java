@@ -19,7 +19,7 @@ public class administerDaoImpl extends BaseDaoImpl implements administerDao {
     @Override
     public administer getOneById(long aid) {
         String sql = "select * from administer where aid=?";
-        administer administer=null;
+        administer administer=new administer();
         Object [] object1=getOne(sql,aid);
         if(object1==null){
             return null;

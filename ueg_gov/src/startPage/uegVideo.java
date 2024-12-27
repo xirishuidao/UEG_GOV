@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 
 public class uegVideo extends Application {
     //swing不支持视频，需要使用javaFX的media
-
     private MediaView mediaView1;
     private MediaView mediaView2;
     private boolean isView1Active = true;

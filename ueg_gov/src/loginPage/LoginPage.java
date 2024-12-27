@@ -9,17 +9,20 @@ import util.cidBaseUtil;
 import zhuyemian.zhuyemian_renminde;
 
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LoginPage extends JFrame {
 		public LoginPage(ResourceBundle rs){
-			setSize(1360,1000);
-			setTitle("UEG登录");
+			setSize(1360,800);
+			setTitle(rs.getString("PageTitle"));
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			setLocationRelativeTo(null);
 			setResizable(false);
@@ -28,24 +31,38 @@ public class LoginPage extends JFrame {
 
 			con.setLayout(null);
 
+			// 加载图片并创建JLabel显示图片
+			InputStream imageStream1 = getClass().getResourceAsStream("/main/resource/ueg_gov_p.png");
+			Image titleImage;
+			try {
+				// 从输入流中读取图像
+				titleImage = ImageIO.read(imageStream1);
 
-			JLabel labelTitle = new JLabel("公民登录", JLabel.CENTER);
-			labelTitle.setPreferredSize(new Dimension(516, 100));
+			} catch (IOException e) {
+				titleImage = null;
+			}
+			// 检查图像是否成功加载
+			if (titleImage != null) {
+				// 设置窗口图标
+				setIconImage(titleImage);
+			}
+
+			JLabel labelTitle = new JLabel(rs.getString("citizenLogin"), JLabel.CENTER);
 			labelTitle.setFont(new Font("微软雅黑", Font.BOLD, 36));
 			labelTitle.setForeground(Color.white);
-			labelTitle.setBounds(460, 200, 380, 70);
+			labelTitle.setBounds(360, 100, 580, 110);
 			con.add(labelTitle);
 			
-			JLabel label1 = new JLabel("账户：");
+			JLabel label1 = new JLabel(rs.getString("cid")+":");
 			label1.setFont(new Font("微软雅黑", Font.BOLD, 20));
 			label1.setForeground(Color.white);
-			label1.setBounds(430, 300, 63, 30); // bound：边界， 设置位置和大小，setLocation()+setSize()
+			label1.setBounds(330, 300, 163, 30); // bound：边界， 设置位置和大小，setLocation()+setSize()
 			con.add(label1);
 
-			JLabel label2 = new JLabel("密码：");
+			JLabel label2 = new JLabel(rs.getString("cpwd")+":");
 			label2.setFont(new Font("微软雅黑", Font.BOLD, 20));
 			label2.setForeground(Color.white);
-			label2.setBounds(430, 400, 63, 30);
+			label2.setBounds(330, 400, 163, 30);
 			con.add(label2);
 
 			JTextField tf_id = new JTextField(28);
@@ -63,9 +80,9 @@ public class LoginPage extends JFrame {
 			con.add(bo);
 
 			// 添加显示/隐藏密码的复选框
-			JCheckBox showPasswordCheckBox = new JCheckBox("显示密码");
+			JCheckBox showPasswordCheckBox = new JCheckBox(rs.getString("showpwd"));
 			showPasswordCheckBox.setFont(new Font("微软雅黑", Font.BOLD, 15));
-			showPasswordCheckBox.setBounds(810, 400, 100, 30);
+			showPasswordCheckBox.setBounds(810, 400, 400, 30);
 			showPasswordCheckBox.setForeground(Color.white);
 			showPasswordCheckBox.setOpaque(false);
 			showPasswordCheckBox.setContentAreaFilled(false);
@@ -81,41 +98,41 @@ public class LoginPage extends JFrame {
 			});
 			add(showPasswordCheckBox);
 
-			JButton btn_login = new JButton("登录");
+			JButton btn_login = new JButton(rs.getString("citizenLogin"));
 			btn_login.setOpaque(true);
 			btn_login.setContentAreaFilled(true);
 			btn_login.setFont(new Font("微软雅黑", Font.BOLD, 16));
 			btn_login.setForeground(Color.white);
 			btn_login.setBackground(Color.gray);
-			btn_login.setBounds(582, 500, 120, 30);
+			btn_login.setBounds(540, 500, 200, 30);
 			btn_login.setBorderPainted(false);
 			add(btn_login);
 
-			JButton btn_register = new JButton("注册账户");
+			JButton btn_register = new JButton("");
 			btn_register.setOpaque(false);
 			btn_register.setContentAreaFilled(false);
 			btn_register.setFont(new Font("微软雅黑", Font.BOLD, 20));
 			btn_register.setForeground(Color.white);
 			btn_register.setBorderPainted(false);
-			btn_register.setBounds(582, 600, 120, 30);
+			btn_register.setBounds(482, 600, 120, 30);
 			add(btn_register);
 			
-			JButton btn_zhaohui=new JButton("找回密码");
+			JButton btn_zhaohui=new JButton("");
 			btn_zhaohui.setOpaque(false);
 			btn_zhaohui.setContentAreaFilled(false);
 			btn_zhaohui.setFont(new Font("微软雅黑", Font.BOLD, 20));
 			btn_zhaohui.setForeground(Color.white);
 			btn_zhaohui.setBorderPainted(false);
-			btn_zhaohui.setBounds(400, 600, 120, 30);
+			btn_zhaohui.setBounds(300, 600, 120, 30);
 			add(btn_zhaohui);
 
-			JButton btn_zhengfu=new JButton("政府人员");
+			JButton btn_zhengfu=new JButton(rs.getString("administerLogin"));
 			btn_zhengfu.setOpaque(false);
 			btn_zhengfu.setContentAreaFilled(false);
 			btn_zhengfu.setFont(new Font("微软雅黑", Font.BOLD, 20));
 			btn_zhengfu.setForeground(Color.white);
 			btn_zhengfu.setBorderPainted(false);
-			btn_zhengfu.setBounds(763, 600, 120, 30);
+			btn_zhengfu.setBounds(663, 600, 420, 30);
 			add(btn_zhengfu);
 
 
@@ -136,7 +153,6 @@ public class LoginPage extends JFrame {
 	                if (pwd.equals(password)) {
 						cidBaseUtil cbu1 = new cidBaseUtil(id);
 					zhuyemian_renminde zr=new zhuyemian_renminde(rs);
-
 					dispose();
 
 
@@ -157,8 +173,9 @@ public class LoginPage extends JFrame {
 			btn_zhengfu.addActionListener(new ActionListener() {
 			    @Override
 			    public void actionPerformed(ActionEvent e) {
-			        booslogin governmentLoginFrame = new booslogin();
+			        booslogin governmentLoginFrame = new booslogin(rs);
 			        governmentLoginFrame.setVisible(true);
+					dispose();
 			    }
 			});
 

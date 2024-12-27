@@ -20,7 +20,7 @@ public class drivingDaoImpl  extends BaseDaoImpl  implements drivingDao {
 
     @Override
     public int update(driving p) {
-        String sql="update domicile set dtype=?,dtime=?,cid=?,daddress=? where did=?";
+        String sql="update driving set dtype=?,dtime=?,cid=?,daddress=? where did=?";
         int row=executeUpdate(sql,p.getDtype(), Date.valueOf(p.getDtime()),p.getCid(),p.getDaddress(),p.getDid());
         return row;
     }

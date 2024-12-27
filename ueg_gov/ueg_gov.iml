@@ -7,6 +7,14 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.27" level="application" />
+    <orderEntry type="library" exported="" name="mysql-connector-java-8.0.27" level="application" />
+    <orderEntry type="library" name="javafx.base" level="application" />
+    <orderEntry type="library" name="javafx.controls" level="application" />
+    <orderEntry type="library" name="javafx.fxml" level="application" />
+    <orderEntry type="library" name="javafx.graphics" level="application" />
+    <orderEntry type="library" name="javafx.media" level="application" />
+    <orderEntry type="library" name="javafx.swing" level="application" />
+    <orderEntry type="library" name="javafx.web" level="application" />
+    <orderEntry type="library" name="javafx-swt" level="application" />
   </component>
 </module>

@@ -1,74 +1,76 @@
 package zhuyemian_zfde;
 
 import service.Impl.drivingServiceImpl;
+import util.LanguageUtil;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ResourceBundle;
 
 public class jiashizhengxinxi_zfde extends JPanel {
     public jiashizhengxinxi_zfde() {
-
+        ResourceBundle rs= LanguageUtil.rb;
 
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
         setBackground(Color.white);
 
-        JLabel jiashizhengxinxi = new JLabel("驾驶证信息");
+        JLabel jiashizhengxinxi = new JLabel(rs.getString("listDriPageR0"));
         jiashizhengxinxi.setForeground(Color.BLACK);
         jiashizhengxinxi.setFont(new Font("微软雅黑", Font.BOLD+Font.ITALIC, 34));
         jiashizhengxinxi.setBounds(460, 10, 360, 70);
         add(jiashizhengxinxi);
 
 
-        JLabel shenfenzhenghao = new JLabel("身份证号:");
+        JLabel shenfenzhenghao = new JLabel(rs.getString("cid"));
         shenfenzhenghao.setForeground(Color.BLACK);
         shenfenzhenghao.setFont(new Font("微软雅黑", Font.BOLD, 27));
         shenfenzhenghao.setBounds(70, 499, 360, 70);
         add(shenfenzhenghao);
 
         JTextField shenfenzhenghao_ = new JTextField();
-        shenfenzhenghao_.setBounds(240, 519, 360, 40);
+        shenfenzhenghao_.setBounds(440, 519, 360, 40);
         add(shenfenzhenghao_);
 
 
-        JLabel jaishizhenghao = new JLabel("驾驶证号:");
+        JLabel jaishizhenghao = new JLabel(rs.getString("did"));
         jaishizhenghao.setForeground(Color.BLACK);
         jaishizhenghao.setFont(new Font("微软雅黑", Font.BOLD, 27));
         jaishizhenghao.setBounds(70, 100, 360, 70);
         add(jaishizhenghao);
 
         JTextField jaishizhenghao_ = new JTextField();
-        jaishizhenghao_.setBounds(240, 119, 360, 40);
+        jaishizhenghao_.setBounds(440, 119, 360, 40);
         add(jaishizhenghao_);
 
-        JLabel zhonglei = new JLabel("种类:");
+        JLabel zhonglei = new JLabel(rs.getString("dtype"));
         zhonglei.setForeground(Color.BLACK);
         zhonglei.setFont(new Font("微软雅黑", Font.BOLD, 27));
         zhonglei.setBounds(70, 200, 360, 70);
         add(zhonglei);
 
         JTextField zhonglei_ = new JTextField();
-        zhonglei_.setBounds(240, 220, 360, 40);
+        zhonglei_.setBounds(440, 220, 360, 40);
         add(zhonglei_);
 
-        JLabel shijian = new JLabel("注册时间:");
+        JLabel shijian = new JLabel(rs.getString("dtime"));
         shijian.setForeground(Color.BLACK);
         shijian.setFont(new Font("微软雅黑", Font.BOLD, 27));
         shijian.setBounds(70, 300, 360, 70);
         add(shijian);
 
         JTextField shijian_ = new JTextField();
-        shijian_.setBounds(240, 320, 360, 40);
+        shijian_.setBounds(440, 320, 360, 40);
         add(shijian_);
 
-        JLabel didian = new JLabel("注册地点:");
+        JLabel didian = new JLabel(rs.getString("daddress"));
         didian.setForeground(Color.BLACK);
         didian.setFont(new Font("微软雅黑", Font.BOLD, 27));
         didian.setBounds(70, 400, 360, 70);
         add(didian);
 
         JTextField didian_ = new JTextField();
-        didian_.setBounds(240, 416, 360, 40);
+        didian_.setBounds(440, 416, 360, 40);
         add(didian_);
 
 
@@ -104,61 +106,60 @@ public class jiashizhengxinxi_zfde extends JPanel {
         add(x5);
 
 
-        JButton btnSearch = new JButton("查询");
+        JButton btnSearch = new JButton(rs.getString("query"));
         btnSearch.setBounds(200, 564, 100, 30);
         add(btnSearch);
 
-        JButton btnAdd = new JButton("插入");
+        JButton btnAdd = new JButton(rs.getString("insert"));
         btnAdd.setBounds(350, 564, 100, 30);
         add(btnAdd);
 
-        JButton btnDelete = new JButton("删除");
+        JButton btnDelete = new JButton(rs.getString("delete"));
         btnDelete.setBounds(500, 564, 100, 30);
         add(btnDelete);
 
-        JButton btnUpdate = new JButton("更新");
+        JButton btnUpdate = new JButton(rs.getString("update"));
         btnUpdate.setBounds(650, 564, 100, 30);
         add(btnUpdate);
 
-        JButton btnMoHuSearch = new JButton("模糊查询");
+        JButton btnMoHuSearch = new JButton(rs.getString("mohu"));
         btnMoHuSearch.setBounds(801, 564, 100, 30);
         add(btnMoHuSearch);
 
-
         drivingServiceImpl drivingService = new drivingServiceImpl();
         btnSearch.addActionListener(e -> {
-            long id= Long.parseLong(shenfenzhenghao_.getText());
-            jaishizhenghao_.setText(String.valueOf(drivingService.getCid(id)));
+            long id= Long.parseLong(jaishizhenghao_.getText());
             zhonglei_.setText(drivingService.getDtype(id));
             shijian_.setText(drivingService.getDtime(id));
             didian_.setText(String.valueOf(drivingService.getDaddress(id)));
+            shenfenzhenghao_.setText(String.valueOf(drivingService.getCid(id)));
         });
 
-
-
         btnAdd.addActionListener(e -> {
-            long id= Long.parseLong(shenfenzhenghao_.getText());
             long jaishizhenghaox= Long.parseLong(jaishizhenghao_.getText());
+            long shenfenzhenghaox= Long.parseLong(shenfenzhenghao_.getText());
             String zhongleix=zhonglei_.getText();
             String shijianx=shijian_.getText();
             int didianx= Integer.parseInt(didian_.getText());
-            drivingService.insert(jaishizhenghaox,zhongleix,shijianx,id,didianx);
+            drivingService.insert(jaishizhenghaox,zhongleix,shijianx,shenfenzhenghaox,didianx);
         });
 
 
         btnDelete.addActionListener(e -> {
-            long id= Long.parseLong(shenfenzhenghao_.getText());
-            drivingService.deleteByCid(id);
+            long id= Long.parseLong(jaishizhenghao_.getText());
+            drivingService.deleteByDid(id);
         });
 
 
+
+
         btnUpdate.addActionListener(e -> {
-            long id= Long.parseLong(shenfenzhenghao_.getText());
             long jaishizhenghaox= Long.parseLong(jaishizhenghao_.getText());
+            long shenfenzhenghaox= Long.parseLong(shenfenzhenghao_.getText());
             String zhongleix=zhonglei_.getText();
             String shijianx=shijian_.getText();
             int didianx= Integer.parseInt(didian_.getText());
-            drivingService.update(jaishizhenghaox,zhongleix,shijianx,id,didianx);
+            drivingService.update(jaishizhenghaox,zhongleix,shijianx,shenfenzhenghaox,didianx);
         });
 
         btnMoHuSearch.addActionListener(e -> {new jiashizhengxinximohuchaxun().setVisible(true);});
