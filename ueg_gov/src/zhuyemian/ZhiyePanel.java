@@ -1,11 +1,18 @@
 package zhuyemian;
 
+import service.Impl.workServiceImpl;
+import util.cidBaseUtil;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class ZhiyePanel extends JPanel {
 
     public ZhiyePanel() {
+
+
+
+
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
         setBackground(Color.white);
@@ -79,6 +86,13 @@ public class ZhiyePanel extends JPanel {
         x4.setFont(new Font("微软雅黑", Font.BOLD, 36));
         x4.setBounds(36, 400, 360, 70);
         add(x4);
+
+        workServiceImpl workService = new workServiceImpl();
+        renzhi_.setText(workService.findwname(cidBaseUtil.cid));
+        dizhi_.setText(workService.findwaddress(cidBaseUtil.cid));
+        danwei_.setText(workService.findwcompany(cidBaseUtil.cid));
+        dengji_.setText(workService.findwlevel(cidBaseUtil.cid));
+        //a
     }
 
 

@@ -117,17 +117,17 @@ public class zhiye_zfde extends JPanel {
         btnUpdate.setBounds(650, 630, 100, 30);
         add(btnUpdate);
 
-
+/*
         JButton btnMoHuSearch = new JButton("模糊查询");
         btnMoHuSearch.setBounds(801, 630, 100, 30);
-        add(btnMoHuSearch);
+        add(btnMoHuSearch);*/
 
         btnSearch.addActionListener(e -> {
 
             long id= Long.parseLong(shenfenzhenghao_.getText());
             renzhi_.setText(workServiceImpl.findwname(id));
             dizhi_.setText(workServiceImpl.findwaddress(id));
-            danwei.setText(workServiceImpl.findwcompany(id));
+            danwei_.setText(workServiceImpl.findwcompany(id));
             dengji_.setText(workServiceImpl.findwlevel(id));
         });
         /*public int update(long cid, String wname, String wlevel, String waddress, String wcompany) {*/
@@ -157,8 +157,9 @@ public class zhiye_zfde extends JPanel {
             workServiceImpl.update(id,wnamex,wlevelx,waddressx,wcompanyx);
         });
 
-        btnMoHuSearch.addActionListener(e -> {new zhiyemohuchaxun().setVisible(true);});
+        //btnMoHuSearch.addActionListener(e -> {new zhiyemohuchaxun().setVisible(true);});
 
 
     }
 }
+//**//a

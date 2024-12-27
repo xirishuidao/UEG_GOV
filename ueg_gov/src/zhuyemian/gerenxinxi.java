@@ -4,6 +4,7 @@ package zhuyemian;
 
 
 import service.Impl.citizenServiceImpl;
+import service.Impl.domicileServiceImpl;
 import util.cidBaseUtil;
 
 import javax.swing.*;
@@ -11,6 +12,7 @@ import java.awt.*;
 
 public class gerenxinxi extends  JPanel{
     public gerenxinxi() {
+
 
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
@@ -33,9 +35,6 @@ public class gerenxinxi extends  JPanel{
         shenfenzhenghao_.setBounds(240, 90, 360, 40);
         add(shenfenzhenghao_);
 
-        shenfenzhenghao_.setText(String.valueOf(cidBaseUtil.cid));
-
-
 
         JLabel xingming = new JLabel("真实姓名:");
         xingming.setForeground(Color.BLACK);
@@ -46,9 +45,6 @@ public class gerenxinxi extends  JPanel{
         JTextField xingming_ = new JTextField();
         xingming_.setBounds(240, 150, 360, 40);
         add(xingming_);
-
-        citizenServiceImpl citizenService = new citizenServiceImpl();
-        xingming_.setText(citizenService.findname(cidBaseUtil.cid));
 
         JLabel xingbie = new JLabel("性别:");
         xingbie.setForeground(Color.BLACK);
@@ -141,6 +137,15 @@ public class gerenxinxi extends  JPanel{
         x7.setFont(new Font("微软雅黑", Font.BOLD, 36));
         x7.setBounds(36, 443, 360, 70);
         add(x7);
+
+        domicileServiceImpl domicileService = new domicileServiceImpl();
+        shenfenzhenghao_.setText(String.valueOf(cidBaseUtil.cid));
+        xingming_.setText(domicileService.getcname(cidBaseUtil.cid));
+        xingbie_.setText(domicileService.getcgender(cidBaseUtil.cid));
+        nianyue_.setText(domicileService.getcdatetime(cidBaseUtil.cid));
+        huji_.setText(domicileService.getcaddress(cidBaseUtil.cid));
+        xueli_.setText(domicileService.getcdegree(cidBaseUtil.cid));
+        diqu_.setText(String.valueOf(domicileService.getccountry(cidBaseUtil.cid)));
     }
 
 

@@ -1,11 +1,13 @@
 package zhuyemian_zfde;
 
+import service.Impl.drivingServiceImpl;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class jiashizhengxinxi_zfde extends JPanel {
-
     public jiashizhengxinxi_zfde() {
+
 
         setLayout(null);
         setPreferredSize(new Dimension(700, 600));
@@ -16,6 +18,18 @@ public class jiashizhengxinxi_zfde extends JPanel {
         jiashizhengxinxi.setFont(new Font("微软雅黑", Font.BOLD+Font.ITALIC, 34));
         jiashizhengxinxi.setBounds(460, 10, 360, 70);
         add(jiashizhengxinxi);
+
+
+        JLabel shenfenzhenghao = new JLabel("身份证号:");
+        shenfenzhenghao.setForeground(Color.BLACK);
+        shenfenzhenghao.setFont(new Font("微软雅黑", Font.BOLD, 27));
+        shenfenzhenghao.setBounds(70, 499, 360, 70);
+        add(shenfenzhenghao);
+
+        JTextField shenfenzhenghao_ = new JTextField();
+        shenfenzhenghao_.setBounds(240, 519, 360, 40);
+        add(shenfenzhenghao_);
+
 
         JLabel jaishizhenghao = new JLabel("驾驶证号:");
         jaishizhenghao.setForeground(Color.BLACK);
@@ -57,6 +71,7 @@ public class jiashizhengxinxi_zfde extends JPanel {
         didian_.setBounds(240, 416, 360, 40);
         add(didian_);
 
+
         JLabel x1 = new JLabel("|");
         x1.setForeground(Color.cyan);
         x1.setFont(new Font("微软雅黑", Font.BOLD, 36));
@@ -80,49 +95,76 @@ public class jiashizhengxinxi_zfde extends JPanel {
         x4.setFont(new Font("微软雅黑", Font.BOLD, 36));
         x4.setBounds(36, 400, 360, 70);
         add(x4);
+
+
+        JLabel x5 = new JLabel("|");
+        x5.setForeground(Color.cyan);
+        x5.setFont(new Font("微软雅黑", Font.BOLD, 36));
+        x5.setBounds(36, 500, 360, 70);
+        add(x5);
+
+
         JButton btnSearch = new JButton("查询");
-        btnSearch.setBounds(200, 540, 100, 30);
+        btnSearch.setBounds(200, 564, 100, 30);
         add(btnSearch);
 
         JButton btnAdd = new JButton("插入");
-        btnAdd.setBounds(350, 540, 100, 30);
+        btnAdd.setBounds(350, 564, 100, 30);
         add(btnAdd);
 
         JButton btnDelete = new JButton("删除");
-        btnDelete.setBounds(500, 540, 100, 30);
+        btnDelete.setBounds(500, 564, 100, 30);
         add(btnDelete);
 
         JButton btnUpdate = new JButton("更新");
-        btnUpdate.setBounds(650, 540, 100, 30);
+        btnUpdate.setBounds(650, 564, 100, 30);
         add(btnUpdate);
 
         JButton btnMoHuSearch = new JButton("模糊查询");
-        btnMoHuSearch.setBounds(801, 540, 100, 30);
+        btnMoHuSearch.setBounds(801, 564, 100, 30);
         add(btnMoHuSearch);
 
 
-
+        drivingServiceImpl drivingService = new drivingServiceImpl();
         btnSearch.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            jaishizhenghao_.setText(String.valueOf(drivingService.getCid(id)));
+            zhonglei_.setText(drivingService.getDtype(id));
+            shijian_.setText(drivingService.getDtime(id));
+            didian_.setText(String.valueOf(drivingService.getDaddress(id)));
         });
 
 
-        btnAdd.addActionListener(e -> {
 
+        btnAdd.addActionListener(e -> {
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            long jaishizhenghaox= Long.parseLong(jaishizhenghao_.getText());
+            String zhongleix=zhonglei_.getText();
+            String shijianx=shijian_.getText();
+            int didianx= Integer.parseInt(didian_.getText());
+            drivingService.insert(jaishizhenghaox,zhongleix,shijianx,id,didianx);
         });
 
 
         btnDelete.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            drivingService.deleteByCid(id);
         });
 
 
         btnUpdate.addActionListener(e -> {
-
+            long id= Long.parseLong(shenfenzhenghao_.getText());
+            long jaishizhenghaox= Long.parseLong(jaishizhenghao_.getText());
+            String zhongleix=zhonglei_.getText();
+            String shijianx=shijian_.getText();
+            int didianx= Integer.parseInt(didian_.getText());
+            drivingService.update(jaishizhenghaox,zhongleix,shijianx,id,didianx);
         });
 
+        btnMoHuSearch.addActionListener(e -> {new jiashizhengxinximohuchaxun().setVisible(true);});
     }
 
+ ///aaaaa
 
 
 

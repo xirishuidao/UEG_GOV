@@ -1,9 +1,11 @@
 package zhuyemian;
 
+import service.Impl.healthyServiceImpl;
+import util.cidBaseUtil;
+
 import javax.swing.*;
 import java.awt.*;
 public class jiankangxinxi extends JPanel {
-
     public jiankangxinxi() {
 
         setLayout(null);
@@ -113,6 +115,13 @@ public class jiankangxinxi extends JPanel {
         x6.setBounds(36, 370, 360, 70);
         add(x6);
 
+        healthyServiceImpl healthyService = new healthyServiceImpl();
+        xingbie_.setText(healthyService.getCgender(cidBaseUtil.cid));
+        xuexing_.setText(healthyService.getCboold(cidBaseUtil.cid));
+        shengao_.setText(String.valueOf(healthyService.getCheight(cidBaseUtil.cid)));
+        tizhong_.setText(String.valueOf(healthyService.getCveight(cidBaseUtil.cid)));
+        canji_.setText(String.valueOf(healthyService.getCcode(cidBaseUtil.cid)));
+        jibing_.setText(String.valueOf(healthyService.getChandicapped(cidBaseUtil.cid)));//aaaa
     }
 
 }

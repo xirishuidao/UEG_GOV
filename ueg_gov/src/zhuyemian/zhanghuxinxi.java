@@ -4,14 +4,15 @@ import main.pages.warningPage;
 import service.Impl.citizenServiceImpl;
 import util.DataBaseUtil;
 import util.LanguageUtil;
+import util.cidBaseUtil;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class zhanghuxinxi extends JPanel {
 
-
-    
     public zhanghuxinxi() {
+
         DataBaseUtil a=new DataBaseUtil();
         citizenServiceImpl impl=new citizenServiceImpl();
 
@@ -32,38 +33,6 @@ public class zhanghuxinxi extends JPanel {
         ID.setFont(new Font("微软雅黑", Font.BOLD, 27));
         ID.setBounds(270, 130, 360, 70);
         add(ID);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         JTextField ID_ = new JTextField();
         ID_.setBounds(360, 150, 360, 40);
         add(ID_);
@@ -107,6 +76,10 @@ public class zhanghuxinxi extends JPanel {
         z.setFont(new Font("微软雅黑", Font.BOLD, 36));
         z.setBounds(236, 390, 360, 70);
         add(z);
+
+        ID_.setText(String.valueOf(cidBaseUtil.cid));
+
+        xingming_.setText(impl.findname(cidBaseUtil.cid));
 
         JButton change = new JButton("change");
         change.setBounds(550, 500, 150, 50);
